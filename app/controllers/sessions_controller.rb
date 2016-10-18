@@ -23,8 +23,8 @@ class SessionsController < ApplicationController
     end
 
     # Save the user ID in the session (**not the :uid from GitHub**)
-    # In background, Rails encrypts this before it's saved in the browser
-    session[:user_id] = @merchant.id
+    # To-do: something is wrong with the merchant id, so creating a stub for now
+    session[:user_id] = 4#@merchant.id
 
     # redirect_to sessions_path
     flash[:notice] = "successfully logged in"
