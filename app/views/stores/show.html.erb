@@ -1,0 +1,12 @@
+<h1><%= @store.displayname %></h1>
+
+<p><%= link_to "Back to home", root_path %></p>
+
+<% @store.products.each do |product| %>
+
+  <div class="category-tile">
+    <%= image_tag product.photo, alt: product.name %>
+    <p><%= link_to product.name, products_show_path(product.id) %></p>
+  </div>
+
+<% end %>

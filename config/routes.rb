@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   root "categories#index"
 
+  get 'stores/index'
+
+  get 'stores/show/:id' => "stores#show", as: "stores_show"
+
   get 'reviews/new'
 
   get 'reviews/create'

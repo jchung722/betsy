@@ -3,6 +3,8 @@
 
 <p><%= button_to "Log in", "/auth/github/" %></p>
 
+<p><%= link_to "Browse by store", stores_index_path %></p>
+
 <% @categories.each do |category| %>
 
   <div class="category-tile">
