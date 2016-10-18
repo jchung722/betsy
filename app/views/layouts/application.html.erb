@@ -11,7 +11,7 @@
     <% if session[:user_id] == nil %>
       <%= link_to "Merchant Login", "/auth/github" %>
     <% else %>
-    <%= link_to "Logout", "#" %>
+    <%= link_to "Logout", session_delete_path(session[:user_id]), method: :delete, data: {confirm:"Are you sure?"} %>
     <% end %>
   </header>
 

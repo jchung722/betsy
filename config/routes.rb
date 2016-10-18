@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   get 'sessions/index'
 
-  get 'sessions/destroy'
+  delete 'sessions/:id/destroy' => 'sessions#destroy', as: 'session_delete'
 
   get 'categories/index'
 
