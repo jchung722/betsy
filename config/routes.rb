@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root "categories#index"
+
   get 'reviews/new'
 
   get 'reviews/create'
@@ -21,9 +24,11 @@ Rails.application.routes.draw do
 
   get 'merchants/create'
 
+  # Products controller routes
+
   get 'products/index'
 
-  get 'products/show'
+  get 'products/show/:id' => "products#show", as: "products_show"
 
   get 'products/new'
 
@@ -35,13 +40,15 @@ Rails.application.routes.draw do
 
   get 'sessions/destroy'
 
+  # Categories controllers
+
   get 'categories/index'
 
   get 'categories/new'
 
   get 'categories/create'
 
-  get 'categories/show'
+  get 'categories/show/:id' => "categories#show", as: "categories_show"
 
   get 'categories/destroy'
 
