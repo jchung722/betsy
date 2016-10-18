@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
 
     # redirect_to sessions_path
     flash[:notice] = "successfully logged in"
-    redirect_to root_path
+    redirect_to merchant_index_path
   end
 
   def index

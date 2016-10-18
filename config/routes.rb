@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get 'orders/destroy'
 
-  get 'merchants/index'
+  get 'merchants/index' => 'merchants#index', as: 'merchant_index'
 
   get 'merchants/show'
 
