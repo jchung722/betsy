@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   get 'orders/destroy'
 
-  get 'merchants/index'
+  get 'merchants/index' => 'merchants#index', as: 'merchant_index'
 
   get 'merchants/show'
 
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   get 'sessions/index'
 
-  get 'sessions/destroy'
+  delete 'sessions/:id/destroy' => 'sessions#destroy', as: 'session_delete'
 
   # Categories controllers
 
@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   get 'categories/show/:id' => "categories#show", as: "categories_show"
 
   get 'categories/destroy'
+
+  get "/auth/:provider/callback" =>  "sessions#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
