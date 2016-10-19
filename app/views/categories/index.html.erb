@@ -1,11 +1,18 @@
-<!-- ##### landing page ###### -->
+
+
+
+<h1>Browse by category</h1>
 
 
 <% @categories.each do |category| %>
 
-  <div class="product-tile">
-    <%= image_tag category.products.first.photo, alt: category.name %>
-    <p><%= link_to category.name, categories_show_path(category.id) %></p>
-  </div>
+  <% if category.products.first != nil %>
+    <div class="product-tile">
+
+      <%= image_tag category.products.first.photo, alt: category.name %>
+      <p><%= link_to category.name, categories_show_path(category.id) %></p>
+    </div>
+  <% end %>
+
 
 <% end %>

@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
 
-  root "categories#index"
+  root "homepages#index"
+
+  get 'homepages/index'
+
+  get 'homepages/show'
 
   get 'stores/index'
 
   get 'stores/show/:id' => "stores#show", as: "stores_show"
 
-  get 'reviews/new'
+  get 'products/:id/reviews/new' => 'reviews#new', as: "reviews_new"
 
-  get 'reviews/create'
+  post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
 
   get 'orders/index'
 
