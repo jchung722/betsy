@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     # in this case, back to login page
     if ! auth_hash['uid']
       flash[:notice] = "login failed"
-      return redirect_to root_path
+      return redirect_to merchant_index_path
     end
 
     @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github').to_i
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       @merchant = Merchant.build_from_github(auth_hash)
       flash[:notice] = "Unable to save this Merchant"
       # return render :creation_failure unless @user.save
-      return redirect_to root_path unless @merchant.save
+      return redirect_to merchant_index_path unless @merchant.save
 
       # Could add an else here that refreshes/updates the information from Github
     end
@@ -38,6 +38,6 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
 
     flash[:notice] = "you have successfully logged out"
-    redirect_to root_path
+    redirect_to merchant_index_path
   end
 end

@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  # This is temp for testing, we'll change this once all code is brought together
-  root to: 'sessions#index'
-
   get 'reviews/new'
 
   get 'reviews/create'
