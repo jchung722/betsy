@@ -1,12 +1,14 @@
 <img src= "<%= @product.photo %>" >
+
+<div id="description">
 <h4><%= @product.name %></h4>
+<p>Sold By: </p>
 <p>Description: <%= @product.description %></p>
 <p>Price: $<%= @product.price %></p>
 <p>Stock: <%= @product.stock %></p>
-<p>Sold By: <%= @product.merchant.name %></p>
-<p>Rating: </p>
-
+<p>Overall Rating: </p>
 <%= link_to("Add to Cart", orders_show_path) %>
+</div>
 
 <h3>Reviews</h3>
 <% @reviews.each do |review|%>
