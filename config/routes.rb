@@ -6,9 +6,9 @@ Rails.application.routes.draw do
 
   get 'stores/show/:id' => "stores#show", as: "stores_show"
 
-  get 'reviews/new'
+  get 'products/:id/reviews/new' => 'reviews#new', as: "reviews_new"
 
-  get 'reviews/create'
+  post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
 
   get 'orders/index'
 
