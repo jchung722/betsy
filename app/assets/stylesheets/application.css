@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+.category-tile {
+  display: inline-block;
+  text-align: center;
+  margin: 2.5%;
+  border: 1px solid black;
+  height: 300px;
+  width: 300px;
+}
+
+.category-tile img {
+  padding-top: 30px;
+  max-height: 200px;
+}

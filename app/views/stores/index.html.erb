@@ -1,0 +1,10 @@
+<h1>Browse by store</h1>
+
+<% @stores.each do |store| %>
+
+  <div class="category-tile">
+    <%= image_tag store.products.first.photo, alt: store.displayname %>
+    <p><%= link_to store.displayname, stores_show_path(store.id) %></p>
+  </div>
+
+<% end %>
