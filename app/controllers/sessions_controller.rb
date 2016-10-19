@@ -4,12 +4,8 @@ class SessionsController < ApplicationController
     auth_hash = request.env['omniauth.auth']
 
     # Check to see if we received the auth_hash from Github.
-    # If not, login has failed.
-    # if ! auth_hash['uid']
-    #   flash[:notice] = "login failed"
-    # #   return redirect_to :back
-    # # end
-    #  redirect_to :back unless auth_hash['uid']
+    flash[:notice] = "login failed"
+    redirect_to root_path unless auth_hash['uid']
 
     @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github')
     if @merchant.id == nil
@@ -17,11 +13,11 @@ class SessionsController < ApplicationController
       @merchant = Merchant.build_from_github(auth_hash)
 
       flash[:notice] = "Unable to save this Merchant"
-     redirect_to merchant_index_path unless @merchant.save
+      redirect_to merchant_index_path unless @merchant.save
 
     end
 
-    # Save the user ID in the session (**not the :uid from GitHub**)
+    # Save the Merchant ID in the session (**not the :uid from GitHub**)
     session[:user_id] = @merchant.id
 
     flash[:notice] = "successfully logged in"
