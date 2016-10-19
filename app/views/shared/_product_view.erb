@@ -1,0 +1,13 @@
+
+<%= render "shared/header" %>
+
+
+
+<% @browse_by.each do |@type| %>
+
+  <div class="category-tile">
+    <%= image_tag @type.products.first.photo, alt: @type.name %>
+    <p><%= link_to @type.name, @path(@type.id) %></p>
+  </div>
+
+<% end %>

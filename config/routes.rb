@@ -28,6 +28,11 @@ Rails.application.routes.draw do
 
   get 'merchants/create'
 
+  get 'merchants/:id/edit' => 'merchants#edit', as: 'merchant_edit'
+
+  put 'merchants/:id/update' => 'merchants#update' as: 'merchant_update'
+
+
   # Products controller routes
 
   get 'products/index'

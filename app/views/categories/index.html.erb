@@ -1,13 +1,10 @@
-<h1>Unicorns "R" Us</h1>
-<p>Meeting all your unicorn needs since 2016.</p>
+##### landing page ######
 
-<p><%= button_to "Log in", "/auth/github/" %></p>
-
-<p><%= link_to "Browse by store", stores_index_path %></p>
+<%= render "shared/header" %>
 
 <% @categories.each do |category| %>
 
-  <div class="category-tile">
+  <div class="product-tile">
     <%= image_tag category.products.first.photo, alt: category.name %>
     <p><%= link_to category.name, categories_show_path(category.id) %></p>
   </div>
