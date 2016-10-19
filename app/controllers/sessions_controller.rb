@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
       ##### Once Brandi's code is integrated, we can uncomment the below and
       ##### delete the line above
-      redirect_to root_path
+      return redirect_to root_path
       # return redirect_to merchant_edit_path(@merchant.id)
 
     end
