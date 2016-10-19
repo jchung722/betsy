@@ -27,3 +27,9 @@
   padding-top: 30px;
   max-height: 200px;
 }
+
+nav li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0 1% 0 1%;
+}
