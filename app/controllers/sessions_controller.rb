@@ -5,23 +5,25 @@ class SessionsController < ApplicationController
 
     # Check to see if we received the auth_hash from Github.
     # If not, login has failed.
-    if ! auth_hash['uid']
-      flash[:notice] = "login failed"
-      return redirect_to :back
-    end
+    # if ! auth_hash['uid']
+    #   flash[:notice] = "login failed"
+    # #   return redirect_to :back
+    # # end
+    #  redirect_to :back unless auth_hash['uid']
 
-    @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github').to_i
-    if @merchant.nil?
+    # @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github').to_i
+    # if @merchant.nil?
       # If merchant doesn't match any record in the DB, attempt to create a new user.
       @merchant = Merchant.build_from_github(auth_hash)
 
-      flash[:notice] = "Unable to save this Merchant"
-      return redirect_to merchant_index_path unless @merchant.save
+    #   flash[:notice] = "Unable to save this Merchant"
+    #  redirect_to merchant_index_path unless
+    @merchant.save
 
-    end
+    # end
 
     # Save the user ID in the session (**not the :uid from GitHub**)
-    session[:user_id] = 4# should be -> @merchant.id, once we have merchant records
+    session[:user_id] = @merchant.id
 
     flash[:notice] = "successfully logged in"
     redirect_to merchant_index_path
