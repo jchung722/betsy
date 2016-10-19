@@ -25,5 +25,11 @@
 
 .category-tile img {
   padding-top: 30px;
-  max-height: 200px;
+  max-height: 180px;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0 1% 0 1%;
 }
