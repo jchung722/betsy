@@ -4,9 +4,14 @@
 <p>Price: $<%= @product.price %></p>
 <p>Stock: <%= @product.stock %></p>
 <p>Sold By: <%= @product.merchant.name %></p>
+<p>Rating: </p>
+
+<%= link_to("Add to Cart", orders_show_path) %>
 
 <h3>Reviews</h3>
 <% @reviews.each do |review|%>
   <p>Rating: <%= review.rating %></p>
   <p><%= review.feedback %></p>
 <% end %>
+
+<%= link_to("Add a Review!", reviews_new_path) %>
