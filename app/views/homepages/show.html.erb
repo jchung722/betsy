@@ -1,6 +1,6 @@
 
 
-<h1>Browse by store</h1>
+<h1>Browse all our great products</h1>
 
 <nav>
   <ul>
@@ -11,11 +11,11 @@
   </ul>
 </nav>
 
-<% @stores.each do |store| %>
+<% @products.each do |product| %>
 
   <div class="category-tile">
-    <%= image_tag store.products.first.photo, alt: store.displayname %>
-    <p><%= link_to store.displayname, stores_show_path(store.id) %></p>
+    <%= image_tag product.photo, alt: product.name %>
+    <p><%= link_to product.name, products_show_path(product.id) %></p>
   </div>
 
 <% end %>
