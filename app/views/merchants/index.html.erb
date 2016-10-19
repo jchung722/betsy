@@ -1,2 +1,19 @@
-<h1>Merchants#index</h1>
-<p>Find me in app/views/merchants/index.html.erb</p>
+<h1>Unicorns "R" Us</h1>
+<p>Meeting all your unicorn needs since 2016.</p>
+
+  <div class="category-tile">
+    <!-- #product_show_path(merchant.id) -->
+    <p><%= link_to "Manage Your Products", "#" %></p>
+    <%= image_tag("horn_magic_cookie.png", :alt => "cookie") %>
+  </div>
+
+  <div class="category-tile">
+    <!-- #merchant_show_path(merchant.id) -->
+    <p><%= link_to "Manage Your Profile", "#" %></p>
+    <%= image_tag("unicorn_merchant.jpg", :alt => "unicorn") %>
+  </div>
+
+  <div class="category-tile">
+    <p><%= link_to "Shopping", root_path %></p>
+    <%= image_tag("uni_flats.png", :alt => "unicorn shoes") %>
+  </div>
