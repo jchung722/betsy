@@ -15,6 +15,10 @@ class Merchant < ActiveRecord::Base
             presence: true,
             uniqueness: true
 
+  validates :displayname,
+            presence: true,
+            uniqueness: true
+
   validates :email,
             presence: true,
             uniqueness: true
