@@ -6,7 +6,7 @@ class MerchantsController < ApplicationController
 
   def show
     @browse_by = find_merchant
-    @type = "category"
+    @type = "product"
     @path = "merchant_show_path"
   end
 

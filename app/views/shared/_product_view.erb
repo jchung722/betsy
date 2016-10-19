@@ -1,13 +1,11 @@
 
-<%= render "shared/header" %>
 
 
-
-<% @browse_by.each do |@type| %>
+<% @browse_by.products.each do |product| %>
 
   <div class="category-tile">
-    <%= image_tag @type.products.first.photo, alt: @type.name %>
-    <p><%= link_to @type.name, @path(@type.id) %></p>
+    <%= image_tag products.first.photo, alt: product.name %>
+    <p><%= link_to product.name, @path(.id) %></p>
   </div>
 
 <% end %>
