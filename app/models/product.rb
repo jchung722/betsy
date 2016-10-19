@@ -3,4 +3,14 @@ class Product < ActiveRecord::Base
   has_many :orderitems
   has_many :reviews
   has_and_belongs_to_many :categories
+
+  validates :name,
+            presence: true,
+            uniqueness: true
+
+  validates :price,
+            presence: true,
+            numericality: true
+
+
 end
