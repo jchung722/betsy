@@ -11,16 +11,15 @@ class SessionsController < ApplicationController
     # # end
     #  redirect_to :back unless auth_hash['uid']
 
-    # @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github').to_i
-    # if @merchant.nil?
+    @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github')
+    if @merchant.id == nil
       # If merchant doesn't match any record in the DB, attempt to create a new user.
       @merchant = Merchant.build_from_github(auth_hash)
 
-    #   flash[:notice] = "Unable to save this Merchant"
-    #  redirect_to merchant_index_path unless
-    @merchant.save
+      flash[:notice] = "Unable to save this Merchant"
+     redirect_to merchant_index_path unless @merchant.save
 
-    # end
+    end
 
     # Save the user ID in the session (**not the :uid from GitHub**)
     session[:user_id] = @merchant.id
