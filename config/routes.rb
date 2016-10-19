@@ -2,19 +2,43 @@ Rails.application.routes.draw do
 
   root "categories#index"
 
+  # Carts controller
+
+  get 'carts/index'
+
+  get 'carts/show'
+
+  get 'carts/edit'
+
+  put 'carts/update'
+
+  get 'carts/new'
+
+  post 'carts/create'
+
+  delete 'carts/destroy'
+
+  # Stores controller (for user-facing merchant-based display of products)
+
   get 'stores/index'
 
   get 'stores/show/:id' => "stores#show", as: "stores_show"
+
+  # Products controller
 
   get 'products/:id/reviews/new' => 'reviews#new', as: "reviews_new"
 
   post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
 
+  # Orders controller
+
   get 'orders/index'
 
   get 'orders/new'
 
-  get 'orders/create'
+  get 'orders/:product_id/create' => 'orders#create', as: 'orders_create'
+
+  get 'orders/:product_id/update' => 'orders#update', as: 'orders_update'
 
   get 'orders/show'
 

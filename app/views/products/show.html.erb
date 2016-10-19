@@ -1,13 +1,24 @@
+<p><%= link_to "See my cart", carts_index_path %></p>
+
+<p><%= flash[:notice] %></p>
+
 <img src= "<%= @product.photo %>" >
 
 <div id="description">
-<h3><%= @product.name %></h3>
-<p>Sold By: </p>
-<p>Description: <%= @product.description %></p>
-<p>Price: $<%= @product.price %></p>
-<p>Stock: <%= @product.stock %></p>
-<p>Overall Rating: </p>
-<%= link_to("Add to Cart", orders_show_path) %>
+
+  <h3><%= @product.name %></h3>
+  <p>Sold By: </p>
+  <p>Description: <%= @product.description %></p>
+  <p>Price: $<%= @product.price %></p>
+  <p>Stock: <%= @product.stock %></p>
+  <p>Overall Rating: </p>
+
+  <% if session[:order] %>
+    <%= link_to("Add to Cart", orders_update_path(@product.id)) %>
+  <% else %>
+    <%= link_to("Add to Cart", orders_create_path(@product.id)) %>
+  <% end %>
+
 </div>
 
 <h3>Reviews</h3>
