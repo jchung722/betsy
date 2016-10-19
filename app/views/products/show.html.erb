@@ -1,4 +1,4 @@
-<img src= "<%= @product.photo %>" >
+<%= image_tag @product.photo, size: "300", alt: @product.name %>
 
 <div id="description">
 <h3><%= @product.name %></h3>
