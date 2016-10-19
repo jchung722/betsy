@@ -8,5 +8,5 @@
 require 'csv'
 
 CSV.foreach('seed_csvs/unicorn_items.csv', :headers => false) do |csv_obj|
-  Product.create(name: csv_obj[1], description: csv_obj[2], price: csv_obj[3], stock: csv_obj[4], merchant_id: csv_obj[5], retired: csv_obj[6])
+  Product.create(name: csv_obj[0], description: csv_obj[1], price: csv_obj[2], stock: csv_obj[3], merchant_id: csv_obj[4], retired: csv_obj[5])
 end
