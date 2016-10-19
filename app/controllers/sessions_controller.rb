@@ -8,18 +8,22 @@ class SessionsController < ApplicationController
     redirect_to root_path unless auth_hash['uid']
 
     @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github')
-    if @merchant.id == nil
+    if @merchant == nil
       # If merchant doesn't match any record in the DB, attempt to create a new merchant.
       # The method to create the new Merchant (build_from_github) is defined in the
-      # Merchant model. 
+      # Merchant model.
       @merchant = Merchant.build_from_github(auth_hash)
 
-      flash[:notice] = "Unable to save this Merchant"
-      redirect_to merchant_index_path unless @merchant.save
+      # Save the Merchant ID in the session (**not the :uid from GitHub**)
+      session[:user_id] = @merchant.id
+
+      ##### Once Brandi's code is integrated, we can uncomment the below and
+      ##### delete the line above
+      redirect_to root_path
+      # return redirect_to merchant_edit_path(@merchant.id)
 
     end
 
-    # Save the Merchant ID in the session (**not the :uid from GitHub**)
     session[:user_id] = @merchant.id
 
     flash[:notice] = "successfully logged in"
@@ -27,6 +31,7 @@ class SessionsController < ApplicationController
   end
 
   def index
+    @merchant = Merchant.find(session[:user_id])
   end
 
   def destroy
