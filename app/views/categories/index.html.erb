@@ -13,9 +13,12 @@
 
 <% @categories.each do |category| %>
 
-  <div class="category-tile">
-    <%= image_tag category.products.first.photo, alt: category.name %>
-    <p><%= link_to category.name, categories_show_path(category.id) %></p>
-  </div>
+  <% if category.products.first != nil %>
+    <div class="category-tile">
+
+      <%= image_tag category.products.first.photo, alt: category.name %>
+      <p><%= link_to category.name, categories_show_path(category.id) %></p>
+    </div>
+  <% end %>
 
 <% end %>
