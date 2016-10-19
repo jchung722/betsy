@@ -9,7 +9,9 @@ class SessionsController < ApplicationController
 
     @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github')
     if @merchant.id == nil
-      # If merchant doesn't match any record in the DB, attempt to create a new user.
+      # If merchant doesn't match any record in the DB, attempt to create a new merchant.
+      # The method to create the new Merchant (build_from_github) is defined in the
+      # Merchant model. 
       @merchant = Merchant.build_from_github(auth_hash)
 
       flash[:notice] = "Unable to save this Merchant"
@@ -35,7 +37,7 @@ class SessionsController < ApplicationController
     # reenter in their credentials to our app).
     session[:user_id] = nil
 
-    flash[:notice] = "you have successfully logged out"
+    flash[:notice] = "successfully logged out"
     redirect_to root_path
   end
 end

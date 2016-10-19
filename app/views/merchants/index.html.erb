@@ -1,5 +1,5 @@
 <% if flash[:notice] %>
-<p class="flash-notice"><%= flash[:notice] %></p>
+<p><%= flash[:notice] %></p>
 <% end %>
 
 <h1>Unicorns "R" Us</h1>
@@ -19,7 +19,7 @@
 
   <div class="category-tile">
     <!-- #order_index_path(merchant.id) -->
-    <p><%= link_to "Your Orders", "#" %></p>
+    <p><%= link_to "Manage Your Orders", "#" %></p>
     <%= image_tag("uni_cake_tee.png", :alt => "cake") %>
   </div>
 
