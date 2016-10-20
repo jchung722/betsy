@@ -1,10 +1,19 @@
 Rails.application.routes.draw do
 
+
   root "homepages#index"
 
   get 'homepages/index'
 
   get 'homepages/show'
+
+  # Orderitems controller
+
+  post 'orderitems/create'
+
+  patch 'orderitems/:id/update' => 'orderitems#update', as: 'orderitems_update'
+
+  delete 'orderitems/:id/destroy' => 'orderitems#destroy', as: 'orderitems_destroy'
 
   # Carts controller
 
