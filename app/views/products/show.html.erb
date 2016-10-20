@@ -11,16 +11,9 @@
   <p>Stock: <%= @product.stock %></p>
   <p>Overall Rating: </p>
 
-  <% if session[:order] && Order.find(session[:order]).has_product(@product.id) %>
-    <%= form_for Orderitem.find_by(product: @product), url: orderitems_update_path(Orderitem.find_by(product: @product)), method: :patch do |f| %>
-      <%= f.number_field :quantity %>
-      <%= f.submit "Add to cart" %>
-    <% end %>
-  <% else %>
-    <%= form_for Orderitem.new(quantity: 1), url: orderitems_create_path, method: :post do |f| %>
-      <%= f.number_field :quantity %>
-      <%= f.submit "Add to cart" %>
-    <% end %>
+  <%= form_for @orderitem, as: 'add_to_cart', url: @url, method: @method do |f| %>
+    <%= f.number_field :quantity %>
+    <%= f.submit "Add to cart" %>
   <% end %>
 
   <p><%= link_to "See my Cart", carts_index_path %></p>

@@ -1,5 +1,7 @@
 <h1>What's in my cart?</h1>
 
+<p><%= flash[:notice] %></p>
+
 <% if session[:order] %>
 
   <h2>Your cart contains:</h2>
@@ -19,13 +21,13 @@
       <TD><%= orderitem.product.name %></TD>
       <TD><%= "$#{orderitem.price/100.0}" %></TD>
       <TD>
-        <%= form_for orderitem, url: orders_update_path(orderitem.product.id), method: :patch do |f| %>
+        <%= form_for orderitem, as: 'change_quantity', url: orderitems_update_path(orderitem), method: :patch do |f| %>
           <%= f.number_field :quantity %>
           <%= f.submit "Update" %>
         <% end %>
       </TD>
       <TD><%= "$#{orderitem.total/100.0}" %></TD>
-      <TD><%= button_to "Delete", carts_index_path%></TD>
+      <TD><%= button_to "Delete", orderitems_destroy_path(orderitem), method: :delete %></TD>
     </TR>
   <% end %>
 

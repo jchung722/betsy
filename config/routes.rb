@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Orderitems controller
 
-  post 'orderitems/create'
+  post 'orderitems/:product_id/create' => 'orderitems#create', as: 'orderitems_create'
 
   patch 'orderitems/:id/update' => 'orderitems#update', as: 'orderitems_update'
 
