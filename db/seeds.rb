@@ -18,7 +18,6 @@ jane = Merchant.create(username: "jane1", uid: 2445, provider: 'github', email: 
 
 Product.all.each do |product|
   id = rand(1..2)
-  puts id
   product.update(merchant_id: id)
 end
 
