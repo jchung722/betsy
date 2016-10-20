@@ -4,4 +4,13 @@ class Orderitem < ActiveRecord::Base
 
   validates :quantity,
             numericality: { only_integer: true, greater_than: 0 }
+
+  def total
+    return self.quantity * self.product.price
+  end
+
+  def price
+    return self.product.price
+  end
+
 end
