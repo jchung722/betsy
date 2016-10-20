@@ -12,9 +12,9 @@ class Merchant < ActiveRecord::Base
     return merchant
   end
 
-  validates :username,
-            presence: true,
-            uniqueness: true
+  # validates :username,
+  #           presence: true,
+  #           uniqueness: true
 
   validates :displayname,
             presence: true,
