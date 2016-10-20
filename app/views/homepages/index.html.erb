@@ -1,6 +1,7 @@
 
 
-<h1>Browse by store</h1>
+<h1>Welcome to Unicorns "R" Us!</h1>
+<p>Meeting all your unicorn needs since 2016.</p>
 
 <nav>
   <ul>
@@ -11,11 +12,11 @@
   </ul>
 </nav>
 
-<% @stores.each do |store| %>
+<% @categories.each do |category| %>
 
   <div class="category-tile">
-    <%= image_tag store.products.first.photo, alt: store.displayname %>
-    <p><%= link_to store.displayname, stores_show_path(store.id) %></p>
+    <%= image_tag category.products.first.photo, alt: category.name %>
+    <p><%= link_to category.name, categories_show_path(category.id) %></p>
   </div>
 
 <% end %>

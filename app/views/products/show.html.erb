@@ -1,8 +1,9 @@
+<<<<<<< HEAD
 <p><%= link_to "See my cart", carts_index_path %></p>
 
 <p><%= flash[:notice] %></p>
 
-<img src= "<%= @product.photo %>" >
+<%= image_tag @product.photo, size: "300", alt: @product.name %>
 
 <div id="description">
 

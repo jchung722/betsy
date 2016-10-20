@@ -1,15 +1,24 @@
-<h1>Unicorns "R" Us</h1>
-<p>Meeting all your unicorn needs since 2016.</p>
 
-<p><%= button_to "Log in", "/auth/github/" %></p>
+<h1>Browse by category</h1>
 
-<p><%= link_to "Browse by store", stores_index_path %></p>
+<nav>
+  <ul>
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Browse by store", stores_index_path %></li>
+    <li><%= link_to "Browse by category", categories_index_path %></li>
+    <li><%= link_to "Browse all", homepages_show_path %></li>
+  </ul>
+</nav>
+
 
 <% @categories.each do |category| %>
 
-  <div class="category-tile">
-    <%= image_tag category.products.first.photo, alt: category.name %>
-    <p><%= link_to category.name, categories_show_path(category.id) %></p>
-  </div>
+  <% if category.products.first != nil %>
+    <div class="category-tile">
+
+      <%= image_tag category.products.first.photo, alt: category.name %>
+      <p><%= link_to category.name, categories_show_path(category.id) %></p>
+    </div>
+  <% end %>
 
 <% end %>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root "categories#index"
+  root "homepages#index"
+
+  get 'homepages/index'
+
+  get 'homepages/show'
 
   # Carts controller
 
