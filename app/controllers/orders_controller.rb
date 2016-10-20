@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order = Order.create
+    order = Order.create(status: 'pending')
     order.orderitems << Orderitem.create(quantity: 1, product_id: params[:product_id])
     session[:order] = order.id
     flash[:notice] = "Item added to cart!"
@@ -17,10 +17,14 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    order = Order.find(session[:order])
-    order.
-    session[:order] = nil
+    order = Order.find_by(id: session[:order])
 
+    if order
+      order.destroy
+    end
+
+    session[:order] = nil
+    redirect_to carts_index_path
   end
 
   def update
