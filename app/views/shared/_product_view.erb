@@ -5,7 +5,7 @@
 
   <div class="category-tile">
     <%= image_tag products.first.photo, alt: product.name %>
-    <p><%= link_to product.name, @path(.id) %></p>
+    <p><%= link_to product.name, products_show_path(product.id) %></p>
   </div>
 
 <% end %>

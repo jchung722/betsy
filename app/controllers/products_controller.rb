@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
+    @browse_by = "Merchant"
   end
 
   def show
