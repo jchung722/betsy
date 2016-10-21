@@ -45,7 +45,7 @@ Rails.application.routes.draw do
 
   # Orders controller
 
-  get 'orders/index'
+  get 'orders/index' => 'orders#index', as: "orders_index"
 
   get 'orders/new'
 
