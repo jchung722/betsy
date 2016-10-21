@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @browse_by = Category.find(params[:id]).product
+    @browse_by = Category.find(params[:id].to_i)
     @type = "category"
     @path = "categories_show_path"
   end

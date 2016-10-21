@@ -5,25 +5,15 @@
 
 <%= form_for @merchant do |f| %>
 
-  <%= f.label "Merchant Name" %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :place_holder => "Store Name"%>
 
-  <%= f.label "Business Location" %>
-  <%= f.text_field :location %>
+  <%= f.text_field :location, :place_holder => "Store location" %>
 
-  <%= f.label "Business Phone Number" %>
-  <%= f.text_field :phone %>
+  <%= f.text_field :phone, :place_holder => "Contact Number" %>
 
-  <!-- <%= if @merchant.email.present? %> -->
+  <%= f.email_field :email, :place_holder => "#{@merchant.email}" %>
 
-    <% f.label "Email" %>
-    <%= f.email_field :email %>
-    <!-- <%= f.email_field (:email, :value => @merchant.email) %> -->
+  <%= f.text_field :username, :place_holder => "#{@merchant.username}"%>
 
-    <% f.label "User Name" %>
-    <%= f.text_field :username %>
-    <!-- <%= f.text_field (:username, :value => @merchant.username) %> -->
-  <!-- <% end %> -->
+  <%= f.submit "Save", %>
 <% end %>
-
-<%= submit_tag %>

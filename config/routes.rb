@@ -43,6 +43,8 @@ Rails.application.routes.draw do
 
   post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
 
+  patch 'products/:id/retire' => 'products#retire', as: "products_retire"
+
   # Orders controller
 
   get 'orders/index'

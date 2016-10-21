@@ -15,12 +15,19 @@ class MerchantsController < ApplicationController
   end
 
   def create
+    @merchant.name = params[:merchant][:title]
+    @merchant.address = params[:merchant][:address]
+    @merchant.phone = params[:merchant][:address]
+    @merchant.save
+    redirect_to merchant_index_path(@merchant.id)
   end
 
   def edit
+
   end
 
   def update
+
   end
 
   private
