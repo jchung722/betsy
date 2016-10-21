@@ -11,6 +11,9 @@ class CartsController < ApplicationController
   def edit
     if session[:order]
       @order = Order.find(session[:order])
+    else
+      redirect_to carts_index_path
+      flash[:notice] = "Your order has already been placed!"
     end
   end
 
@@ -29,7 +32,8 @@ class CartsController < ApplicationController
       end
 
       session[:order] = nil
-
+    else
+      redirect_to carts_index_path
     end
   end
 
