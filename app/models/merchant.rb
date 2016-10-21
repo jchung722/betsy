@@ -5,7 +5,7 @@ class Merchant < ActiveRecord::Base
     merchant       = Merchant.new
     merchant.uid   = auth_hash[:uid].to_i
     merchant.provider = 'github'
-    merchant.username  = auth_hash['info']['name']
+    merchant.username  = auth_hash['info']['nickname']
     merchant.email = auth_hash['info']['email']
     merchant.save
 
