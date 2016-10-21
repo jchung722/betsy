@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :find_product, except: [:new, :create, :index]
 
   def index
-    @merchant = Merchant.find(param[:id]to_i)
+    @merchant = Merchant.find(params[:id].to_i)
 
   end
 
