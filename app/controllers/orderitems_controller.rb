@@ -11,7 +11,7 @@ class OrderitemsController < ApplicationController
     puts order.save
     puts orderitem.save
     session[:order] = order.id
-    flash[:notice] = "Item added to cart! Quantity: 1"
+    flash[:notice] = "Item added to cart! Quantity: #{params[:add_to_cart][:quantity]}"
     redirect_to products_show_path(params[:product_id])
   end
 
