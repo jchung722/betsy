@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       # Save the Merchant ID in the session (**not the :uid from GitHub**)
       session[:user_id] = @merchant.id
 
-     merchant_edit_path(@merchant.id)
+      return redirect_to merchant_edit_path(@merchant.id)
 
     end
 
