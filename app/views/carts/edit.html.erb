@@ -1,2 +1,41 @@
-<h1>Carts#edit</h1>
-<p>Find me in app/views/carts/edit.html.erb</p>
+<h1>Check out</h1>
+
+<p>Please enter your shipping and payment information below. This will help us send you your magically delightful products as quickly as possible! :D.</p>
+
+<%= form_for @order, orders_update_path, method: :put %>
+
+  <h2>Shipping information</h2>
+
+  <%= f.label :name %>
+  <%= f.text_field :email %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>
+
+  <h2>Billing information</h2>
+
+  <%= f.label "Name on credit card" %>
+  <%= f.text_field :card_name %>
+
+  <%= f.label "Credit card number" %>
+  <%= f.text_field :card_num %>
+
+  <%= f.label "CVV (code on back of card)" %>
+  <%= f.text_field :cvv %>
+
+
+
+
+<% end %>
