@@ -52,13 +52,14 @@ ActiveRecord::Schema.define(version: 20161018223814) do
     t.string   "card_name"
     t.string   "card_num"
     t.datetime "expiry"
-    t.integer  "cvv"
-    t.integer  "billing_zip"
+    t.string   "cvv"
+    t.string   "billing_zip"
     t.string   "address"
     t.string   "city"
     t.string   "state"
-    t.integer  "zip"
+    t.string   "zip"
     t.string   "status"
+    t.datetime "placed_at"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

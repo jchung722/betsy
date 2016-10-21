@@ -1,6 +1,9 @@
 class Order < ActiveRecord::Base
   has_many :orderitems
 
+  validates :orderitems,
+            presence: true
+
   def total
     total = 0
 
