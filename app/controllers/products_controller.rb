@@ -8,9 +8,12 @@ class ProductsController < ApplicationController
 
     @already_in_cart = session[:order] && Order.find(session[:order]).has_product(@product.id)
 
+
     if @already_in_cart
+      puts "ALREADY IN CART"
       @orderitem = Orderitem.new(quantity: 1) # To display the 1 in the form
       @existing_orderitem = Orderitem.find_by(product: @product)
+      puts "GOT HERE"
       @url = orderitems_update_path(@existing_orderitem)
       @method = :patch
     else

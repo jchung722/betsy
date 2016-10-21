@@ -3,11 +3,14 @@ class OrderitemsController < ApplicationController
     if session[:order]
       order = Order.find(session[:order])
     else
-      order = Order.create(status: 'pending')
-      session[:order] = order.id
+      order = Order.new(status: 'pending')
     end
 
-    order.orderitems << Orderitem.create(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], status: 'pending')
+    orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], status: 'pending')
+    order.orderitems << orderitem
+    puts order.save
+    puts orderitem.save
+    session[:order] = order.id
     flash[:notice] = "Item added to cart! Quantity: 1"
     redirect_to products_show_path(params[:product_id])
   end
