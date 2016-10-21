@@ -4,8 +4,10 @@ class SessionsController < ApplicationController
     auth_hash = request.env['omniauth.auth']
 
     # Check to see if we received the auth_hash from Github.
-    flash[:notice] = "login failed"
-    redirect_to root_path unless auth_hash['uid']
+    if auth_hash == nil
+      flash[:notice] = "login failed"
+      return redirect_to root_path
+    end
 
     @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github')
     if @merchant == nil
