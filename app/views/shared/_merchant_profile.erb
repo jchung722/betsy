@@ -3,17 +3,22 @@
 <h1>Sign-up as a Unicorns 'R' Us Merchant</h1>
 <h3>Provide the following information: </h3>
 
-<%= form_for @merchant do |f| %>
+<%= form_for @merchant, url: merchant_update_path do |f| %>
 
-  <%= f.text_field :name, :place_holder => "Store Name"%>
+  <%= f.label "Store Name" %>
+  <%= f.text_field :displayname, :place_holder => "Your Store Name" %>
 
+  <%= f.label "Store Location" %>
   <%= f.text_field :location, :place_holder => "Store location" %>
 
-  <%= f.text_field :phone, :place_holder => "Contact Number" %>
+  <%= f.label "Store Contact Number" %>
+  <%= f.telephone_field :phone, :place_holder => "Contact Number" %>
 
-  <%= f.email_field :email, :place_holder => "#{@merchant.email}" %>
+  <%= f.label "Email" %>
+  <%= f.email_field :email  %>
 
-  <%= f.text_field :username, :place_holder => "#{@merchant.username}"%>
+  <%= f.label "User Name" %>
+  <%= f.text_field :username %>
 
-  <%= f.submit "Save", %>
+  <%= f.submit "Save" %>
 <% end %>

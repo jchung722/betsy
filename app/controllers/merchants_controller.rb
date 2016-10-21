@@ -2,6 +2,7 @@ class MerchantsController < ApplicationController
   before_action :find_merchant, except: [:new, :create]
 
   def index
+      # @merchant = Merchant.find_by(session[:id].to_i)
   end
 
   def show
@@ -15,8 +16,8 @@ class MerchantsController < ApplicationController
   end
 
   def create
-    @merchant.name = params[:merchant][:title]
-    @merchant.address = params[:merchant][:address]
+    @merchant.displayname = params[:merchant][:title]
+    @merchant.location = params[:merchant][:address]
     @merchant.phone = params[:merchant][:address]
     @merchant.save
     redirect_to merchant_index_path(@merchant.id)
@@ -27,12 +28,16 @@ class MerchantsController < ApplicationController
   end
 
   def update
-
+    @merchant.displayname = params[:merchant][:title]
+    @merchant.location = params[:merchant][:address]
+    @merchant.phone = params[:merchant][:address]
+    @merchant.save
+    redirect_to merchant_index_path(@merchant.id)
   end
 
   private
 
   def find_merchant
-    @merchant = Merchant.find(params[:id].to_i)
+    @merchant = Merchant.find_by(session[:user_id].to_i)
   end
 end

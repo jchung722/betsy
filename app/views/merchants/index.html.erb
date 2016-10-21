@@ -7,13 +7,13 @@
 
   <div class="product-tile">
     <!-- #product_show_path(merchant.id) -->
-    <p><%= link_to "Manage Your Products", "#" %></p>
+    <p><%= link_to "Manage Your Products", "product#edit" %></p>
     <%= image_tag("horn_magic_cookie.png", :alt => "cookie") %>
   </div>
 
   <div class="product-tile">
     <!-- #merchant_show_path(merchant.id) -->
-    <p><%= link_to "Manage Your Profile", "#" %></p>
+    <p><%= link_to "Manage Your Profile", merchants_edit_path(@merchant.id) %></p>
     <%= image_tag("unicorn_merchant.jpg", :alt => "unicorn") %>
   </div>
 

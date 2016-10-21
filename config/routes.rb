@@ -37,13 +37,6 @@ Rails.application.routes.draw do
 
   get 'stores/show/:id' => "stores#show", as: "stores_show"
 
-  # Products controller
-
-  get 'products/:id/reviews/new' => 'reviews#new', as: "reviews_new"
-
-  post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
-
-  patch 'products/:id/retire' => 'products#retire', as: "products_retire"
 
   # Orders controller
 
@@ -59,6 +52,8 @@ Rails.application.routes.draw do
 
   get 'orders/destroy'
 
+  # merchant controller
+
   get 'merchants/index' => 'merchants#index', as: 'merchant_index'
 
   get 'merchants/show'
@@ -67,20 +62,28 @@ Rails.application.routes.draw do
 
   get 'merchants/create'
 
-  get 'merchants/:id/edit' => 'merchants#edit', as: 'merchant_edit'
+  get 'merchants/:id/edit' => 'merchants#edit', as: 'merchants_edit'
 
-  put 'merchants/:id/update' => 'merchants#update', as: 'merchant_update'
+  patch 'merchants/:id/update' => 'merchants#update', as: 'merchant_update'
 
 
   # Products controller routes
 
-  get 'products/index'
+  get 'product/index'
+
+  get 'products/:id/reviews/new' => 'reviews#new', as: "reviews_new"
+
+  post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
+
+  patch 'products/:id/retire' => 'products#retire', as: "products_retire"
 
   get 'products/show/:id' => "products#show", as: "products_show"
 
   get 'products/new'
 
   get 'products/create'
+
+  # sessions controller
 
   get 'sessions/create'
 
