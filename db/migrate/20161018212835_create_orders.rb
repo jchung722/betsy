@@ -6,8 +6,8 @@ class CreateOrders < ActiveRecord::Migration
       t.string :card_name
       t.string :card_num
       t.datetime :expiry
-      t.integer :cvv
-      t.integer :billing_zip
+      t.string :cvv
+      t.string :billing_zip
       t.string :address
       t.string :city
       t.string :state

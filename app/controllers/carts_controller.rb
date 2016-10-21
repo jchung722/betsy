@@ -9,9 +9,27 @@ class CartsController < ApplicationController
   end
 
   def edit
+    if session[:order]
+      @order = Order.find(session[:order])
+    end
   end
 
   def update
+    if session[:order]
+      @order = Order.find(session[:order])
+      @order.update(order_params)
+      @order.update(status: "paid")
+
+      # Reduce the stock of each item when it is sold
+      @order.orderitems.each do |orderitem|
+        product = orderitem.product
+        product.stock -= orderitem.quantity
+        product.save
+      end
+
+      session[:order] = nil
+
+    end
   end
 
   def new
@@ -22,4 +40,17 @@ class CartsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def order_params
+    filtered = params.require(:order).permit(:name, :address, :email, :city, :state, :zip, :card_name, :card_num, :cvv, :billing_zip, :expiry)
+    base_date = DateTime.new(filtered['expiry(1i)'].to_i, filtered['expiry(2i)'].to_i)
+    filtered.delete('expiry(3i)')
+    filtered.delete('expiry(2i)')
+    filtered.delete('expiry(1i)')
+    filtered[:expiry] = base_date.end_of_month
+    return filtered
+  end
+
 end

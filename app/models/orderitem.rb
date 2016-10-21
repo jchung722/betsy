@@ -9,5 +9,5 @@ class Orderitem < ActiveRecord::Base
   def price
     return self.product.price
   end
-
+  
 end
