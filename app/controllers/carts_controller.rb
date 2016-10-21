@@ -19,6 +19,7 @@ class CartsController < ApplicationController
       @order = Order.find(session[:order])
       @order.update(order_params)
       @order.update(status: "paid")
+      @order.update(placed_at: DateTime.now)
 
       # Reduce the stock of each item when it is sold
       @order.orderitems.each do |orderitem|

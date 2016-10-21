@@ -13,6 +13,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :state
       t.string :zip
       t.string :status
+      t.datetime :placed_at
 
       t.timestamps null: false
     end
