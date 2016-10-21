@@ -1,9 +1,12 @@
 class ProductsController < ApplicationController
+  before_action :find_product, except: [:new, :create, :index]
+
   def index
+    @merchant = Merchant.find(param[:id]to_i)
+
   end
 
   def show
-    @product = Product.find(params[:id])
     @reviews = Review.where(product_id: params[:id])
 
     @already_in_cart = session[:order] && Order.find(session[:order]).has_product(@product.id)
@@ -24,6 +27,24 @@ class ProductsController < ApplicationController
   def new
   end
 
+  def edit
+  end
+
   def create
   end
+
+  def retire
+
+    if @product.retired == true
+      @product.retired = false
+    else
+      @product.retired = true
+    end
+  end
+
+  private
+  def find_product
+    @product = Product.find(params[:id].to_i)
+  end
+
 end

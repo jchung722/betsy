@@ -1,21 +1,6 @@
 
 
-<h1><%= @category.name %></h1>
+<h1><%= @browse_by.name %></h1>
 
-<nav>
-  <ul>
-    <li><%= link_to "Home", root_path %></li>
-    <li><%= link_to "Browse by store", stores_index_path %></li>
-    <li><%= link_to "Browse by category", categories_index_path %></li>
-    <li><%= link_to "Browse all", homepages_show_path %></li>
-  </ul>
-</nav>
 
-<% @category.products.each do |product| %>
-
-  <div class="category-tile">
-    <%= image_tag product.photo, alt: product.name %>
-    <p><%= link_to product.name, products_show_path(product.id) %></p>
-  </div>
-
-<% end %>
+<%= render partial: "shared/product_view" %>
