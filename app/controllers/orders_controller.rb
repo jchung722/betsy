@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   def index
+    @orders = Merchant.find(session[:user_id]).products.orderitems.orders
   end
 
   def new
