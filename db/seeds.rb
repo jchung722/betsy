@@ -10,9 +10,10 @@ require 'csv'
 bob = Merchant.create(username: "bob1", uid: 121413, provider: 'github', email: "bob@bobness.com", displayname: "Bob's Wondrous Wares")
 jane = Merchant.create(username: "jane1", uid: 2445, provider: 'github', email: "jane@janesworld.com", displayname: "Jane's Unicorny Delights")
 
-
 CSV.foreach('seed_csvs/unicorn_items.csv', :headers => false) do |csv_obj|
-  product = Product.create(name: csv_obj[0], description: csv_obj[1], price: csv_obj[2].to_i, stock: csv_obj[3].to_i, merchant_id: rand(1..2), retired: csv_obj[5], photo: csv_obj[6].to_s)
+  product = Product.new(name: csv_obj[0], description: csv_obj[1], price: csv_obj[2].to_i, stock: csv_obj[3].to_i, retired: csv_obj[5], photo: csv_obj[6].to_s)
+  Merchant.find(rand(1..2)).products << product
+  product.save
 end
 
 # puts Product.all.length
