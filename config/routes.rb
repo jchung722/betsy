@@ -25,6 +25,8 @@ Rails.application.routes.draw do
 
   put 'carts/update'
 
+  get 'carts/update' # To deal with refresh
+
   get 'carts/new'
 
   post 'carts/create'
