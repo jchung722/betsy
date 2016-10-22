@@ -28,10 +28,9 @@ class MerchantsController < ApplicationController
   end
 
   def update
-    @merchant.displayname = params[:merchant][:displayname]
-    @merchant.location = params[:merchant][:location]
-    @merchant.phone = params[:merchant][:phone]
-    # I think we need to add email and username fields here too if we want them to save from the form
+    @merchant.displayname = params[:merchant][:title]
+    @merchant.location = params[:merchant][:address]
+    @merchant.phone = params[:merchant][:address]
     @merchant.save
     redirect_to merchants_index_path(@merchant.id)
   end
