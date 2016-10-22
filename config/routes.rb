@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
   # merchant controller
 
-  get 'merchants/index' => 'merchants#index', as: 'merchant_index'
+  get 'merchants/index' => 'merchants#index', as: 'merchants_index'
 
   get 'merchants/show'
 
@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 
   get 'merchants/:id/edit' => 'merchants#edit', as: 'merchants_edit'
 
-  patch 'merchants/:id/update' => 'merchants#update', as: 'merchant_update'
+  patch 'merchants/:id/update' => 'merchants#update', as: 'merchants_update'
 
 
   # Products controller routes
