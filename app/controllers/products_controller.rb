@@ -34,6 +34,7 @@ class ProductsController < ApplicationController
 
   def edit
     @action = "Edit"
+    
   end
 
   def create
@@ -58,7 +59,7 @@ class ProductsController < ApplicationController
       @product.retired = true
     end
     @product.save
-    
+
     redirect_to products_index_path
   end
 

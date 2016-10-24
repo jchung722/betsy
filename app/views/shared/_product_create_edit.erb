@@ -23,6 +23,20 @@
 
   <%= f.submit "Save" %>
 
+  <%= f.select(:category, [@category_options], {:multiple => true}) %>
+
+  <% f.submit %>
+
 <% end %>
+
+</section>
+
+<section>
+  <h2> Create a New Category </h2>
+  <%= form_for Category do |f| %>
+    <%= f.label "Category Name" %>
+    <%= f.text_field :name %>
+    <% f.submit %>
+  <% end %>
 
 </section>
