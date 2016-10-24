@@ -20,7 +20,7 @@
         <li><%= link_to "Logout", session_delete_path(session[:user_id]), method: :delete, data: {confirm:"End your session?"} %></li>
         <li><%= link_to "Merchant Home", "#" %>
         <% end %></li>
-        <li><%=link_to image_tag("cart.png"), "#" %></li>
+        <li><%=link_to image_tag("cart.png"), "#", :alt => "shopping cart" %></li>
       </ul>
     </nav>
   </header>
