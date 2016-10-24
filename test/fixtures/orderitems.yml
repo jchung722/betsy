@@ -1,11 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+orderitem1:
   quantity: 1
-  product_id: 
-  order_id: 
+  product: farts
+  order: testorder1
 
-two:
+orderitem2:
+  quantity: 2
+  product: poo
+  order: testorder1
+
+orderitem3:
+  quantity: 3
+  product: shoes
+  order: testorder1
+
+orderitem4:
   quantity: 1
-  product_id: 
-  order_id: 
+  product_id: poo
+  order_id: testorder2
