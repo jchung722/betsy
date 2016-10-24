@@ -1,7 +1,17 @@
 <h1>View your orders</h1>
 
-<% @orders.each do |order| %>
-  <p>
-
-  </p>
-<% end %>
+<table>
+  <tr>
+    <th>Order no.</th>
+    <th>Status</th>
+    <th>Sale</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.status %></td>
+        <td><%= %></td>
+    </tr>
+  <% end %>
+</table>
