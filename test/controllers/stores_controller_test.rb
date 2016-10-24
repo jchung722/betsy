@@ -20,7 +20,7 @@ class StoresControllerTest < ActionController::TestCase
 
   test "index should be able to load even if a store (merchant) has no products" do
     # Disconnect Bob's only product
-    assert merchants(:bob).products.length == 1
+    assert merchants(:bob).products.length == 2
     merchants(:bob).products = []
     merchants(:bob).save
     products(:shoes).merchant = nil
@@ -36,11 +36,11 @@ class StoresControllerTest < ActionController::TestCase
     assert_template :index
   end
 
-  test "index should be able to load even if a product has no photo" do
+  test "index should be able to load even if a merchant's first product (used for tile) has no photo" do
     # Delete the photo of a merchant's first product
-    products(:shoes).photo = nil
-    products(:shoes).save
-    assert merchants(:bob).products.first.name == products(:shoes).name
+    product = merchants(:bob).products.first
+    product.photo = nil
+    product.save
     assert !merchants(:bob).products.first.photo
 
     # Confirm that the page still loads properly
@@ -49,9 +49,9 @@ class StoresControllerTest < ActionController::TestCase
     assert_template :index
 
     # Repeat with an empty string instead of nil
-    products(:shoes).photo = ""  # As from empty slot in CSV
-    products(:shoes).save
-    assert merchants(:bob).products.first.name == products(:shoes).name
+    product = merchants(:bob).products.first
+    product.photo = ""  # As from empty slot in CSV
+    product.save
     assert merchants(:bob).products.first.photo == ""
 
     get :index
@@ -61,9 +61,9 @@ class StoresControllerTest < ActionController::TestCase
 
   test "show should be able to load even if a product has no photo" do
     # Delete the photo of a merchant's first product
-    products(:shoes).photo = nil
-    products(:shoes).save
-    assert merchants(:bob).products.first.name == products(:shoes).name
+    product = merchants(:bob).products.first
+    product.photo = nil
+    product.save
     assert !merchants(:bob).products.first.photo
 
     # Confirm that the page still loads properly
@@ -72,9 +72,9 @@ class StoresControllerTest < ActionController::TestCase
     assert_template :show
 
     # Repeat with an empty string instead of nil
-    products(:shoes).photo = ""  # As from empty slot in CSV
-    products(:shoes).save
-    assert merchants(:bob).products.first.name == products(:shoes).name
+    product = merchants(:bob).products.first
+    product.photo = ""  # As from empty slot in CSV
+    product.save
     assert merchants(:bob).products.first.photo == ""
 
     get :show, {id: merchants(:bob).id}

@@ -2,8 +2,8 @@
 
 apparel:
   name: Apparel
-  products: shoes
+  products: shoes, shirt
 
 foods:
   name: Foods
-  products: farts
+  products: farts, poo

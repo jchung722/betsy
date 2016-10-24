@@ -18,7 +18,7 @@ class HomepagesControllerTest < ActionController::TestCase
 
   test "index should be able to load even if a category contains no products" do
     # Disconnect products from category
-    assert categories(:apparel).products.length == 1
+    assert categories(:apparel).products.length == 2
     categories(:apparel).products = []
     categories(:apparel).save
     products(:shoes).categories = []
@@ -33,8 +33,9 @@ class HomepagesControllerTest < ActionController::TestCase
 
   test "index (showing categories) should be able to load even if a category's first product has no photo" do
     # Delete the photo of the first item in the apparel category
-    products(:shoes).photo = nil
-    products(:shoes).save
+    product = categories(:apparel).products.first
+    product.photo = nil
+    product.save
     assert !categories(:apparel).products.first.photo
 
     #Confirm the page still displays
@@ -43,8 +44,8 @@ class HomepagesControllerTest < ActionController::TestCase
     assert_template :index
 
     # Repeat with photo set to "" instead of nil
-    products(:shoes).photo = ""  # As from empty slot in CSV
-    products(:shoes).save
+    product.photo = ""  # As from empty slot in CSV
+    product.save
     assert categories(:apparel).products.first.photo == ""
 
     get :index
@@ -54,9 +55,10 @@ class HomepagesControllerTest < ActionController::TestCase
 
   test "the page showing all items should be able to load even if a product has no photo" do
     # Set a product's photo to nil
-    products(:shoes).photo = nil
-    products(:shoes).save
-    assert !products(:shoes).photo
+    product = categories(:apparel).products.first
+    product.photo = nil
+    product.save
+    assert !categories(:apparel).products.first.photo
 
     # Confirm page still displays without errors
     get :show
@@ -64,9 +66,9 @@ class HomepagesControllerTest < ActionController::TestCase
     assert_template :show
 
     # Repeat with photo set to "" instead of nil
-    products(:shoes).photo = ""  # As from empty slot in CSV
-    products(:shoes).save
-    assert products(:shoes).photo == ""
+    product.photo = ""  # As from empty slot in CSV
+    product.save
+    assert categories(:apparel).products.first.photo == ""
 
     get :show
     assert_response :success
