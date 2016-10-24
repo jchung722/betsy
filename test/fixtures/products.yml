@@ -5,17 +5,67 @@ goods:
   name: Good
   price: 1
   merchant_id: 1
-  description: MyText
-  photo: MyString
+  description: Some good product
+  photo: photourl
   stock: 1
   retired: false
 
-moregoods:
+minimalproduct:
   id: 2
   name: MoreGoods
   price: 1
   merchant_id: 1
-  description: MyText
-  photo: MyString
-  stock: 1
-  retired: false
+  description:
+  photo:
+  stock:
+  retired:
+
+nonameproduct:
+  id: 3
+  name:
+  price: 1
+  merchant_id: 1
+  description:
+  photo:
+  stock:
+  retired:
+
+copyproduct:
+  id: 5
+  name: Imnotunique
+  price: 1
+  merchant_id: 1
+  description:
+  photo:
+  stock:
+  retired:
+
+noprice:
+  id: 6
+  name: noprice
+  price:
+  merchant_id: 1
+  description:
+  photo:
+  stock:
+  retired:
+
+nointprice:
+  id: 7
+  name: nointprice
+  price: one
+  merchant_id: 1
+  description:
+  photo:
+  stock:
+  retired:
+
+nomerchant:
+  id: 8
+  name: nomerchant
+  price: 1
+  merchant_id:
+  description:
+  photo:
+  stock:
+  retired:
