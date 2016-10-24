@@ -7,7 +7,7 @@
   <h3><%= @product.name %></h3>
   <p>Sold By: <%= @product.merchant.displayname %> </p>
   <p>Description: <%= @product.description %></p>
-  <p>Price: $<%= @product.price/100.0 %></p>
+  <p>Price: <%= number_to_currency(@product.price) %></p>
   <p>Stock: <%= @product.stock %></p>
   <p>Overall Rating: </p>
 
