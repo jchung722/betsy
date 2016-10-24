@@ -10,7 +10,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert_difference('Merchant.count', 1) do
       login_a_user
       assert_response :redirect
-      assert_redirected_to root_path
+      assert_redirected_to merchants_edit_path(Merchant.find_by(uid: OmniAuth.config.mock_auth[:github][:uid]))
       assert_equal session[:user_id], Merchant.find_by(uid: OmniAuth.config.mock_auth[:github][:uid], provider: "github").id
     end
   end
