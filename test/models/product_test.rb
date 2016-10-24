@@ -30,12 +30,12 @@ class ProductTest < ActiveSupport::TestCase
     assert products(:noprice).valid?
   end
 
-  test "Product prices must be integers greater than 0" do
-    assert_not products(:nointprice).valid?
-    products(:nointprice).price = 0
-    assert_not products(:nointprice).valid?
-    products(:nointprice).price = 5
-    assert products(:nointprice).valid?
+  test "Product prices must be greater than 0" do
+    assert_not products(:nonumprice).valid?
+    products(:nonumprice).price = 0
+    assert_not products(:nonumprice).valid?
+    products(:nonumprice).price = 0.5
+    assert products(:nonumprice).valid?
   end
 
   test "Products must belong to a merchant" do
@@ -44,5 +44,14 @@ class ProductTest < ActiveSupport::TestCase
     assert products(:nomerchant).valid?
   end
 
+  test "Products can have orderitems" do
+    assert_equal products(:goods).orderitems.length, 1
+  end
+
+  test "Products can have reviews" do
+    assert_equal products(:goods).reviews.length, 5
+  end
+
+  #test for categories?
 
 end

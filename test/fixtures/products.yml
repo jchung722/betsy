@@ -50,9 +50,9 @@ noprice:
   stock:
   retired:
 
-nointprice:
+nonumprice:
   id: 7
-  name: nointprice
+  name: nonumprice
   price: one
   merchant_id: 1
   description:
