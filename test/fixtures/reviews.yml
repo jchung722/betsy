@@ -1,11 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  rating: 1
-  feedback: MyText
-  product_id: 
+best:
+  rating: 5
+  feedback: Awesome stuff
+  product_id: 1
 
-two:
-  rating: 1
+no_rating:
+  rating:
   feedback: MyText
-  product_id: 
+  product_id: 1
+
+low_rating:
+  rating: 0
+  feedback: MyText
+  product_id: 1
+
+high_rating:
+  rating: 6
+  feedback: MyText
+  product_id: 1
+
+no_integer:
+  rating: five
+  feedback: MyText
+  product_id: 1
+
+no_product:
+  rating: 3
+  feedback: MyText
+  product_id:

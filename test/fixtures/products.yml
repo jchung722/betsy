@@ -1,18 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+goods:
+  id: 1
+  name: Good
   price: 1
-  merchant_id: 
+  merchant_id: 1
   description: MyText
   photo: MyString
   stock: 1
   retired: false
 
-two:
-  name: MyString
+moregoods:
+  id: 2
+  name: MoreGoods
   price: 1
-  merchant_id: 
+  merchant_id: 1
   description: MyText
   photo: MyString
   stock: 1
