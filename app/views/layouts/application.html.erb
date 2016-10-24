@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <head>
   <title>Betsy</title>
@@ -22,8 +23,38 @@
       </ul>
     </nav>
   </header>
+=======
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+>>>>>>> c87bbd37014b56b045d08317faf6e37fb95d17e1
 
-  <%= yield %>
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
-</body>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header>
+      <h1><%= link_to "Unicorns 'R' Us", root_path %></h1>
+      <% if session[:user_id] == nil %>
+        <%= link_to "Merchant Login", "/auth/github" %>
+      <% else %>
+        <%= link_to "Logout", session_delete_path(session[:user_id]), method: :delete, data: {confirm:"End your session?"} %>
+      <% end %>
+      <nav>
+        <ul>
+          <li><%= link_to "Browse by store", stores_index_path %></li>
+          <li><%= link_to "Browse by category", categories_index_path %></li>
+          <li><%= link_to "Browse all", homepages_show_path %></li>
+        </ul>
+      </nav>
+    </header>
+
+    <%= yield %>
+
+  </body>
 </html>
