@@ -14,7 +14,12 @@
 <% @stores.each do |store| %>
 
   <div class="product-tile">
-    <%= image_tag store.products.first.photo, alt: store.displayname %>
+
+    <%if store.products.first && store.products.first.photo && store.products.first.photo != "" %>
+      <%= image_tag store.products.first.photo, alt: store.displayname %>
+    <%else %>
+      <%= image_tag 'default_uni.jpg', alt: store.displayname %>
+    <% end %>
     <p><%= link_to store.displayname, stores_show_path(store.id) %></p>
   </div>
 
