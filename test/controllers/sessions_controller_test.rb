@@ -22,13 +22,13 @@ class SessionsControllerTest < ActionController::TestCase
     assert_no_difference('Merchant.count') do
       login_a_user
       assert_response :redirect
-      assert_redirected_to merchant_index_path
+      assert_redirected_to merchants_index_path
     end
   end
 
   test "If not logged in via github, a Merchant cannot be logged in" do
     get :create, provider: "github"
-    assert_equal flash[:notice], "login failed"
+    assert_equal flash[:notice], "Login Failed"
     assert_redirected_to root_path
   end
 
