@@ -71,19 +71,25 @@ Rails.application.routes.draw do
 
   # Products controller routes
 
-  get 'product/index'
+  get 'products/index'
 
   get 'products/:id/reviews/new' => 'reviews#new', as: "reviews_new"
 
   post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
 
-  patch 'products/:id/retire' => 'products#retire', as: "products_retire"
+  get 'products/:id/edit' => 'products#edit', as: 'products_edit'
+
+  patch 'products/:id/update' => 'products#update', as: 'products_update'
 
   get 'products/show/:id' => "products#show", as: "products_show"
 
-  get 'products/new'
+  post 'products/new' => "products#new", as: "products_new"
 
-  get 'products/create'
+  post 'products/create'
+
+
+
+  patch 'products/:id/retire' => 'products#retire', as: "products_retire"
 
   # sessions controller
 

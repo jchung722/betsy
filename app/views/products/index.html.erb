@@ -1,6 +1,6 @@
 
 
-<h2> @merchant </h2>
+
 
 <h3>Current Product List:</h3>
 <% @merchant.products.each do |product| %>
@@ -14,13 +14,13 @@
 </div>
 <div>
   <% if product.retired == false %>
-    <%= button_to "Active", product_retire_path, method: :patch %>
+    <%= button_to "Inactivate", products_retire_path(product.id), method: :patch %>
   <% else %>
-    <%= button_to "Inactive", product_retire_path, method: :patch %>
+    <%= button_to "Activate", products_retire_path(product.id), method: :patch %>
   <% end %>
 </div>
 
 <% end %>
 
 
-<%= button_to "Add Product", products_edit_path(product.id) %>
+<%= button_to "Add Product", products_new_url %>
