@@ -5,9 +5,8 @@
 
 <% @categories.each do |category| %>
 
-  <div class="product-tile">
-    <%= image_tag category.products.first.photo, alt: category.name %>
-    <p><%= link_to category.name, categories_show_path(category.id) %></p>
-  </div>
+  <section class="product-tile", class="row">
+    <div class="small -6 medium-3 columns"><%= image_tag category.products.first.photo, alt: category.name %><%= link_to category.name, categories_show_path(category.id) %></div>
+  </section>
 
 <% end %>
