@@ -26,4 +26,16 @@ class Order < ActiveRecord::Base
 
   end
 
+  # Reduce the stock of each item when it is sold
+
+  def update_stock
+
+    @order.orderitems.each do |orderitem|
+      product = orderitem.product
+      product.stock -= orderitem.quantity
+      product.save
+    end
+
+  end
+
 end

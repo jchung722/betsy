@@ -8,6 +8,13 @@ merchant1:
   provider: MyString
   displayname: MyString
 
+bob:
+  username: bob1
+  email: bob@bobness.com
+  uid: 1
+  provider: github
+  displayname: Bob's Wondrous Wares
+
 merchant2:
   id: 2
   username: Merch2
@@ -15,3 +22,10 @@ merchant2:
   uid: 1
   provider: MyString
   displayname: MyString
+
+jane:
+  username: jane1
+  email: jane@janesworld.com
+  uid: 2
+  provider: github
+  displayname: Jane's Unicorn Goodies

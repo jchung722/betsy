@@ -4,6 +4,11 @@ class StoresController < ApplicationController
   end
 
   def show
-    @store = Merchant.find(params[:id])
+    begin
+      @store = Merchant.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render :file => 'public/404.html', :status => :not_found
+    end
   end
+  
 end

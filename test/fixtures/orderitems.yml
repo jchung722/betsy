@@ -24,3 +24,18 @@ quantityissue:
   quantity: one
   product_id: 2
   order_id: 1
+
+orderitem1:
+  quantity: 1
+  product: shoes
+  order: testorder1
+
+orderitem2:
+  quantity: 2
+  product: poo
+  order: testorder1
+
+orderitem4:
+  quantity: 1
+  product_id: poo
+  order: testorder2

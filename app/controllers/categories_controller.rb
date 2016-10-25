@@ -16,7 +16,11 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id].to_i)
+    begin
+      @category = Category.find(params[:id].to_i)
+    rescue ActiveRecord::RecordNotFound
+      render :file => 'public/404.html', :status => :not_found
+    end
   end
 
   def destroy

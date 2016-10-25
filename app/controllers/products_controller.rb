@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 
     @already_in_cart = session[:order] && Order.find(session[:order]).has_product(@product.id)
 
+    @average = average(@reviews)
 
     if @already_in_cart
       puts "ALREADY IN CART"
@@ -34,7 +35,7 @@ class ProductsController < ApplicationController
 
   def edit
     @action = "Edit"
-    
+
   end
 
   def create
@@ -61,6 +62,15 @@ class ProductsController < ApplicationController
     @product.save
 
     redirect_to products_index_path
+  end
+
+  def average(reviews)
+    average = 0
+    reviews.each do |review|
+      average += review.rating.to_i
+    end
+      average = sprintf('%.2f', (average / @reviews.length.to_f))
+    return average
   end
 
   private
