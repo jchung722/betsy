@@ -5,11 +5,12 @@ class SessionsController < ApplicationController
 
     # Check to see if we received the auth_hash from Github.
     if auth_hash == nil
-      flash[:notice] = "login failed"
+      flash[:notice] = "Login Failed"
       return redirect_to root_path
     end
 
     @merchant = Merchant.find_by(uid: auth_hash[:uid], provider: 'github')
+
     if @merchant == nil
       # If merchant doesn't match any record in the DB, attempt to create a new merchant.
       # The method to create the new Merchant (build_from_github) is defined in the
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
 
       # Save the Merchant ID in the session (**not the :uid from GitHub**)
       session[:user_id] = @merchant.id
+      flash[:notice] = "Successfully Logged In"
 
       return redirect_to merchants_edit_path(@merchant.id)
 
@@ -25,8 +27,9 @@ class SessionsController < ApplicationController
 
     session[:user_id] = @merchant.id
 
-    flash[:notice] = "successfully logged in"
-    redirect_to merchant_index_path
+    flash[:notice] = "Successfully Logged In"
+    redirect_to merchants_index_path
+
   end
 
   def index
@@ -41,7 +44,7 @@ class SessionsController < ApplicationController
     # reenter in their credentials to our app).
     session[:user_id] = nil
 
-    flash[:notice] = "successfully logged out"
+    flash[:notice] = "Successfully Logged Out"
     redirect_to root_path
   end
 end

@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   # Orders controller
 
-  get 'orders/index'
+  get 'orders/index' => 'orders#index', as: "orders_index"
 
   get 'orders/new'
 
@@ -50,13 +50,13 @@ Rails.application.routes.draw do
 
   get 'orders/:product_id/update' => 'orders#update', as: 'orders_update'
 
-  get 'orders/show'
+  get 'orders/:id/show' => 'orders#show', as: 'orders_show'
 
   get 'orders/destroy'
 
   # merchant controller
 
-  get 'merchants/index' => 'merchants#index', as: 'merchant_index'
+  get 'merchants/index' => 'merchants#index', as: 'merchants_index'
 
   get 'merchants/show'
 
@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 
   get 'merchants/:id/edit' => 'merchants#edit', as: 'merchants_edit'
 
-  patch 'merchants/:id/update' => 'merchants#update', as: 'merchant_update'
+  patch 'merchants/:id/update' => 'merchants#update', as: 'merchants_update'
 
 
   # Products controller routes

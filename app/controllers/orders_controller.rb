@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   def index
+    @orders = Merchant.find_by(session[:user_id].to_i).products.orders
   end
 
   def new
@@ -9,6 +10,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def destroy
