@@ -1,11 +1,26 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-item1:
+gooditem:
   quantity: 1
   product_id: 1
   order_id: 1
 
-item2:
+noproductlink:
+  quantity: 1
+  product_id:
+  order_id: 1
+
+noorderlink:
   quantity: 1
   product_id: 2
-  order_id: 2
+  order_id:
+
+noquantity:
+  quantity:
+  product_id: 2
+  order_id: 1
+
+quantityissue:
+  quantity: one
+  product_id: 2
+  order_id: 1
