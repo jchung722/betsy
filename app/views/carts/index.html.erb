@@ -19,14 +19,14 @@
   <% @order.orderitems.each do |orderitem| %>
     <TR>
       <TD><%= link_to orderitem.product.name, products_show_path(orderitem.product.id) %></TD>
-      <TD><%= "$#{orderitem.price/100.0}" %></TD>
+      <TD><%= number_to_currency(orderitem.price) %></TD>
       <TD>
         <%= form_for orderitem, as: 'change_quantity', url: orderitems_update_path(orderitem), method: :patch do |f| %>
           <%= f.number_field :quantity, min: 1 %>
           <%= f.submit "Update" %>
         <% end %>
       </TD>
-      <TD><%= "$#{orderitem.total/100.0}" %></TD>
+      <TD><%= number_to_currency(orderitem.total) %></TD>
       <TD><%= button_to "Delete", orderitems_destroy_path(orderitem), method: :delete %></TD>
     </TR>
   <% end %>
@@ -35,7 +35,7 @@
     <TD></TD>
     <TD></tabindex="">
     <TD></TD>
-    <TD><%= "$#{@order.total/100.0}"%></TD>
+    <TD><%= number_to_currency(@order.total)%></TD>
   </TR>
 
   </TABLE>
