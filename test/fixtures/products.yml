@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 goods:
-  id: 1
   name: Good
   price: 1
   merchant_id: 1

@@ -2,30 +2,15 @@
 
 best:
   rating: 5
-  feedback: Awesome stuff
-  product_id: 1
+  feedback: Awesome stuff :)
+  product_id: goods
 
-no_rating:
-  rating:
-  feedback: MyText
-  product_id: 1
-
-low_rating:
-  rating: 0
-  feedback: MyText
-  product_id: 1
-
-high_rating:
-  rating: 6
-  feedback: MyText
-  product_id: 1
-
-no_integer:
-  rating: five
-  feedback: MyText
-  product_id: 1
-
-no_product:
+average:
   rating: 3
-  feedback: MyText
-  product_id:
+  feedback: Alright stuff :|
+  product_id: goods
+
+worst:
+  rating: 1
+  feedback: Terrible stuff :(
+  product_id: poo

@@ -49,7 +49,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
   test "Products can have reviews" do
-    assert_equal products(:goods).reviews.length, 5
+    assert_equal products(:goods).reviews.length, 2
   end
 
   #test for categories?
