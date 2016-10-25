@@ -23,7 +23,7 @@
 
   <%= f.submit "Save" %>
 
-  <%= f.select(:category, [@category_options], {:multiple => true}) %>
+  <%= f.select({:category => @category_options}, {:multiple => true}) %>
 
   <% f.submit %>
 

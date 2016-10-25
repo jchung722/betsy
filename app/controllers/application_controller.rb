@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_merchant
-    redirect_to 'cateries_index' unless current_user
+    redirect_to 'categories_index' unless current_user
   end
 
 end
