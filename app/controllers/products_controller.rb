@@ -51,6 +51,7 @@ class ProductsController < ApplicationController
     @product.description = params[:product][:description]
     @product.photo = params[:product][:photo].to_s
     @product.stock = params[:product][:stock]
+    @product.category_ids = params[:product][:category_ids]
     @product.save
     redirect_to products_index_path
   end
