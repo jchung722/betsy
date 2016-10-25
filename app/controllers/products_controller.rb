@@ -69,7 +69,11 @@ class ProductsController < ApplicationController
     reviews.each do |review|
       average += review.rating.to_i
     end
+    if average > 0
       average = sprintf('%.2f', (average / @reviews.length.to_f))
+    else
+      average = "No ratings yet"
+    end
     return average
   end
 
