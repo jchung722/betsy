@@ -1,6 +1,16 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Merchant.find_by(session[:user_id].to_i).products.orders
+    merchant = Merchant.find_by(id: session[:user_id].to_i)
+    products = merchant.products
+    @orders = []
+    products.each do |product|
+      product.orderitems.each do |orderitem|
+        if !@orders.include?(orderitem.order)
+          @orders << orderitem.order
+        end
+      end
+    end
+
   end
 
   def new

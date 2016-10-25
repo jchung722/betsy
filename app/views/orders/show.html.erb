@@ -1,25 +1,27 @@
-<TR>
-  <TH>Product</TH>
-  <TH>Unit price</TH>
-  <TH>Quantity</TH>
-  <TH>Total</TH>
-</TR>
+<TABLE>
 
-<% @order.orderitems.each do |orderitem| %>
-<TR>
-  <TD><%= link_to orderitem.product.name, products_show_path(orderitem.product.id) %></TD>
-  <TD><%= "$#{orderitem.price/100.0}" %></TD>
-  <TD><%= orderitem.quantity %></TD>
-  <TD><%= "$#{orderitem.total/100.0}" %></TD>
-</TR>
-<% end %>
+  <TR>
+    <TH>Product</TH>
+    <TH>Unit price</TH>
+    <TH>Quantity</TH>
+    <TH>Total</TH>
+  </TR>
 
-<TR>
-<TD></TD>
-<TD></tabindex="">
-<TD></TD>
-<TD><%= "$#{@order.total/100.0}"%></TD>
-</TR>
+  <% @order.orderitems.each do |orderitem| %>
+  <TR>
+    <TD><%= link_to orderitem.product.name, products_show_path(orderitem.product.id) %></TD>
+    <TD><%= "$#{orderitem.price/100.0}" %></TD>
+    <TD><%= orderitem.quantity %></TD>
+    <TD><%= "$#{orderitem.total/100.0}" %></TD>
+  </TR>
+  <% end %>
+
+  <TR>
+  <TD></TD>
+  <TD></tabindex="">
+  <TD></TD>
+  <TD><%= "$#{@order.total/100.0}"%></TD>
+  </TR>
 
 </TABLE>
 
