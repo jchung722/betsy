@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :require_merchant, only: [:new, :create]
+  before_action :find_merchant, only: [:new, :edit]
+
+
 
   def index
     @categories = Category.all
@@ -15,10 +18,23 @@ class CategoriesController < ApplicationController
     redirect_to product_edit_path
   end
 
+  def edit
+
+  end
+
+  def update
+
+  end
+
   def show
     @category = Category.find(params[:id].to_i)
   end
 
   def destroy
   end
+  private
+  def find_merchant
+      @merchant = Merchant.find_by(id: session[:user_id].to_i)
+  end
+
 end

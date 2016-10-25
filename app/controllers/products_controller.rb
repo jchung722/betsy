@@ -30,11 +30,13 @@ class ProductsController < ApplicationController
   def new
     @action = "Create a "
     @product = Product.new
+
   end
 
   def edit
+
     @action = "Edit"
-    
+
   end
 
   def create
@@ -46,10 +48,19 @@ class ProductsController < ApplicationController
     @product.photo = params[:product][:photo].to_s
     @product.stock = params[:product][:stock]
     @product.save
-    redirect_to products_show_path(@product.id)
+    redirect_to products_index_path
   end
 
   def update
+
+    @product.name = params[:product][:name]
+    @product.price = params[:product][:price]
+    @product.description = params[:product][:description]
+    @product.photo = params[:product][:photo].to_s
+    @product.stock = params[:product][:stock]
+    @product.category = params[:product][:category]
+    @product.save
+    redirect_to products_show_path(@product.id)
   end
 
   def retire
@@ -67,5 +78,6 @@ class ProductsController < ApplicationController
   def find_product
     @product = Product.find(params[:id].to_i)
   end
+
 
 end
