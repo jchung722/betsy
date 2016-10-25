@@ -12,7 +12,7 @@ class Product < ActiveRecord::Base
             presence: true,
             numericality: { greater_than: 0 }
 
-  validates :merchant,
+  validates :merchant_id,
             presence: true
 
 end

@@ -12,9 +12,9 @@
 <% @order.orderitems.each do |orderitem| %>
   <TR>
     <TD><%= link_to orderitem.product.name, products_show_path(orderitem.product.id) %></TD>
-    <TD><%= number_to_currency(orderitem.price) %></TD>
+    <TD><%= number_to_currency(orderitem.price/100.00) %></TD>
     <TD><%= orderitem.quantity %></TD>
-    <TD><%= number_to_currency(orderitem.total) %></TD>
+    <TD><%= number_to_currency(orderitem.total/100.00) %></TD>
   </TR>
 <% end %>
 
@@ -22,7 +22,7 @@
   <TD></TD>
   <TD></tabindex="">
   <TD></TD>
-  <TD><%= number_to_currency(@order.total)%></TD>
+  <TD><%= number_to_currency(@order.total/100.00)%></TD>
 </TR>
 
 </TABLE>

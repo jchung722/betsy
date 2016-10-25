@@ -18,6 +18,8 @@
               <li><%= link_to "Merchant Login", "/auth/github" %></li>
             <% else %>
               <li><%= link_to "Logout", session_delete_path(session[:user_id]), method: :delete, data: {confirm:"End your session?"} %></li>
+            <% end %>
+            <% if current_user %>
               <li><%= link_to "Merchant Home", merchants_index_path %></li>
             <% end %>
         <li><%=link_to image_tag("cart.png"), carts_index_path, :alt => "shopping cart" %></li>

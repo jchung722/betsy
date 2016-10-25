@@ -1,25 +1,26 @@
 class CategoriesController < ApplicationController
+  before_action :require_merchant, only: [:new, :create]
+
   def index
     @categories = Category.all
   end
 
   def new
-    # Should be built out in merchant branch
+    @category = Category.new
   end
 
   def create
-    # Should be built out in merchant branch
+    @category.name = params[:category][:name]
+    @category.save
+    redirect_to product_edit_path
   end
 
   def show
     begin
-      @browse_by = Category.find(params[:id].to_i)
-      @type = "category"
-      @path = "categories_show_path"
+      @category = Category.find(params[:id].to_i)
     rescue ActiveRecord::RecordNotFound
       render :file => 'public/404.html', :status => :not_found
     end
-  end
 
   def destroy
   end

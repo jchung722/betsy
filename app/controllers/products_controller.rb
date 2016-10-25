@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   before_action :find_product, except: [:new, :create, :index]
+  before_action :require_merchant, only: [:new, :create, :edit, :retire, :update]
 
   def index
-    @merchant = Merchant.find(params[:id].to_i)
-
+    @merchant = Merchant.find_by(id: session[:user_id].to_i)
   end
 
   def show
@@ -28,21 +28,39 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @action = "Create a "
+    @product = Product.new
   end
 
   def edit
+    @action = "Edit"
+    
   end
 
   def create
+    @product = Product.create
+    @product.name = params[:product][:name]
+    @product.price = params[:product][:price]
+    @product.merchant_id = session[:user_id].to_i
+    @product.description = params[:product][:description]
+    @product.photo = params[:product][:photo].to_s
+    @product.stock = params[:product][:stock]
+    @product.save
+    redirect_to products_show_path(@product.id)
+  end
+
+  def update
   end
 
   def retire
-
     if @product.retired == true
       @product.retired = false
     else
       @product.retired = true
     end
+    @product.save
+
+    redirect_to products_index_path
   end
 
   private

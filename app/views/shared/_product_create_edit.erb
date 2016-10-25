@@ -1,19 +1,42 @@
 
-<h2> <% "#{@action} + Product" %> </h2>
+<h2> <% "#{@action} product" %> </h2>
 
-<%= form_for @product do |f|%>
+<section>
 
-  <%= f.image_field :photo, :place_holder => @product.photo, alt: "product Image"  %>
 
-  <%= f.text_field :name, :place_holder => @product.name, alt: "Product Name" %>
+<%= form_for @product, {:url => "create"} do |f| %>
 
-  <%= f.text_area :description, :place_holder => @product.description, alt: "Product Description"%>
+  <%= f.label "Product Image" %>
+  <%= f.file_field :picture %>
 
-  <%= f.integer_field :price, :place_holder => @prodcut.price, alt: "Product Price" %>
+  <%= f.label "Product Name" %>
+  <%= f.text_field :name %>
 
-  <%= f.integer_field :stock, :place_holder => @product.stock, alt: "Quantity in Stock" %>
+  <%= f.label "Description" %>
+  <%= f.text_area :description %>
 
+  <%= f.label "Price" %>
+  <%= f.number_field :price %>
+
+  <%= f.label "Quantity In Stock" %>
+  <%= f.number_field :stock %>
 
   <%= f.submit "Save" %>
 
+  <%= f.select({:category => @category_options}, {:multiple => true}) %>
+
+  <% f.submit %>
+
 <% end %>
+
+</section>
+
+<section>
+  <h2> Create a New Category </h2>
+  <%= form_for Category do |f| %>
+    <%= f.label "Category Name" %>
+    <%= f.text_field :name %>
+    <% f.submit %>
+  <% end %>
+
+</section>

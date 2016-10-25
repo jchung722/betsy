@@ -30,10 +30,10 @@ ActiveRecord::Schema.define(version: 20161021203053) do
     t.integer  "uid"
     t.string   "provider"
     t.string   "displayname"
-    t.string   "location"
-    t.string   "phone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "location"
+    t.string   "phone"
   end
 
   create_table "orderitems", force: :cascade do |t|
