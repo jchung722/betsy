@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   # Orders controller
 
-  get 'orders/index'
+  get 'orders/index' => 'orders#index', as: "orders_index"
 
   get 'orders/new'
 
@@ -50,7 +50,7 @@ Rails.application.routes.draw do
 
   get 'orders/:product_id/update' => 'orders#update', as: 'orders_update'
 
-  get 'orders/show'
+  get 'orders/:id/show' => 'orders#show', as: 'orders_show'
 
   get 'orders/destroy'
 

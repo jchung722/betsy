@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
 
 .product-tile {
@@ -32,4 +34,5 @@ nav li {
   list-style-type: none;
   display: inline-block;
   padding: 0 1% 0 1%;
+  vertical-align: middle;
 }
