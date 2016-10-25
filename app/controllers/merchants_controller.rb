@@ -1,6 +1,6 @@
 class MerchantsController < ApplicationController
   before_action :find_merchant, except: [:new, :create]
-  before_action :require_merchant, only: [:new, :create, :update]
+  before_action :require_merchant, only: [:new, :create, :update, :index, :edit]
 
   def index
 

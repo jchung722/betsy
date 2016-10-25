@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :require_merchant, only: [:index, :show]
+
   def index
     merchant = Merchant.find_by(id: session[:user_id].to_i)
     @orders = merchant.orders
