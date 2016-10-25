@@ -2,17 +2,12 @@
 
 orderitem1:
   quantity: 1
-  product: farts
+  product: shoes
   order: testorder1
 
 orderitem2:
   quantity: 2
   product: poo
-  order: testorder1
-
-orderitem3:
-  quantity: 3
-  product: shoes
   order: testorder1
 
 orderitem4:

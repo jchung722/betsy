@@ -1,17 +1,24 @@
 class OrderitemsController < ApplicationController
   def create
-    if session[:order]
-      order = Order.find(session[:order])
-    else
-      order = Order.new(status: 'pending')
-    end
+    begin
+      if session[:order]
+        order = Order.find(session[:order])
+      else
+        order = Order.new(status: 'pending')
+      end
 
-    orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], status: 'pending')
-    order.orderitems << orderitem
-    puts order.save
-    puts orderitem.save
-    session[:order] = order.id
-    flash[:notice] = "Item added to cart! Quantity: #{params[:add_to_cart][:quantity]}"
+      orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], status: 'pending')
+      order.orderitems << orderitem
+      order.save
+      orderitem.save
+
+      session[:order] = order.id
+      flash[:notice] = "Item added to cart! Quantity: #{params[:add_to_cart][:quantity]}"
+    rescue ActiveRecord::RecordNotFound
+      flash[:notice] = "The item was not added because your cart could not be found. Your cart has now been reset; please try adding the item again."
+    rescue ActiveRecord::RecordNotSaved
+      flash[:notice] = "There was an error adding the item to your cart. Please try again."
+    end
     redirect_to products_show_path(params[:product_id])
   end
 
