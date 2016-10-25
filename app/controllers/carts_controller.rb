@@ -63,6 +63,7 @@ class CartsController < ApplicationController
   private
 
   def order_params
+
     filtered = params.require(:order).permit(:name, :address, :email, :city, :state, :zip, :card_name, :card_num, :cvv, :billing_zip, :expiry)
     base_date = DateTime.new(filtered['expiry(1i)'].to_i, filtered['expiry(2i)'].to_i)
     filtered.delete('expiry(3i)')
