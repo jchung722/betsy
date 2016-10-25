@@ -6,13 +6,13 @@
 
 <% @categories.each do |category| %>
 
-  <% if category.products.first != nil %>
-    <div class="product-tile">
-
+  <div class="product-tile">
+    <%if category.products.first && category.products.first.photo && category.products.first.photo != "" %>
       <%= image_tag category.products.first.photo, alt: category.name %>
-      <p><%= link_to category.name, categories_show_path(category.id) %></p>
-    </div>
-  <% end %>
-
+    <%else %>
+      <%= image_tag 'default_uni.jpg', alt: category.name %>
+    <% end %>
+    <p><%= link_to category.name, categories_show_path(category.id) %></p>
+  </div>
 
 <% end %>
