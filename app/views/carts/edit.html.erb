@@ -42,7 +42,7 @@
   <%= f.label :billing_zip %>
   <%= f.text_field :billing_zip %>
 
-  <p>When you push the "Complete transaction" button, your credit card will be charged $<%= @order.total/100.0   %></p>
+  <p>When you push the "Complete transaction" button, your credit card will be charged <%= number_to_currency(@order.total/100.00) %></p>
 
   <%= f.submit "Complete transaction" %>
 

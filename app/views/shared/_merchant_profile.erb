@@ -1,9 +1,13 @@
-# render shared header here
 
 <%= flash[:notice] %>
 
-<h1>Sign-up as a Unicorns 'R' Us Merchant</h1>
-<h3>Provide the following information: </h3>
+<% if current_user %>
+  <%= "Edit #{@merchant.displayname}:" %>
+<% else %>
+  <h1>Sign-up as a Unicorns 'R' Us Merchant</h1>
+  <h3>Provide the following information: </h3>
+<% end %>
+
 
 <%= form_for @merchant, url: merchants_update_path do |f| %>
 
