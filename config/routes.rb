@@ -107,6 +107,10 @@ Rails.application.routes.draw do
 
   get 'categories/create'
 
+  get 'categories/edit' => 'categories_edit'
+
+  patch 'categories/update'
+
   get 'categories/show/:id' => "categories#show", as: "categories_show"
 
   get 'categories/destroy'
