@@ -5,17 +5,20 @@ class ReviewTest < ActiveSupport::TestCase
     assert true
   end
 
-  test "Rating must be present to be valid review and must correctly call attributes" do
-    #correctly calls attributes of valid Review object
+  test "Rating must be present to be valid" do
+    #Best Review object has rating and is therefore valid.
     assert reviews(:best).valid?
-    assert_equal reviews(:best).rating, 5
-    assert_equal reviews(:best).feedback, "Awesome stuff :)"
-    assert_equal reviews(:best).product, products(:goods)
 
     #no rating makes the object invalid
     reviews(:best).rating = nil
     assert_not reviews(:best).valid?
   end
+
+   test "Review must correctly call attributes" do
+     assert_equal reviews(:best).rating, 5
+     assert_equal reviews(:best).feedback, "Awesome stuff :)"
+     assert_equal reviews(:best).product, products(:goods)
+   end
 
   test "Rating must be an integer between 1 and 5." do
     #Average Review object is initially valid
