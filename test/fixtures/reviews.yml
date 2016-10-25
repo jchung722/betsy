@@ -3,14 +3,14 @@
 best:
   rating: 5
   feedback: Awesome stuff :)
-  product_id: goods
+  product: goods
 
 average:
   rating: 3
   feedback: Alright stuff :|
-  product_id: goods
+  product: goods
 
 worst:
   rating: 1
   feedback: Terrible stuff :(
-  product_id: poo
+  product: poo
