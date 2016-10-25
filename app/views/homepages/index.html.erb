@@ -8,7 +8,11 @@
 <% @categories.each do |category| %>
 
   <section class="product-tile">
-    <%= image_tag category.products.first.photo, alt: category.name %>
+    <%if category.products.first && category.products.first.photo && category.products.first.photo != "" %>
+      <%= image_tag category.products.first.photo, alt: category.name %>
+    <%else %>
+      <%= image_tag 'default_uni.jpg', alt: category.name %>
+    <% end %>
     <p><%= link_to category.name, categories_show_path(category.id) %></p>
   </section>
 
