@@ -33,7 +33,9 @@ class CartsController < ApplicationController
     begin
       if session[:order]
         @order = Order.find(session[:order])
-        if @order.update(order_params, status: "paid", placed_at: DateTime.now)
+        @order.assign_attributes(order_params)
+        @order.assign_attributes(status: "paid", placed_at: DateTime.now)
+        if @order.save
           @order.update_stock
           session[:order] = nil
         else

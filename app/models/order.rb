@@ -30,7 +30,7 @@ class Order < ActiveRecord::Base
 
   def update_stock
 
-    @order.orderitems.each do |orderitem|
+    self.orderitems.each do |orderitem|
       product = orderitem.product
       product.stock -= orderitem.quantity
       product.save
