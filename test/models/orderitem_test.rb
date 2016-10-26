@@ -48,11 +48,13 @@ class OrderitemTest < ActiveSupport::TestCase
   end
 
   test "Total method should correctly calculate total price of orderitem" do
-
+    #orderitem2.total = 2 * 899 = 1798
+    assert_equal orderitems(:orderitem2).total, 1798
   end
 
   test "Price method should return correct price of orderitem" do
-
+    #orderitem1.price = orderitem1.product.price = 2999
+    assert_equal orderitems(:orderitem1).price, 2999
   end
 
 end
