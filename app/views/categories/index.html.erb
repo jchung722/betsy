@@ -5,7 +5,7 @@
 <% @categories.each do |category| %>
 
   <div class="product-tile">
-    <%if category.products.first && category.products.first.photo && category.products.first.photo != "" && category.products.retired != true %>
+    <%if category.products.first && category.products.first.photo && category.products.first.photo != "" %>
       <%= image_tag category.products.first.photo, alt: category.name %>
     <%else %>
       <%= image_tag 'default_uni.jpg', alt: category.name %>

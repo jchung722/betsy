@@ -5,7 +5,17 @@ class ApplicationController < ActionController::Base
 
   # this allow us to block guests from certain pages:
   helper_method :current_user
+  helper_method :active_products
 
+  def active_products
+    @products = []
+    Product.each do |p|
+      if p.retired == false
+        @products << p
+      end
+    end
+    return @products
+  end
 
 
   # if @current_user is not set then Merchant.find_by(id) will set the current_user
