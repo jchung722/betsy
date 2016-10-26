@@ -20,7 +20,7 @@ class CategoriesControllerTest < ActionController::TestCase
 
   test "index should be able to load even if a category contains no products" do
     # Disconnect products from the apparel category
-    assert categories(:apparel).products.length == 2
+    assert categories(:apparel).products.length == 3
     categories(:apparel).products = []
     categories(:apparel).save
     products(:shoes).categories = []
