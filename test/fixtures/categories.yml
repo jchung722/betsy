@@ -2,7 +2,7 @@
 
 apparel:
   name: Apparel
-  products: shoes, shirt
+  products: shoes, shirt, goods
 
 foods:
   name: Foods

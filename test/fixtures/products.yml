@@ -1,5 +1,24 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+minimalproduct:
+  name: Minimal Product
+  price: 1
+  merchant: bob
+  description:
+  photo:
+  stock:
+  retired:
+
+goods:
+  name: Good
+  price: 1000
+  merchant: bob
+  description: Some good product
+  photo: photourl
+  stock: 1
+  retired: false
+  categories: apparel
+
 shoes:
   name: Unicorn Flats
   price: 2999

@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class MerchantsControllerTest < ActionController::TestCase
+
   # test "should get index" do
   #   get :index
   #   assert_response :success
@@ -20,5 +21,4 @@ class MerchantsControllerTest < ActionController::TestCase
   #   get :create
   #   assert_response :success
   # end
-
 end

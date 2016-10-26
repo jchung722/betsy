@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  rating: 1
-  feedback: MyText
-  product_id: 
+best:
+  rating: 5
+  feedback: Awesome stuff :)
+  product: goods
 
-two:
+average:
+  rating: 3
+  feedback: Alright stuff :|
+  product: goods
+
+worst:
   rating: 1
-  feedback: MyText
-  product_id: 
+  feedback: Terrible stuff :(
+  product: poo

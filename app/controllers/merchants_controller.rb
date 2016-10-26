@@ -1,6 +1,6 @@
 class MerchantsController < ApplicationController
   before_action :find_merchant, except: [:new, :create]
-  before_action :require_merchant, only: [:new, :create, :update, :index, :edit]
+  before_action :require_merchant, except: [:show]
 
   def index
 
@@ -26,6 +26,7 @@ class MerchantsController < ApplicationController
     @merchant.displayname = params[:merchant][:displayname]
     @merchant.location = params[:merchant][:location]
     @merchant.phone = params[:merchant][:phone]
+    @merchant.photo = params[:merchant][:photo]
     @merchant.save
     redirect_to merchants_index_path(@merchant.id)
   end
