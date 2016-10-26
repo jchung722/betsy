@@ -20,7 +20,7 @@ class StoresControllerTest < ActionController::TestCase
 
   test "index should be able to load even if a store (merchant) has no products" do
     # Disconnect Bob's only product
-    assert merchants(:bob).products.length == 2
+    assert merchants(:bob).products.length == 4
     merchants(:bob).products = []
     merchants(:bob).save
     products(:shoes).merchant = nil
