@@ -2,18 +2,35 @@
 <p><%= flash[:notice] %></p>
 <% end %>
 
-<h1>Welcome to Unicorns "R" Us!</h1>
-<p>Meeting all your unicorn needs since 2016.</p>
+<h1>Top Picks</h1>
+<!-- Wrapper Around Orbit -->
+<div class="orbit" role="region" aria-label="Chuck Norris Quotes" data-orbit>
+  <!-- Previous and Next Buttons -->
+  <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span> &#9664;&#xFE0E;</button>
+<button class="orbit-next"><span class="show-for-sr">Next Slide</span> &#9654;&#xFE0E;</button>
 
-<% @categories.each do |category| %>
+<!-- Unordered List of photos or text for carousel -->
+  <ul class="orbit-container">
+      <li class="orbit-slide">
+        <%= image_tag "horn_magic_cookie.png", alt: "Horn Cookie", class: "orbit_img"%>
+      </li>
+      <li class="orbit-slide">
+        <%= image_tag "uni_platforms.png", alt: "Platform Shoes", class: "orbit_img" %>
+      </li>
+      <li class="orbit-slide">
+        <%= image_tag "uni_puke_mug.png", alt: "Mug", class: "orbit_img" %>
+      </li>
+      <li class="orbit-slide">
+        <%= image_tag "my_unicorn_necklace.png", alt: "Necklace", class: "orbit_img" %>
+      </li>
 
-  <section class="product-tile">
-    <%if category.products.first && category.products.first.photo && category.products.first.photo != "" %>
-      <%= image_tag category.products.first.photo, alt: category.name %>
-    <%else %>
-      <%= image_tag 'default_uni.jpg', alt: category.name %>
-    <% end %>
-    <p><%= link_to category.name, categories_show_path(category.id) %></p>
-  </section>
-
-<% end %>
+  <!-- More slides go here... -->
+</ul>
+<!-- Navigation Buttons for Accessibility -->
+<nav class="orbit-bullets">
+  <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+  <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+  <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+  <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+</nav>
+</div>
