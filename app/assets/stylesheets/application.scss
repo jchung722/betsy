@@ -45,3 +45,25 @@ header * {
   display: inline-block;
   margin-top: 1%;
 }
+
+header {
+  border-bottom: 1px solid black;
+}
+
+header h1 {
+    margin-left: 2%;
+}
+
+header, footer {
+  background-color: mintcream;
+}
+
+footer {
+  border-top: 1px solid black;
+  padding-bottom: .5%;
+  text-align: center;
+}
+
+footer p {
+  margin-top: 1%;
+}
