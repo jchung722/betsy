@@ -1,6 +1,6 @@
 
 
-
+<%= "#{@merchant.displayname}" %>
 
 <h3>Current Product List:</h3>
 <% @merchant.products.each do |product| %>
@@ -18,6 +18,9 @@
   <% else %>
     <%= button_to "Activate", products_retire_path(product.id), method: :patch %>
   <% end %>
+</div>
+<div>
+  <%= link_to "Edit", product_edit_path(product.id) %>
 </div>
 
 <% end %>

@@ -32,15 +32,13 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @action = "Create a "
+    @action = "Create"
     @product = Product.new
 
   end
 
   def edit
-
     @action = "Edit"
-
   end
 
   def create
@@ -60,12 +58,13 @@ class ProductsController < ApplicationController
 
     @product.name = params[:product][:name]
     @product.price = params[:product][:price]
+    @product.merchant_id = session[:user_id].to_i
     @product.description = params[:product][:description]
     @product.photo = params[:product][:photo].to_s
     @product.stock = params[:product][:stock]
-    @product.category = params[:product][:category]
+    @product.category_ids = params[:product][:category_ids]
     @product.save
-    redirect_to products_show_path(@product.id)
+    redirect_to products_index_path
   end
 
   def retire

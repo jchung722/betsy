@@ -11,6 +11,9 @@
 
 <%= form_for @merchant, url: merchants_update_path do |f| %>
 
+  <%= f.label "Profile Image URL" %>
+  <%= f.text_field :photo %>
+
   <%= f.label "Store Name" %>
   <%= f.text_field :displayname, :place_holder => "Your Store Name" %>
 

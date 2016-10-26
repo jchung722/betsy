@@ -7,13 +7,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
 
+
   # if @current_user is not set then Merchant.find_by(id) will set the current_user
   def current_user
     @current_user ||= Merchant.find_by(id: session[:user_id]) if session[:user_id]
   end
-
+  private
   def require_merchant
-    redirect_to 'categories_index' unless current_user
+     unless current_user
+       flash[:notice] = "You must be logged in to access merchant section"
+       redirect_to homepages_index_path
+     end
   end
 
 end

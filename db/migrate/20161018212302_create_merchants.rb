@@ -8,7 +8,7 @@ class CreateMerchants < ActiveRecord::Migration
       t.string :displayname
       t.string :location
       t.string :phone
-
+  
       t.timestamps null: false
     end
   end
