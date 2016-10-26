@@ -12,5 +12,5 @@ orderitem2:
 
 orderitem4:
   quantity: 1
-  product_id: poo
+  product: poo
   order: testorder2

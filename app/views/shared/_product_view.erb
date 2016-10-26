@@ -14,9 +14,13 @@
   <p>Stock: <%= @product.stock %></p>
   <p>Overall Rating: <%= @average %> <%= image_tag("rating.png", :size => "20", :alt => "rating unicorn")%></p>
 
-  <%= form_for @orderitem, as: 'add_to_cart', url: @url, method: @method do |f| %>
-    <%= f.number_field :quantity, min: 1 %>
-    <%= f.submit "Add to cart" %>
+  <% if @product.stock <= 0 %>
+    <p> <strong>SOLD OUT! Please try back later.</strong></p>
+  <% else %>
+    <%= form_for @orderitem, as: 'add_to_cart', url: @url, method: @method do |f| %>
+      <%= f.number_field :quantity, min: 1 %>
+      <%= f.submit "Add to cart" %>
+    <% end %>
   <% end %>
 
   <p><%= link_to "See my Cart", carts_index_path %></p>
