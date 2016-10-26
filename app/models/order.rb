@@ -14,6 +14,14 @@ class Order < ActiveRecord::Base
     return total
   end
 
+  def totals
+    total = 0
+    self.each do |orderitem|
+      total += orderitem.total
+    end
+    return total
+  end
+
   def has_product (product_id)
 
     self.orderitems.each do |orderitem|
@@ -38,4 +46,13 @@ class Order < ActiveRecord::Base
 
   end
 
+  def find_merchant_order_items(user_id)
+    orderitems = []
+    self.orderitems.each do |orderitem|
+      if orderitem.product.merchant_id == user_id.to_i
+        orderitems << orderitem
+      end
+    end
+    return orderitems
+  end
 end
