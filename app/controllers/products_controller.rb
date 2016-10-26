@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @action = "Create"
+    @action = "create"
     @product = Product.new
 
   end
@@ -50,6 +50,7 @@ class ProductsController < ApplicationController
     @product.photo = params[:product][:photo].to_s
     @product.stock = params[:product][:stock]
     @product.category_ids = params[:product][:category_ids]
+    @product.retired = false
     @product.save
     redirect_to products_index_path
   end

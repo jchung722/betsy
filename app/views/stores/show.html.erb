@@ -2,7 +2,7 @@
 <h1><%= @store.displayname %></h1>
 
 
-<% @store.active_products.each do |product| %>
+<% @products.each do |product| %>
 
   <div class="product-tile">
     <% if product.photo && product.photo != "" %>

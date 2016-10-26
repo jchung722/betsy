@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def active_products
     @products = []
-    Product.each do |p|
+    Product.all.each do |p|
       if p.retired == false
         @products << p
       end
