@@ -32,6 +32,7 @@ class CategoriesController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       render :file => 'public/404.html', :status => :not_found
     end
+      @products = active_products.select {|product| product.category_ids == @category.id}
   end
 
   def destroy
