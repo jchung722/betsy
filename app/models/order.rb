@@ -14,14 +14,6 @@ class Order < ActiveRecord::Base
     return total
   end
 
-  def totals
-    total = 0
-    self.each do |orderitem|
-      total += orderitem.total
-    end
-    return total
-  end
-
   def has_product (product_id)
 
     self.orderitems.each do |orderitem|
