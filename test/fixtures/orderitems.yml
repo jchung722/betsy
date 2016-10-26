@@ -1,5 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+gooditem:
+  quantity: 1
+  product: goods
+  order: goodorder
+
 orderitem1:
   quantity: 1
   product: shoes
@@ -12,5 +17,5 @@ orderitem2:
 
 orderitem4:
   quantity: 1
-  product_id: poo
+  product: poo
   order: testorder2
