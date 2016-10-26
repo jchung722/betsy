@@ -18,6 +18,7 @@ class ReviewTest < ActiveSupport::TestCase
      assert_equal reviews(:best).rating, 5
      assert_equal reviews(:best).feedback, "Awesome stuff :)"
      assert_equal reviews(:best).product, products(:goods)
+     assert reviews(:worst).rating != 5
    end
 
   test "Rating must be an integer between 1 and 5." do

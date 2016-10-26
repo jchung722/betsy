@@ -2,28 +2,8 @@
 
 gooditem:
   quantity: 1
-  product_id: goods
-  order_id: 1
-
-noproductlink:
-  quantity: 1
-  product_id:
-  order_id: 1
-
-noorderlink:
-  quantity: 1
-  product_id: 2
-  order_id:
-
-noquantity:
-  quantity:
-  product_id: 2
-  order_id: 1
-
-quantityissue:
-  quantity: one
-  product_id: 2
-  order_id: 1
+  product: goods
+  order: goodorder
 
 orderitem1:
   quantity: 1
