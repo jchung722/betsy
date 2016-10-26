@@ -18,6 +18,13 @@ class CartsController < ApplicationController
     begin
       if session[:order]
         @order = Order.find(session[:order])
+        if @order.remove_backordered?
+          if !Order.find_by(id: session[:order])
+            session[:order] = nil
+          end
+          flash[:notice] = "Some of your order items are no longer in stock. The backordered items were removed from your order. Please review your order and press 'Check out' or continue shopping."
+          redirect_to carts_index_path
+        end
       else
         flash[:notice] = "Your cart is empty! Please add something to your cart before you check out."
         redirect_to carts_index_path
