@@ -73,6 +73,8 @@ Rails.application.routes.draw do
 
   get 'products/index'
 
+  post '/products/create'
+
   get 'products/:id/reviews/new' => 'reviews#new', as: "reviews_new"
 
   post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
@@ -84,8 +86,6 @@ Rails.application.routes.draw do
   get 'products/show/:id' => "products#show", as: "products_show"
 
   post 'products/new' => "products#new", as: "products_new"
-
-  post 'products/create'
 
 
 

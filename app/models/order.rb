@@ -46,6 +46,7 @@ class Order < ActiveRecord::Base
 
   end
 
+
   def find_merchant_order_items(user_id)
     orderitems = []
     self.orderitems.each do |orderitem|
@@ -55,4 +56,24 @@ class Order < ActiveRecord::Base
     end
     return orderitems
   end
+
+  def remove_backordered?
+    there_are_backordered_items = false
+    self.orderitems.each do |orderitem|
+      product = orderitem.product
+      if product.stock <= 0 # If an item is fully out of stock, remove it from the cart
+        if self.orderitems.length == 1
+          self.destroy
+        end
+        orderitem.destroy
+        there_are_backordered_items = true
+      elsif product.stock < orderitem.quantity  # If an item has too little stock to fill the order fully, reduce the quantity
+        orderitem.quantity = product.stock
+        orderitem.save
+        there_are_backordered_items = true
+      end
+    end
+    return there_are_backordered_items
+  end
+
 end
