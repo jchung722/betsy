@@ -2,9 +2,6 @@
 <p><%= flash[:notice] %></p>
 <% end %>
 
-<h1>Unicorns "R" Us</h1>
-<p>Meeting all your unicorn needs since 2016.</p>
-
   <div class="product-tile">
     <!-- #product_show_path(merchant.id) -->
     <p><%= link_to "Manage Your Products", products_index_url %></p>
@@ -14,7 +11,7 @@
   <div class="product-tile">
     <!-- #merchant_show_path(merchant.id) -->
     <p><%= link_to "Edit Your Profile", merchants_edit_path(@merchant.id) %></p>
-    <%= image_tag("unicorn_merchant.jpg", :alt => "unicorn") %>
+    <%= image_tag(@merchant.photo, :alt => "unicorn") %>
   </div>
 
   <div class="product-tile">

@@ -37,7 +37,7 @@ nav li {
   vertical-align: middle;
 }
 
-.row {
+header nav {
   float: right;
 }
 
@@ -48,10 +48,17 @@ header * {
 
 header {
   border-bottom: 1px solid black;
+  width: 100%;
 }
 
 header h1 {
     margin-left: 2%;
+}
+
+header img {
+  width: 75%;
+  height: auto;
+  margin-left: 7%;
 }
 
 header, footer {

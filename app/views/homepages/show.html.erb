@@ -3,7 +3,7 @@
 <h1>Browse all our great products</h1>
 
 
-<% @products.each do |product| %>
+<% active_products.each do |product| %>
 
   <div class="product-tile">
     <% if product.photo && product.photo != "" %>

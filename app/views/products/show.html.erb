@@ -2,6 +2,6 @@
  <%= render partial: "shared/product_view" %>
 
 
- <% if current_user %>
-    <%= link_to "Edit",  products_edit_path(@product.id) %>
+ <% if current_user.id == @product.merchant_id %>
+    <%= button_to "Edit",  products_edit_path(@product.id) %>
  <% end %>
