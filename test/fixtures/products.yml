@@ -58,3 +58,13 @@ poo:
   stock: 20
   retired: false
   categories: foods
+
+retired_item:
+  name: Retired Product
+  price: 1899
+  merchant: jane
+  description: Not available
+  photo: default_uni.png
+  stock: 20
+  retired: true
+  categories: foods
