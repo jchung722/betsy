@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
   before_action :require_merchant, only: [:index, :show]
-
+  has_scope :status
   def index
     merchant = Merchant.find_by(id: session[:user_id].to_i)
     @orders = merchant.orders
+    @otherorders = apply_scopes(Order).all
   end
 
   def new
@@ -30,6 +31,14 @@ class OrdersController < ApplicationController
 
   def update
 
+  end
+
+  def complete
+    @order = Order.find(params[:id])
+    @order.status = "complete"
+    @order.save
+
+    redirect_to orders_show_path
   end
 
 end

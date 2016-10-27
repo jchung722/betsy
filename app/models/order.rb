@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
   validates :orderitems,
             presence: true
 
+  scope :status, lambda{|status| where('status = ?', status )}
+
   def total
     total = 0
 

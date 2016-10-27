@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   delete 'orderitems/:id/destroy' => 'orderitems#destroy', as: 'orderitems_destroy'
 
+  patch 'orderitems/:id/fulfill' => 'orderitems#fulfill', as: 'orderitems_fulfill'
+
   # Carts controller
 
   get 'carts/index'
@@ -53,6 +55,8 @@ Rails.application.routes.draw do
   get 'orders/:id/show' => 'orders#show', as: 'orders_show'
 
   get 'orders/destroy'
+
+  patch 'orders/:id/complete' => 'orders#complete', as: 'orders_complete'
 
   # merchant controller
 

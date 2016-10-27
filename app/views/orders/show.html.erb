@@ -13,7 +13,13 @@
     <TD><%= link_to orderitem.product.name, products_show_path(orderitem.product.id) %></TD>
     <TD><%= "$#{orderitem.price/100.00}" %></TD>
     <TD><%= orderitem.quantity %></TD>
-    <TD><%= orderitem.status %></TD>
+    <TD>
+      <% if orderitem.status == "unfulfilled" %>
+        <%= button_to "Unfulfilled", orderitems_fulfill_path(orderitem.id), method: :patch %>
+      <% else %>
+        <%= orderitem.status %>
+      <% end %>
+    </TD>
     <TD><%= "$#{orderitem.total/100.00}" %></TD>
   </TR>
   <% end %>
@@ -22,12 +28,21 @@
   <TD></TD>
   <TD></tabindex="">
   <TD></TD>
-  <TD></TD>
+  <TD>
+    <% if complete_check(@orderitems) == true && @order.status == "paid" %>
+      <%= button_to "Complete Your Order!", orders_complete_path(@order), method: :patch %>
+    <% end %>
+  </TD>
   <TD><%= "$#{final_total(@orderitems)/100.0}"%></TD>
   </TR>
 
 </TABLE>
 
 
-<p>Order Status: <%= @order.status %>.</p>
+<p>Order Status: <%= @order.status %> </p>
+
+<% if complete_check(@orderitems) == true && @order.status == "paid" %>
+  <%= button_to "Complete Your Order!", orders_complete_path(@order), method: :patch %>
+<% end %>
+
 <p>Order was placed at: <%= @order.placed_at %>.</p>
