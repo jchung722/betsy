@@ -89,15 +89,13 @@ class CartsControllerTest < ActionController::TestCase
     assert_equal orders(:testorder1).card_num, '0000000000000000'
   end
 
-  test "if no order ID is stored in the session, update should not alter the record and should redirect to the index with an error method" do
+  test "if no order ID is stored in the session, update should redirect to the index with an error message" do
     session[:order] = nil
 
     get :update, {order: {name: 'Bill the Cat', address: 'Bloom Boarding House', email: 'bill@thecat.com', city: 'Bloom County', state: 'NA', zip: '00000', card_name: "Berkeley Breathed", card_num: '0000000000000000', cvv: '111', billing_zip: '00000', :'expiry(3i)' => '1', :'expiry(2i)' => '1', :'expiry(1i)' => '2016'}}
-    orders(:testorder1).reload
 
     assert_response :redirect
     assert_equal flash[:notice], "Sorry, your cart could not be found. Please try again."
-    assert !orders(:testorder1).name
   end
 
   test "if any items have a stock of 0 when a person tries to check out, the items should be removed from the order" do
