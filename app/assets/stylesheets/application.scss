@@ -15,6 +15,24 @@
  *= require foundation_and_overrides
 
  */
+// import google fonts
+@import url('https://fonts.googleapis.com/css?family=Mystery+Quest|Numans');
+
+// Font variables to use in css
+$display-font: 'Mystery Quest', cursive;
+$body-font: 'Numans', sans-serif;
+
+body {
+  font-family: $body-font;
+}
+
+header * {
+  font-family: $display-font
+}
+
+h1, h2, h3, h4 {
+  font-family: $body-font;
+}
 
 .product-tile {
   display: inline-block;
@@ -28,20 +46,4 @@
 .product-tile img {
   padding-top: 30px;
   max-height: 180px;
-}
-
-nav li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 0 1% 0 1%;
-  vertical-align: middle;
-}
-
-// .row {
-//   float: right;
-// }
-
-header * {
-  display: inline-block;
-  margin-top: 1%;
 }
