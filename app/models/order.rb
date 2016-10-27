@@ -16,6 +16,7 @@ class Order < ActiveRecord::Base
   validates :expiry, presence: true, if: :buyer_info_needed?
   validates :cvv, presence: true, numericality: true, length: {minimum: 3, maximum: 4}, if: :buyer_info_needed?
   validates :billing_zip, presence: true, numericality: true, length: {minimum: 5, maximum: 5}, if: :buyer_info_needed?
+  validates :placed_at, presence: true, if: :buyer_info_needed?
 
   def total
     total = 0

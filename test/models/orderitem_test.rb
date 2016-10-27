@@ -35,6 +35,12 @@ class OrderitemTest < ActiveSupport::TestCase
     assert_not orderitems(:gooditem).valid?
   end
 
+  test "Orderitem without price value is invalid" do
+    #Set known valid orderitem's quantity to nil; should invalid
+    orderitems(:gooditem).price = nil
+    assert_not orderitems(:gooditem).valid?
+  end
+
   test "Quantity must be an integer and greater than 0 to be valid" do
     #Set known valid orderitem's quantity to string; should be invalid
     orderitems(:gooditem).quantity = "one"
@@ -48,13 +54,14 @@ class OrderitemTest < ActiveSupport::TestCase
   end
 
   test "Total method should correctly calculate total price of orderitem" do
-    #orderitem2.total = 2 * 899 = 1798
-    assert_equal orderitems(:orderitem2).total, 1798
+    #orderitem2.total = 2 * 1199 = 2398
+    assert_equal orderitems(:orderitem2).total, 2398
   end
 
-  test "Price method should return correct price of orderitem" do
+  test "Price attribute should return correct price of orderitem (and not potentially different current price of its product)" do
     #orderitem1.price = orderitem1.product.price = 2999
-    assert_equal orderitems(:orderitem1).price, 2999
+    assert_equal orderitems(:orderitem1).price, 1999
+    assert orderitems(:orderitem1).price != orderitems(:orderitem1).product.price
   end
 
 end
