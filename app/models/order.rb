@@ -57,4 +57,16 @@ class Order < ActiveRecord::Base
     return there_are_backordered_items
   end
 
+  def update_prices?
+    there_are_updated_prices = false
+    self.orderitems.each do |orderitem|
+      product = orderitem.product
+      if orderitem.price != product.price # If an item's price has changed
+        orderitem.update(price: product.price)
+        there_are_updated_prices = true
+      end
+    end
+    return there_are_updated_prices
+  end
+
 end

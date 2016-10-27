@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @action = "Edit"
+    @action = "update"
   end
 
   def create
