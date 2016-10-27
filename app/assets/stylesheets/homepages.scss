@@ -1,3 +1,28 @@
 // Place all the styles related to the homepages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+img.orbit_img {
+    display:block;
+    margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.orbit-previous {
+    margin-left: 375px;
+    color: black;
+}
+
+.orbit-next {
+    margin-right: 375px;
+    color: black;
+}
+
+.orbit-caption {
+  background-color: white;
+  color: black;
+  text-align: center;
+}
