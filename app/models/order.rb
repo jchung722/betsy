@@ -71,6 +71,12 @@ class Order < ActiveRecord::Base
     return there_are_backordered_items
   end
 
+  def destroy_items
+    self.orderitems.each do |orderitem|
+      orderitem.destroy
+    end
+  end
+
   def update_prices?
     there_are_updated_prices = false
     self.orderitems.each do |orderitem|

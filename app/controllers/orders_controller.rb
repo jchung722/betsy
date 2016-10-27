@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
   def destroy
     begin
       @order = Order.find(session[:order])
+      @order.destroy_items
       @order.destroy
       session[:order] = nil
       redirect_to carts_index_path
