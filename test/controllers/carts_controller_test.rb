@@ -46,6 +46,16 @@ class CartsControllerTest < ActionController::TestCase
     assert !session[:order]
   end
 
+  test "if an invalid order ID is stored in the session, the update method should redirect to the carts index with a message" do
+    session[:order] = -1
+    get :update
+    assert_equal flash[:notice], "An error occurred and your cart could not be found. Your cart has been reset so you can continue shopping."
+    assert_response :redirect
+    assert_redirected_to carts_index_path
+    assert !session[:order]
+  end
+
+
   # Note: the edit form is not currently gated on any of its values. I.e., we are not checking to see if the user
   # puts in the right thing or even supplies a value. This would be a good thing to do in the next round of edits.
 

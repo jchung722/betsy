@@ -29,10 +29,10 @@ class CategoriesController < ApplicationController
   def show
     begin
       @category = Category.find(params[:id].to_i)
+      @products = active_products.select {|product| product.category_ids.include? (@category.id)}
     rescue ActiveRecord::RecordNotFound
       render :file => 'public/404.html', :status => :not_found
     end
-      @products = active_products.select {|product| product.category_ids.include? (@category.id)}
   end
 
   def destroy
