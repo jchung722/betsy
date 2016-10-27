@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @orderitems = Order.find(params[:id]).find_merchant_order_items(session[:user_id])
+    @orderitems = @order.find_merchant_order_items(session[:user_id])
   end
 
   def destroy

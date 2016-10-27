@@ -4,6 +4,7 @@
     <TH>Product</TH>
     <TH>Unit price</TH>
     <TH>Quantity</TH>
+    <TH>Status</TH>
     <TH>Total</TH>
   </TR>
 
@@ -12,6 +13,7 @@
     <TD><%= link_to orderitem.product.name, products_show_path(orderitem.product.id) %></TD>
     <TD><%= "$#{orderitem.price/100.00}" %></TD>
     <TD><%= orderitem.quantity %></TD>
+    <TD><%= orderitem.status %></TD>
     <TD><%= "$#{orderitem.total/100.00}" %></TD>
   </TR>
   <% end %>
@@ -19,6 +21,7 @@
   <TR>
   <TD></TD>
   <TD></tabindex="">
+  <TD></TD>
   <TD></TD>
   <TD><%= "$#{final_total(@orderitems)/100.0}"%></TD>
   </TR>

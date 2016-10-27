@@ -11,7 +11,7 @@
       <tr>
         <td><%= link_to "Order ID: #{order.id}", orders_show_path(order.id) %></td>
         <td><%= order.status %></td>
-        <td><%= %></td>
+        <td><%= "$#{final_total(order.find_merchant_order_items(session[:user_id]))/100.0}" %></td>
     </tr>
   <% end %>
 </table>
