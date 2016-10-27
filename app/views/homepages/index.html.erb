@@ -13,25 +13,25 @@
   <ul class="orbit-container">
       <li class="orbit-slide">
         <%= image_tag "horn_magic_cookie.png", alt: "Horn Cookie", class: "orbit_img"%>
-        <figcaption class="orbit-caption">Magical Unicorn Horn Cookie</figcaption>
+        <figcaption class="orbit-caption"><%= link_to "Unicorn Horn Cookie", products_show_path(21) %></figcaption>
       </li>
       <li class="orbit-slide">
         <%= image_tag "uni_pllw.png", alt: "Unicorn Pillow", class: "orbit_img" %>
-        <figcaption class="orbit-caption">Unicorn Pillow Sham</figcaption>
+        <figcaption class="orbit-caption"><%= link_to "Unicorn Pillow Sham", products_show_path(14) %></figcaption>
       </li>
       <li class="orbit-slide">
         <%= image_tag "uni_puke_mug.png", alt: "Mug", class: "orbit_img" %>
-        <figcaption class="orbit-caption">Unicorn Puke Mug</figcaption>
+        <figcaption class="orbit-caption"><%= link_to "Unicorn Fun Mug", products_show_path(3) %></figcaption>
       </li>
       <li class="orbit-slide">
         <%= image_tag "my_unicorn_necklace.png", alt: "Necklace", class: "orbit_img" %>
-        <figcaption class="orbit-caption">Unicorn Love Necklace</figcaption>
+        <figcaption class="orbit-caption"><%= link_to "Unicorn Love Necklace", products_show_path(4) %></figcaption>
       </li>
 </ul>
 <!-- Navigation Buttons for Accessibility -->
 <nav class="orbit-bullets">
   <button class="is-active" data-slide="0"><span class="show-for-sr">Unicorn Horn Cookie</span><span class="show-for-sr">Current Slide</span></button>
-  <button data-slide="1"><span class="show-for-sr">Unicorn Platform Shoes</span></button>
+  <button data-slide="1"><span class="show-for-sr">Unicorn Pillow Sham</span></button>
   <button data-slide="2"><span class="show-for-sr">Unicorn Mug</span></button>
   <button data-slide="3"><span class="show-for-sr">Unicorn Necklace</span></button>
 </nav>
