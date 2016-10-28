@@ -76,9 +76,9 @@ class OrderitemsController < ApplicationController
     redirect_to carts_index_path
   end
 
-  def fulfill
+  def ship
     @orderitem = Orderitem.find(params[:id])
-    @orderitem.status = "Fulfilled"
+    @orderitem.status = "Shipped"
     @orderitem.save
 
     redirect_to orders_show_path(@orderitem.order)
