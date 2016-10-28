@@ -5,8 +5,15 @@ test "merchants with minimal information must be valid" do
     assert merchants(:merchant1).valid?
   end
 
-  test "merchants without minimal information must be invalid" do
+  test "merchants without without email or username must be invalid" do
+    #merchant3 has not username therefore should be invalid
     assert_equal false, merchants(:merchant3).valid?
+    #adding username validates it
+    merchants(:merchant3).username = "myname"
+    assert merchants(:merchant3).valid?
+    #removing email makes merchant invalid :(
+    merchants(:merchant3).email = nil
+    assert_not merchants(:merchant3).valid?
   end
 
   test "merchants should return their associated attributes" do
@@ -19,6 +26,13 @@ test "merchants with minimal information must be valid" do
     merchant = Merchant.new(username:"merchant50", email: "bob@bobness.com")
     assert_equal "merchant50", merchant.username
     assert_equal false, merchant.valid?
+  end
+
+  test "merchants without a unique username are invalid" do
+    merchant = Merchant.new(username:"bob1", email: "imaunicorn@github.com")
+    assert_equal merchants(:bob).username, merchant.username
+    assert_not merchant.valid?
+
   end
 
   test "Orders method should return a filtered array of orders belonging to merchant given allowable array of orders" do

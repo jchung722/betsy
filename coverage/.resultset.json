@@ -1,24 +1,14 @@
 {
-<<<<<<< HEAD
   "MiniTest": {
     "coverage": {
       "/Users/admin/Desktop/Ada/W10/betsy/config/environment.rb": [
-=======
-  "Unit Tests": {
-    "coverage": {
-      "/Users/brandimilligan/Documents/betsy/config/environment.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         1,
         null,
         null,
         1
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/environments/test.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/environments/test.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         1,
         null,
         null,
@@ -62,11 +52,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/assets.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/assets.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         null,
@@ -79,11 +65,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/backtrace_silencers.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/backtrace_silencers.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         null,
@@ -92,30 +74,18 @@
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/cookies_serializer.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/cookies_serializer.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         1
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/filter_parameter_logging.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/filter_parameter_logging.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         null,
         1
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/inflections.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/inflections.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         null,
@@ -133,39 +103,23 @@
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/mime_types.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/mime_types.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/omniauth.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/omniauth.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         1,
         1,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/session_store.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/session_store.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         1
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/initializers/wrap_parameters.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/initializers/wrap_parameters.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         null,
@@ -173,11 +127,7 @@
         null,
         null,
         1,
-<<<<<<< HEAD
         0,
-=======
-        1,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         null,
@@ -185,11 +135,7 @@
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/config/routes.rb": [
-=======
-      "/Users/brandimilligan/Documents/betsy/config/routes.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         1,
         null,
         null,
@@ -207,11 +153,8 @@
         null,
         1,
         null,
-<<<<<<< HEAD
         1,
         null,
-=======
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         1,
@@ -251,13 +194,10 @@
         null,
         1,
         null,
-<<<<<<< HEAD
         1,
         null,
         1,
         null,
-=======
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         1,
@@ -379,21 +319,35 @@
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/test/models/merchant_test.rb": [
         1,
         null,
         1,
         1,
         1,
-=======
-      "/Users/brandimilligan/Documents/betsy/app/models/category.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
+        null,
+        null,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
         null,
         null,
         1,
         1,
-<<<<<<< HEAD
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         1,
@@ -402,8 +356,15 @@
         1,
         null,
         null,
+        null,
+        1,
+        null,
         1,
         1,
+        null,
+        null,
+        1,
+        null,
         1,
         1,
         null,
@@ -552,59 +513,11 @@
         1,
         null,
         null,
-=======
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/models/merchant.rb": [
-        1,
-        1,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/models/orderitem.rb": [
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         1,
         1,
         1,
         null,
         1,
-<<<<<<< HEAD
         1,
         1,
         null,
@@ -651,26 +564,10 @@
         1,
         1,
         null,
-=======
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         null
       ],
-<<<<<<< HEAD
       "/Users/admin/Desktop/Ada/W10/betsy/test/models/orderitem_test.rb": [
         1,
         null,
@@ -692,28 +589,10 @@
         null,
         1,
         1,
-=======
-      "/Users/brandimilligan/Documents/betsy/app/models/order.rb": [
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        1,
-        0,
-        null,
-        0,
-        0,
-        null,
-        null,
-        0,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         1,
         null,
-<<<<<<< HEAD
         1,
         1,
         null,
@@ -728,23 +607,10 @@
         null,
         1,
         1,
-=======
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        null,
-        null,
-        null,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         1,
         null,
-<<<<<<< HEAD
         1,
         1,
         null,
@@ -780,71 +646,20 @@
         1,
         null,
         null,
-=======
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/models/product.rb": [
-        1,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         1,
         1,
         1,
         1,
         null,
-<<<<<<< HEAD
         null,
         1,
         null,
         1,
         1,
-=======
-        1,
-        null,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         null,
         1,
         null,
-<<<<<<< HEAD
         1,
         1,
         null,
@@ -870,29 +685,15 @@
         null,
         1,
         1,
-=======
         null,
         null,
         1,
         null,
-        null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/models/review.rb": [
-        1,
         1,
         null,
         1,
-        null,
-        null,
-        null,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
-        null,
-        null,
         1,
         null,
-<<<<<<< HEAD
-        1,
         null,
         1,
         1,
@@ -918,28 +719,10 @@
         1,
         null,
         1,
-=======
-        null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/controllers/merchants_controller.rb": [
-        1,
-        1,
-        1,
         null,
         1,
         null,
         null,
-        null,
-        1,
-        null,
-        null,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
-        null,
-        1,
-        null,
-        null,
-<<<<<<< HEAD
         1,
         1,
         null,
@@ -952,12 +735,6 @@
         null,
         null,
         1,
-=======
-        null,
-        1,
-        null,
-        null,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         null,
         1,
         null,
@@ -965,12 +742,9 @@
         1,
         1,
         1,
-<<<<<<< HEAD
         null,
         1,
         1,
-=======
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         1,
         1,
         null,
@@ -978,7 +752,6 @@
         1,
         null,
         1,
-<<<<<<< HEAD
         1,
         null,
         1,
@@ -1008,61 +781,43 @@
         null,
         0,
         null,
-=======
+        null,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        2,
+        2,
+        8,
+        4,
         2,
         null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/controllers/application_controller.rb": [
-        1,
-        null,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
-        null,
-        1,
         null,
         null,
-<<<<<<< HEAD
-        null,
-        null,
-        null,
+        2,
         null,
         null,
         1,
-        null,
-        null,
-=======
-        1,
-        1,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
-        null,
-        1,
-        0,
-        0,
-        0,
-        0,
-<<<<<<< HEAD
-        0,
-        0,
-        null,
-=======
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
-        null,
-        null,
-        0,
-        null,
-        null,
-<<<<<<< HEAD
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
+        2,
+        2,
+        2,
+        6,
+        6,
+        2,
         null,
         null,
         null,
-        0,
+        2,
         null,
         null,
         null
@@ -1149,61 +904,10 @@
         null,
         null,
         null,
-=======
-        null,
-        null,
-        1,
-        2,
-        null,
-        1,
-        1,
-        2,
-        1,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/application_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/carts_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/categories_helper.rb": [
-        1,
-        null,
-        null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/homepages_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/merchants_helper.rb": [
-        1,
-        null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/orderitems_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/orders_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/products_helper.rb": [
-        1,
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
         1,
         0,
         0,
         0,
-<<<<<<< HEAD
         0,
         null,
         null,
@@ -1272,6 +976,22 @@
         1,
         null,
         null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        2,
+        null,
+        1,
+        1,
+        null,
+        0,
+        null,
+        1,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/admin/Desktop/Ada/W10/betsy/app/models/review.rb": [
@@ -1290,27 +1010,6 @@
         null
       ]
     },
-    "timestamp": 1477673230
-=======
-        null,
-        0,
-        null,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/reviews_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/sessions_helper.rb": [
-        1,
-        null
-      ],
-      "/Users/brandimilligan/Documents/betsy/app/helpers/stores_helper.rb": [
-        1,
-        null
-      ]
-    },
-    "timestamp": 1477615379
->>>>>>> 6d9d401a3f84eadb8d798df145dfb16754630649
+    "timestamp": 1477675989
   }
 }
