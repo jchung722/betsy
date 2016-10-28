@@ -126,6 +126,11 @@ class OrderitemsControllerTest < ActionController::TestCase
     assert_response :redirect
     assert_equal flash[:notice], "Sorry, that item in your order was not updated because it could not be found. Please try again."
     assert_redirected_to carts_index_path
+
+    patch :update, {id: -1, add_to_cart: {quantity: 5}}
+    assert_response :redirect
+    assert_equal flash[:notice], "Sorry, that item in your order was not updated because it could not be found. Please try again."
+    assert_redirected_to categories_index_path
   end
 
   test "destroying an existing orderitem reduces the number of orderitems in the database by one" do

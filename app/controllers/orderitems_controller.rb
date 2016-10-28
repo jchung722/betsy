@@ -56,8 +56,8 @@ class OrderitemsController < ApplicationController
       end
     rescue ActiveRecord::RecordNotFound
       flash[:notice] = "Sorry, that item in your order was not updated because it could not be found. Please try again."
-      if request.referer
-        redirect_to request.referer
+      if params[:add_to_cart]
+        redirect_to categories_index_path
       else
         redirect_to carts_index_path
       end
