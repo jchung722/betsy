@@ -12,7 +12,7 @@ module OrdersHelper
 
   def complete_check(array)
     array.each do |item|
-      if item.status == "unfulfilled"
+      if item.status == "pending"
         return false
       end
     end
