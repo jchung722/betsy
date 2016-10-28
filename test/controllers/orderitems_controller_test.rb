@@ -75,6 +75,18 @@ class OrderitemsControllerTest < ActionController::TestCase
     assert_redirected_to products_show_path(orderitems(:orderitem1).product.id)
   end
 
+  test "update: should get an error upon attempting to place more than existing stock of an item in cart (from product show)" do
+
+  end
+
+  test "update: should get an error upon attempting to place more than existing stock of an item in cart (from cart index)" do
+
+  end
+
+  test "create: should get an error upon attempting to place more than existing stock of an item in cart" do
+    
+  end
+
   test "update: should be able to update the overall quantity of an item already in the order" do
     assert_difference('orderitems(:orderitem1).quantity', 4) do
       patch :update, {id: orderitems(:orderitem1).id, change_quantity: {quantity: 5}}
@@ -141,7 +153,7 @@ class OrderitemsControllerTest < ActionController::TestCase
     assert_redirected_to carts_index_path
   end
 
-  test "a mismatch between the session order orderitem's order blocks deletion and produces an error message" do
+  test "a mismatch between the session order and orderitem's order blocks deletion and produces an error message" do
     session[:order] = orderitems(:orderitem4).order.id
     assert_difference('Orderitem.count', 0) do
       delete :destroy, {id: orderitems(:orderitem1).id}

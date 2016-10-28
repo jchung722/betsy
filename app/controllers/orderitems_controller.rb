@@ -6,15 +6,24 @@ class OrderitemsController < ApplicationController
       else
         order = Order.new(status: 'pending')
       end
+    rescue ActiveRecord::RecordNotFound
+      session[:order] = nil
+      flash[:notice] = "The item was not added because your cart could not be found. Your cart has now been reset; please try adding the item again."
+      redirect_to products_show_path(params[:product_id])
+    end
 
-      orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], price: Product.find(params[:product_id]).price, status: 'pending')
-      order.orderitems << orderitem
-
-      if !order.save || !orderitem.save
-        flash[:notice] = "There was an error adding the item to your cart. Please try again."
+    begin
+      if params[:add_to_cart][:quantity].to_i <= Product.find(params[:product_id]).stock
+        orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], price: Product.find(params[:product_id]).price, status: 'pending')
+        order.orderitems << orderitem
+        if !order.save || !orderitem.save
+          flash[:notice] = "There was an error adding the item to your cart. Please try again."
+        else
+          session[:order] = order.id
+          flash[:notice] = "Item added to cart! Quantity: #{params[:add_to_cart][:quantity]}"
+        end
       else
-        session[:order] = order.id
-        flash[:notice] = "Item added to cart! Quantity: #{params[:add_to_cart][:quantity]}"
+        flash[:notice] = "Sorry, you cannot add that many items to your cart because your cart would exceed available stock."
       end
     rescue ActiveRecord::RecordNotFound
       session[:order] = nil

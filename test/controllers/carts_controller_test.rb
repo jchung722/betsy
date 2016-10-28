@@ -73,10 +73,6 @@ class CartsControllerTest < ActionController::TestCase
     assert !session[:order]
   end
 
-
-  # Note: the edit form is not currently gated on any of its values. I.e., we are not checking to see if the user
-  # puts in the right thing or even supplies a value. This would be a good thing to do in the next round of edits.
-
   test "if a valid order ID is stored in the session, update should modify the order and show the update page" do
     session[:order] = orders(:testorder1).id
     get :update, {order: {name: 'Bill the Cat', address: 'Bloom Boarding House', email: 'bill@thecat.com', city: 'Bloom County', state: 'NA', zip: '00000', card_name: "Berkeley Breathed", card_num: '0000000000000000', cvv: '111', billing_zip: '00000', :'expiry(3i)' => '1', :'expiry(2i)' => '1', :'expiry(1i)' => '2016'}}
