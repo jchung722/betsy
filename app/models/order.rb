@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
   validates :orderitems,
             presence: true
 
+  scope :status, lambda{|status| where('status = ?', status )}
+
   # Email validation from: http://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html
   validates :name, presence: true, if: :buyer_info_needed?
   validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, if: :buyer_info_needed?
@@ -17,6 +19,7 @@ class Order < ActiveRecord::Base
   validates :cvv, presence: true, numericality: true, length: {minimum: 3, maximum: 4}, if: :buyer_info_needed?
   validates :billing_zip, presence: true, numericality: true, length: {minimum: 5, maximum: 5}, if: :buyer_info_needed?
   validates :placed_at, presence: true, if: :buyer_info_needed?
+
 
   def total
     total = 0
@@ -50,6 +53,17 @@ class Order < ActiveRecord::Base
       product.save
     end
 
+  end
+
+
+  def find_merchant_order_items(user_id)
+    orderitems = []
+    self.orderitems.each do |orderitem|
+      if orderitem.product.merchant_id == user_id.to_i
+        orderitems << orderitem
+      end
+    end
+    return orderitems
   end
 
   def remove_backordered?

@@ -8,6 +8,7 @@ class OrderitemsController < ApplicationController
       end
 
       orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], price: Product.find(params[:product_id]).price, status: 'pending')
+
       order.orderitems << orderitem
 
       if !order.save || !orderitem.save
@@ -73,5 +74,13 @@ class OrderitemsController < ApplicationController
       flash[:notice] = "Sorry, there was a problem with your cart and the item could not be removed. Please try again."
     end
     redirect_to carts_index_path
+  end
+
+  def fulfill
+    @orderitem = Orderitem.find(params[:id])
+    @orderitem.status = "Fulfilled"
+    @orderitem.save
+
+    redirect_to orders_show_path(@orderitem.order)
   end
 end
