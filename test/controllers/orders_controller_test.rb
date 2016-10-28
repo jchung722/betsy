@@ -1,6 +1,30 @@
 require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
+
+  test "should be able to get order index given a valid merchant id in session" do
+    session[:user_id] = merchants(:bob).id
+    get :index
+    assert_response :success
+    assert_template :index
+  end
+
+  test "should redirect to main homepage if there is no merchant id in session" do
+    session[:user_id] = nil
+    get :index
+    assert_response :redirect
+    assert_redirected_to homepages_index_path
+    assert_equal flash[:notice], "You must be logged in to access merchant section"
+  end
+
+  test "should redirect to main homepage if there is an invalid merchant id in session" do
+    session[:user_id] = -1
+    get :index
+    assert_response :redirect
+    assert_redirected_to homepages_index_path
+    assert_equal flash[:notice], "You must be logged in to access merchant section"
+  end
+
   test "destroy on a valid order (unpurchased cart) should result in the appropriate redirect" do
     session[:order] = orders(:testorder1).id
     delete :destroy
