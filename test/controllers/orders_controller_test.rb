@@ -31,7 +31,7 @@ class OrdersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :show
   end
-  
+
   test "destroy on a valid order (unpurchased cart) should result in the appropriate redirect" do
     session[:order] = orders(:testorder1).id
     delete :destroy
@@ -66,6 +66,16 @@ class OrdersControllerTest < ActionController::TestCase
       session[:order] = -1
       delete :destroy
     end
+  end
+
+  test "completing an order changes the specified order status to 'complete' and redirects to order index page" do
+    patch :complete, {id: orders(:goodorder).id}
+    assert_redirected_to orders_index_path
+  end
+
+  test "cancelling an order changes the specified order status to 'cancelled' and redirects to order show page" do
+    patch :cancel, {id: orders(:goodorder).id}
+    assert_redirected_to orders_show_path
   end
 
 end

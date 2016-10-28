@@ -55,6 +55,19 @@ class Order < ActiveRecord::Base
 
   end
 
+  #update stock when order is canceled, ONLY for items specified merchant was responsible for.
+  def update_cancel_stock
+
+    self.orderitems.each do |orderitem|
+      if orderitem.status != "Shipped"
+        product = orderitem.product
+        product.stock += orderitem.quantity
+        product.save
+      end
+    end
+
+  end
+
 
   def find_merchant_order_items(user_id)
     orderitems = []

@@ -191,5 +191,12 @@ class OrderTest < ActiveSupport::TestCase
     assert_equal orderitems(:orderitem4).price, 899
   end
 
+  test "update_cancel_stock method updates stock of orderitems that were not shipped when order was canceled" do
+    orders(:goodorder).update_cancel_stock
+    #original stock; shoes of shipped item: 20; goods of good item: 1. Only stock of goods should go up.
+    assert_equal orderitems(:shippeditem).product.stock, 20
+    assert_equal orderitems(:gooditem).product.stock, 2
+  end
+
 
 end
