@@ -36,6 +36,20 @@ h1, h2, h3, h4 {
   font-family: $body-font;
 }
 
+
+h1 {
+  text-align: center;
+}
+
+.pg-title {
+  margin: 5%;
+  text-align: center;
+}
+.product-row {
+  margin: 2%;
+}
+
+
 // **********************//
 //******  Header ********//
 //***********************//
@@ -50,6 +64,7 @@ header h1 {
 .pg-title {
   margin: 10% 0 10% 0;
 }
+
 .product-tile {
   display: inline-block;
   text-align: center;

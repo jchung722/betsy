@@ -1,7 +1,9 @@
 <% if current_user %>
+<h1 class="pg-title">
 <%= "#{@merchant.displayname}" %>
+</h1>
 
-<h1>Create a New Category</h1>
+<h2 class="pg-title">Create a New Category</h2>
 
     <%= form_for Category do |f| %>
       <%= f.label "Category Name" %>

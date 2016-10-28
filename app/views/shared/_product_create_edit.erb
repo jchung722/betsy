@@ -1,11 +1,12 @@
 
-<h2> <% "#{@action} a product" %> </h2>
+<h2 class="pg-title"> <% "#{@action} a product" %> </h2>
 
 <section>
 
 
 <%= form_for @product, {:url => @action} do |f| %>
-
+<div class="row">
+  <div class="small-6 medium-10 large-12 column">
   <%= f.label "Product Image URL" %>
   <%= f.text_field :photo %>
 
@@ -23,8 +24,9 @@
 
   <%= f.select(:category_ids, options_for_select(category_options))  %>
 
-  <%= f.submit "Save" %>
-
+  <%= f.submit "Save", class: "button" %>
+  </div>
+</div>
 
 <% end %>
 

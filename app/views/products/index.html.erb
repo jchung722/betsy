@@ -1,36 +1,46 @@
 
-
+<h1 class="pg-title">
 <%= "#{@merchant.displayname}" %>
+</h1>
+<section>
 
-<h3>Current Product List:</h3>
-<% @merchant.products.each do |product| %>
-<div>
-  <p>
-    <%= image_tag product.photo, alt: product.name %>
-  </p>
-</div>
-<div>
-    <p><%= link_to product.name, products_show_path(product.id) %></p>
-    <p>
+  <h3 class="pg-title">Current Product List:</h3>
+
+  <% @merchant.products.each do |product| %>
+  <div class="row product-row">
+    <div class="small-2 column">
+      <%= image_tag product.photo, alt: product.name %>
+    </div>
+
+    <div class="small-4 column">
+      <h3>
+      <%= link_to product.name, products_show_path(product.id) %>
+      </h3>
+    </div>
+
+    <div class="small-4 column">
       <% if product.retired == false %>
-        <%= "Your product is currently Active" %>
+        <%= "Product status: Active" %>
       <% else %>
-        <%= "Your product is currently Inactive" %>
+        <%= "Product status: Inactive" %>
       <% end %>
-    </p>
-</div>
-<div>
-  <% if product.retired == false %>
-    <%= button_to "Inactivate", products_retire_path(product.id), method: :patch %>
-  <% else %>
-    <%= button_to "Activate", products_retire_path(product.id), method: :patch %>
+    </div>
+
+
+    <div class="small-2 column">
+      <% if product.retired == false %>
+        <%= button_to "Inactivate", products_retire_path(product.id), method: :patch, class: "success button" %>
+      <% else %>
+        <%= button_to "Activate", products_retire_path(product.id), method: :patch, class: "success button"%>
+      <% end %>
+      <%= button_to "Edit", products_edit_path(product.id), method: :get, class: "success button" %>
+    </div>
+  </div>
+
   <% end %>
-</div>
-<div>
-  <%= button_to "Edit", products_edit_path(product.id) %>
-</div>
-
-<% end %>
 
 
-<%= button_to "Add Product", products_new_url %>
+      <%= link_to "Add Product", products_new_url, class: "expanded button"%>
+
+
+</section>
