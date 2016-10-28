@@ -75,6 +75,41 @@ class OrderitemsControllerTest < ActionController::TestCase
     assert_redirected_to products_show_path(orderitems(:orderitem1).product.id)
   end
 
+  test "update: should get an error upon attempting to place more than existing stock of an item in cart (from product show)" do
+    session[:order] = orders(:testorder1).id
+    products(:poo).update(stock: 3)
+    patch :update, {add_to_cart: {quantity: 2}, id: orderitems(:orderitem2).id}
+    assert_response :redirect
+    assert_equal flash[:notice], "Sorry, you cannot add that many items to your cart because your cart would exceed available stock. Your cart already contains 2 of this item."
+    assert_redirected_to products_show_path(products(:poo).id)
+  end
+
+  test "update: should get an error upon attempting to place more than existing stock of an item in cart (from cart index)" do
+    session[:order] = orders(:testorder1).id
+    products(:poo).update(stock: 3)
+    patch :update, {change_quantity: {quantity: 4}, id: orderitems(:orderitem2).id}
+    assert_response :redirect
+    assert_equal flash[:notice], "Sorry, you cannot put that many items in your cart because the quantity would exceed available stock."
+    assert_redirected_to carts_index_path
+  end
+
+  test "create: should get an error upon attempting to place more than existing stock of an item in cart" do
+    products(:farts).update(stock: 3)
+    session[:order] = nil
+    post :create, {add_to_cart: {quantity: 4}, product_id: products(:farts).id}
+    assert_response :redirect
+    assert_equal flash[:notice], "Sorry, you cannot add that many items to your cart because your cart would exceed available stock."
+    assert_redirected_to products_show_path(products(:farts).id)
+  end
+
+  test "create: should get an error and redirect if product with specified id cannot be found" do
+    session[:order] = nil
+    post :create, {add_to_cart: {quantity: 4}, product_id: -1}
+    assert_response :redirect
+    assert_equal flash[:notice], "Sorry, that item could not be found. Please shop our other unicorn products."
+    assert_redirected_to categories_index_path
+  end
+
   test "update: should be able to update the overall quantity of an item already in the order" do
     assert_difference('orderitems(:orderitem1).quantity', 4) do
       patch :update, {id: orderitems(:orderitem1).id, change_quantity: {quantity: 5}}
@@ -91,6 +126,11 @@ class OrderitemsControllerTest < ActionController::TestCase
     assert_response :redirect
     assert_equal flash[:notice], "Sorry, that item in your order was not updated because it could not be found. Please try again."
     assert_redirected_to carts_index_path
+
+    patch :update, {id: -1, add_to_cart: {quantity: 5}}
+    assert_response :redirect
+    assert_equal flash[:notice], "Sorry, that item in your order was not updated because it could not be found. Please try again."
+    assert_redirected_to categories_index_path
   end
 
   test "destroying an existing orderitem reduces the number of orderitems in the database by one" do
@@ -141,7 +181,7 @@ class OrderitemsControllerTest < ActionController::TestCase
     assert_redirected_to carts_index_path
   end
 
-  test "a mismatch between the session order orderitem's order blocks deletion and produces an error message" do
+  test "a mismatch between the session order and orderitem's order blocks deletion and produces an error message" do
     session[:order] = orderitems(:orderitem4).order.id
     assert_difference('Orderitem.count', 0) do
       delete :destroy, {id: orderitems(:orderitem1).id}

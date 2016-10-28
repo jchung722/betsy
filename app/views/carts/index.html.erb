@@ -41,12 +41,13 @@
 
   </TABLE>
 
+  <p><%= link_to "Empty cart", orders_destroy_path %></p>
+
 <% else %>
 
   <p>Your cart is empty! That makes the unicorns sad :(</p>
 
 <% end %>
 
-<p><%= link_to "Empty cart", orders_destroy_path %></p>
 <p><%= link_to "Keep shopping", categories_index_path %></p>
 <p><%= link_to "Check out", carts_edit_path %></p>
