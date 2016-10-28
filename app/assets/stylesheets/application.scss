@@ -43,6 +43,11 @@ h1, h2, h3, h4 {
   width: 300px;
 }
 
+.product-tile img {
+  padding-top: 30px;
+  max-height: 180px;
+}
+
 .tilepic {
   padding-top: 30px;
   max-height: 180px;
@@ -51,6 +56,7 @@ h1, h2, h3, h4 {
 .mytile {
   text-align: center;
   overflow: hidden;
+  padding: 0 60px;
 }
 
 
