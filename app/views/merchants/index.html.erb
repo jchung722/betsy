@@ -11,7 +11,11 @@
   <div class="product-tile">
     <!-- #merchant_show_path(merchant.id) -->
     <p><%= link_to "Edit Your Profile", merchants_edit_path(@merchant.id) %></p>
-    <%= image_tag(@merchant.photo, :alt => "unicorn") %>
+    <% if @merchant.photo != "" && @merchant.photo != nil %>
+      <%= image_tag(@merchant.photo, :alt => "unicorn") %>
+    <% else %>
+      <%= image_tag('default_uni.jpg', :alt => "unicorn!") %>
+    <% end %>
   </div>
 
   <div class="product-tile">
