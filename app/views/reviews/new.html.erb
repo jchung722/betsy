@@ -1,14 +1,30 @@
-<h1>Add a Review</h1>
+<div class="row">
+  <div class="column">
+    <h1>Add a Review</h1>
 
-<%= form_for @review,
-  method: :post,
-  url: reviews_create_path do |f| %>
-  <%= f.label :rating %>
-  <%= f.number_field :rating, min: 0 %>
+    <% if @review.errors.any? %>
+      <p>Whoops! We couldn't save your review because:</p>
+      <ul>
+        <% @review.errors.each do |column, message| %>
+          <li>
+            <%= "#{column.capitalize} #{message}"  %>
+          </li>
+        <% end %>
+      </ul>
+      <p>Please edit your review and try again.</p>
+    <% end %>
 
-  <%= f.label :feedback %>
-  <%= f.text_field :feedback %>
+    <%= form_for @review,
+      method: :post,
+      url: reviews_create_path do |f| %>
+      <%= f.label :rating %>
+      <%= f.number_field :rating, min: 0, max: 5 %>
 
-  <%= f.submit value="Submit"%>
+      <%= f.label :feedback %>
+      <%= f.text_field :feedback %>
 
-<% end %>
+      <%= f.submit value="Submit"%>
+
+    <% end %>
+  </div>
+</div>

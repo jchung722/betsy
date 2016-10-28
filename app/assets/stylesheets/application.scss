@@ -15,14 +15,41 @@
  *= require foundation_and_overrides
 
  */
+// import google fonts
+@import url('https://fonts.googleapis.com/css?family=Mystery+Quest|Numans');
+
+// Font variables to use in css
+$display-font: 'Mystery Quest', cursive;
+$body-font: 'Numans', sans-serif;
+
+body {
+  font-family: $body-font;
+}
+
+header * {
+  font-family: $display-font
+}
+
+h1, h2, h3, h4 {
+  font-family: $body-font;
+}
+
+.logo {
+  width: 70%;
+}
+
+header h1 {
+  font-size: 4rem;
+}
 
 .product-tile {
   display: inline-block;
   text-align: center;
   margin: 2.5%;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   height: 300px;
   width: 300px;
+  padding-top: 3%;
 }
 
 .product-tile img {
@@ -30,8 +57,46 @@
   max-height: 180px;
 }
 
-nav li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 0 1% 0 1%;
+.gallery {
+  text-align: center;
+}
+
+.quantity {
+  text-align: center;
+}
+
+.quantity-box {
+  width: 30%;
+}
+
+.see-cart {
+  display: block;
+  padding-top: 2%;
+}
+
+// .tilepic {
+//   padding-top: 30px;
+//   max-height: 180px;
+// }
+//
+// .mytile {
+//   text-align: center;
+//   overflow: hidden;
+//   padding: 0 60px;
+// }
+
+
+footer {
+  border-top: 1px solid black;
+  margin-top: 5%;
+  text-align: center;
+  background-color: mintcream;
+}
+
+footer p {
+  margin-top: 1%;
+}
+
+tr {
+  text-align: center;
 }

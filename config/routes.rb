@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   delete 'orderitems/:id/destroy' => 'orderitems#destroy', as: 'orderitems_destroy'
 
+  patch 'orderitems/:id/ship' => 'orderitems#ship', as: 'orderitems_ship'
+
   # Carts controller
 
   get 'carts/index'
@@ -42,7 +44,7 @@ Rails.application.routes.draw do
 
   # Orders controller
 
-  get 'orders/index'
+  get 'orders/index' => 'orders#index', as: "orders_index"
 
   get 'orders/new'
 
@@ -50,9 +52,13 @@ Rails.application.routes.draw do
 
   get 'orders/:product_id/update' => 'orders#update', as: 'orders_update'
 
-  get 'orders/show'
+  get 'orders/:id/show' => 'orders#show', as: 'orders_show'
 
   get 'orders/destroy'
+
+  patch 'orders/:id/complete' => 'orders#complete', as: 'orders_complete'
+
+  patch 'orders/:id/cancel' => 'orders#cancel', as: 'orders_cancel'
 
   # merchant controller
 
@@ -71,19 +77,27 @@ Rails.application.routes.draw do
 
   # Products controller routes
 
-  get 'product/index'
+  get 'products/index'
+
+  post '/products/create'
 
   get 'products/:id/reviews/new' => 'reviews#new', as: "reviews_new"
 
   post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
 
-  patch 'products/:id/retire' => 'products#retire', as: "products_retire"
+  get 'products/:id/reviews/create' => 'reviews#new' # To deal with refresh when there is an error in saving a review
+
+  get 'products/:id/edit' => 'products#edit', as: 'products_edit'
+
+  patch 'products/:id/update' => 'products#update', as: 'products_update'
 
   get 'products/show/:id' => "products#show", as: "products_show"
 
-  get 'products/new'
+  post 'products/new' => "products#new", as: "products_new"
 
-  get 'products/create'
+
+
+  patch 'products/:id/retire' => 'products#retire', as: "products_retire"
 
   # sessions controller
 
@@ -100,6 +114,10 @@ Rails.application.routes.draw do
   get 'categories/new'
 
   get 'categories/create'
+
+  get 'categories/edit' => 'categories_edit'
+
+  patch 'categories/update'
 
   get 'categories/show/:id' => "categories#show", as: "categories_show"
 

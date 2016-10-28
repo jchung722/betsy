@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
     # Check to see if we received the auth_hash from Github.
     if auth_hash == nil
-      flash[:notice] = "login failed"
+      flash[:notice] = "Login Failed"
       return redirect_to root_path
     end
 
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
       # Save the Merchant ID in the session (**not the :uid from GitHub**)
       session[:user_id] = @merchant.id
-      flash[:notice] = "Successfully logged in"
+      flash[:notice] = "Successfully Logged In"
 
       return redirect_to merchants_edit_path(@merchant.id)
 
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = @merchant.id
 
-    flash[:notice] = "Successfully logged in"
+    flash[:notice] = "Successfully Logged In"
     redirect_to merchants_index_path
 
   end
@@ -44,7 +44,7 @@ class SessionsController < ApplicationController
     # reenter in their credentials to our app).
     session[:user_id] = nil
 
-    flash[:notice] = "successfully logged out"
+    flash[:notice] = "Successfully Logged Out"
     redirect_to root_path
   end
 end

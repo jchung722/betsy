@@ -1,18 +1,21 @@
 
-<h1>Unicorns "R" Us</h1>
-<p>Meeting all your unicorn needs since 2016.</p>
 
-<h1>Browse by category</h1>
+<div class="row">
+  <div class="column gallery">
+    <h1>Browse by category</h1>
 
-<% @categories.each do |category| %>
+    <% @categories.each do |category| %>
 
-  <% if category.products.first != nil %>
-    <div class="product-tile">
+      <div class="product-tile">
+        <%if category.products.first && category.products.first.photo && category.products.first.photo != "" %>
+          <%= image_tag category.products.first.photo, alt: category.name %>
+        <%else %>
+          <%= image_tag 'default_uni.jpg', alt: category.name %>
+        <% end %>
+        <p><%= link_to category.name, categories_show_path(category.id) %></p>
+      </div>
 
-      <%= image_tag category.products.first.photo, alt: category.name %>
-      <p><%= link_to category.name, categories_show_path(category.id) %></p>
-    </div>
-  <% end %>
+    <% end %>
 
-
-<% end %>
+  </div>
+</div>

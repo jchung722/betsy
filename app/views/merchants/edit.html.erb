@@ -1,2 +1,32 @@
+<% if @merchant.displayname == nil %>
+  <h3><%= "Please Provide the following information to create a new merchant store"%></h3>
+<% else %>
+  <h2> <%= "#{@merchant.displayname}, edit  your profile"%> </h2>
+<% end %>
 
-<%= render partial: "shared/merchant_profile" %>
+
+<%= flash[:notice] %>
+
+
+<%= form_for @merchant, url: merchants_update_path do |f| %>
+
+  <%= f.label "Profile Image URL" %>
+  <%= f.text_field :photo %>
+
+  <%= f.label "Store Name" %>
+  <%= f.text_field :displayname %>
+
+  <%= f.label "Store Location" %>
+  <%= f.text_field :location %>
+
+  <%= f.label "Store Contact Number" %>
+  <%= f.telephone_field :phone %>
+
+  <%= f.label "Email" %>
+  <%= f.email_field :email  %>
+
+  <%= f.label "User Name" %>
+  <%= f.text_field :username %>
+
+  <%= f.submit "Save" %>
+<% end %>
