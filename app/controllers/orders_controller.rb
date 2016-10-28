@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
     @order.status = "complete"
     @order.save
 
-    redirect_to orders_show_path
+    redirect_to orders_index_path
   end
 
 end

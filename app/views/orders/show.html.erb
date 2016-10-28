@@ -11,7 +11,7 @@
   <% @orderitems.each do |orderitem| %>
   <TR>
     <TD><%= link_to orderitem.product.name, products_show_path(orderitem.product.id) %></TD>
-    <TD><%= "$#{orderitem.price/100.00}" %></TD>
+    <TD><%= number_to_currency(orderitem.price/100.00) %></TD>
     <TD><%= orderitem.quantity %></TD>
     <TD>
       <% if orderitem.status == "pending"  && @order.status == "paid"%>
@@ -20,7 +20,7 @@
         <%= orderitem.status %>
       <% end %>
     </TD>
-    <TD><%= "$#{orderitem.total/100.00}" %></TD>
+    <TD><%= number_to_currency(orderitem.total/100.00) %></TD>
   </TR>
   <% end %>
 
@@ -33,7 +33,7 @@
       <%= button_to "Complete Your Order!", orders_complete_path(@order), method: :patch %>
     <% end %>
   </TD>
-  <TD><%= "$#{final_total(@orderitems)/100.0}"%></TD>
+  <TD><%= number_to_currency(final_total(@orderitems)/100.0) %></TD>
   </TR>
 
 </TABLE>

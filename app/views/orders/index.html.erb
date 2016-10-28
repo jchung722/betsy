@@ -1,5 +1,24 @@
-<h1>View your orders</h1>
+<h1>Manage Your Orders</h1>
 
+<div class="order">
+  <h3>Revenue</h3>
+  <p>Paid Order Revenue:</p>
+  <p>Completed Order Revenue:</p>
+  <p>Total Revenue:</p>
+
+  <p>Total Pending Order Revenue:</p>
+  <p>Total Cancelled Order Revenue:</p>
+</div>
+
+<div class="order">
+  <h3>Orders</h3>
+  <p>Paid Orders:</p>
+  <p>Completed Orders:</p>
+  <p>Pending Orders:</p>
+  <p>Cancelled Orders:</p>
+  <p>Total Orders:</p>
+</div>
+<br />
 <%= link_to 'pending', {controller: 'orders', action: 'index', :status => 'pending'}  %>
 <%= link_to 'paid', {controller: 'orders', action: 'index', :status => 'paid'}  %>
 <%= link_to 'complete', {controller: 'orders', action: 'index', :status => 'complete'}  %>
@@ -7,15 +26,41 @@
 
 <table>
   <tr>
-    <th>Order no.</th>
+    <th>Order ID</th>
+    <th>Order Date</th>
+    <th>Items</th>
     <th>Status</th>
-    <th>Sale</th>
+    <th>Order Total</th>
   </tr>
   <% @orders.each do |order| %>
     <tr>
-      <td><%= link_to "Order ID: #{order.id}", orders_show_path(order.id) %></td>
-      <td><%= order.status %></td>
-      <td><%= "$#{final_total(order.find_merchant_order_items(session[:user_id]))/100.0}" %></td>
+      <td><%= link_to order.id, orders_show_path(order.id) %></td>
+      <td><%= order.placed_at.strftime("%m/%d/%Y %I:%M %p") %></td>
+      <td><table>
+        <% order.find_merchant_order_items(session[:user_id]).each do |orderitem| %>
+        <tr>
+          <td>
+            <p><%= link_to orderitem.product.name, products_show_path(orderitem.product.id) %> : <%= number_to_currency(orderitem.price/100.00) %> X <%= orderitem.quantity %></p>
+            <p>Subtotal: <%= number_to_currency(orderitem.total/100.00) %></p>
+          </td>
+          <td>
+            <% if orderitem.status == "pending"  && order.status == "paid"%>
+              <%= button_to "Unshipped", orderitems_ship_path(orderitem.id), method: :patch %>
+            <% else %>
+              <%= orderitem.status %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </table></td>
+      <td>
+        <% if complete_check(order.find_merchant_order_items(session[:user_id])) == true && order.status == "paid" %>
+          <%= button_to "Complete Your Order!", orders_complete_path(order), method: :patch %>
+        <% else %>
+          <%= order.status %>
+        <% end %>
+      </td>
+      <td><%= number_to_currency(final_total(order.find_merchant_order_items(session[:user_id]))/100.0) %></td>
     </tr>
   <% end %>
 </table>
