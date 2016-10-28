@@ -42,8 +42,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.status = "cancelled"
     @order.save
-
-    @order.update_cancel_stock(session[:user_id])
+    @order.update_cancel_stock
 
     redirect_to orders_show_path
   end
