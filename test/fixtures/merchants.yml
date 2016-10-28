@@ -29,3 +29,6 @@ jane:
   uid: 2
   provider: github
   displayname: Jane's Unicorn Goodies
+
+merchant3:
+  email: merch3
