@@ -8,7 +8,7 @@
         <p>Completed Order Revenue: <%= number_to_currency(total(@complete)/100.0) %></p>
         <p>Total Pending Order Revenue: <%= number_to_currency(total(@pending)/100.0) %></p>
         <p>Total Cancelled Order Revenue: <%= number_to_currency(total(@cancelled)/100.0) %></p>
-        <p>Total Revenue*: <%= number_to_currency(total(@paid + @complete)/100.0) %></p>
+        <p>Total Revenue*: <%= number_to_currency(total_revenue(@orders)/100.0) %></p>
       </div>
 
       <div class="small-12 medium-6 columns" class="order">
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<p class="center">*Total of Completed and Paid Order Revenues</p>
+<p class="center">*Total Revenue calculated based on all successfully shipped items.</p>
 
 <table>
   <tr>
