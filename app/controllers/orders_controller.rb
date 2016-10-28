@@ -42,4 +42,12 @@ class OrdersController < ApplicationController
     redirect_to orders_index_path
   end
 
+  def cancel
+    @order = Order.find(params[:id])
+    @order.status = "cancelled"
+    @order.save
+
+    redirect_to orders_show_path
+  end
+
 end

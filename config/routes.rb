@@ -58,6 +58,8 @@ Rails.application.routes.draw do
 
   patch 'orders/:id/complete' => 'orders#complete', as: 'orders_complete'
 
+  patch 'orders/:id/cancel' => 'orders#cancel', as: 'orders_cancel'
+
   # merchant controller
 
   get 'merchants/index' => 'merchants#index', as: 'merchants_index'
