@@ -29,7 +29,7 @@ class Merchant < ActiveRecord::Base
     orders = []
     products.each do |product|
       product.orderitems.each do |orderitem|
-        if !orders.include?(orderitem.order)
+        if !orders.include?(orderitem.order) && orderitem.order != nil
           orders << orderitem.order
         end
       end

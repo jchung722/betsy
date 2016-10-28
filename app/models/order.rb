@@ -4,6 +4,20 @@ class Order < ActiveRecord::Base
   validates :orderitems,
             presence: true
 
+  # Email validation from: http://api.rubyonrails.org/classes/ActiveModel/Validations/ClassMethods.html
+  validates :name, presence: true, if: :buyer_info_needed?
+  validates :email, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, if: :buyer_info_needed?
+  validates :address, presence: true, if: :buyer_info_needed?
+  validates :city, presence: true, if: :buyer_info_needed?
+  validates :state, presence: true, if: :buyer_info_needed?
+  validates :zip, presence: true, numericality: true, length: {minimum: 5, maximum: 5}, if: :buyer_info_needed?
+  validates :card_name, presence: true, if: :buyer_info_needed?
+  validates :card_num, presence: true, numericality: true, length: {minimum: 13, maximum: 19}, if: :buyer_info_needed?
+  validates :expiry, presence: true, if: :buyer_info_needed?
+  validates :cvv, presence: true, numericality: true, length: {minimum: 3, maximum: 4}, if: :buyer_info_needed?
+  validates :billing_zip, presence: true, numericality: true, length: {minimum: 5, maximum: 5}, if: :buyer_info_needed?
+  validates :placed_at, presence: true, if: :buyer_info_needed?
+
   def total
     total = 0
 
@@ -57,6 +71,12 @@ class Order < ActiveRecord::Base
     return there_are_backordered_items
   end
 
+  def destroy_items
+    self.orderitems.each do |orderitem|
+      orderitem.destroy
+    end
+  end
+
   def update_prices?
     there_are_updated_prices = false
     self.orderitems.each do |orderitem|
@@ -69,4 +89,9 @@ class Order < ActiveRecord::Base
     return there_are_updated_prices
   end
 
+  private
+
+  def buyer_info_needed?
+    return status == 'paid'
+  end
 end

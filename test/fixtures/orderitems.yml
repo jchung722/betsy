@@ -23,3 +23,9 @@ orderitem4:
   price: 899
   product: poo
   order: testorder2
+
+pendingitem:
+  quantity: 1
+  price: 899
+  product: poo
+  order: pendingorder
