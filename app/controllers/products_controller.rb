@@ -18,7 +18,8 @@ class ProductsController < ApplicationController
       redirect_to products_show_path(params[:id])
     end
 
-    @average = average(@reviews)
+    # Review Average method is in Product model
+    @average = @product.review_average(@reviews)
 
     if @already_in_cart
       @orderitem = Orderitem.new(quantity: 1) # To display the 1 in the form
@@ -79,21 +80,6 @@ class ProductsController < ApplicationController
     @product.save
 
     redirect_to products_index_path
-  end
-
-  # We might consider storing this method on the Product model
-
-  def average(reviews)
-    average = 0
-    reviews.each do |review|
-      average += review.rating.to_i
-    end
-    if average > 0
-      average = sprintf('%.2f', (average / reviews.length.to_f))
-    else
-      average = "No ratings yet"
-    end
-    return average
   end
 
   private
