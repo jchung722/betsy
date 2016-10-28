@@ -1,22 +1,20 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
 
-// **********************//
-//******  Fonts  ********//
-//***********************//
+ // * This is a manifest file that'll be compiled into application.css, which will include all the files
+ // * listed below.
+ // *
+ // * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ // * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ // *
+ // * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ // * compiled file so the styles you add here take precedence over styles defined in any styles
+ // * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ // * file per style scope.
+ // *
+ // *= require_tree .
+ // *= require_self
+ // *= require foundation_and_overrides
+
+
 // import google fonts
 @import url('https://fonts.googleapis.com/css?family=Mystery+Quest|Numans');
 
@@ -29,7 +27,7 @@ body {
 }
 
 header * {
-  font-family: $display-font
+  font-family: $display-font;
 }
 
 h1, h2, h3, h4 {
@@ -45,14 +43,12 @@ h1 {
   margin: 5%;
   text-align: center;
 }
+
 .product-row {
   margin: 2%;
 }
 
 
-// **********************//
-//******  Header ********//
-//***********************//
 .logo {
   width: 70%;
 }
@@ -81,10 +77,6 @@ header h1 {
 }
 
 
-// **********************//
-//****** Footer  ********//
-//***********************//
-
 .gallery {
   text-align: center;
 }
@@ -102,16 +94,6 @@ header h1 {
   padding-top: 2%;
 }
 
-// .tilepic {
-//   padding-top: 30px;
-//   max-height: 180px;
-// }
-//
-// .mytile {
-//   text-align: center;
-//   overflow: hidden;
-//   padding: 0 60px;
-// }
 
 footer {
   border-top: 1px solid grey;
