@@ -1,16 +1,22 @@
 
-<h1><%= @store.displayname %></h1>
+<div class="row">
+  <div class="column gallery">
+
+    <h1><%= @store.displayname %></h1>
 
 
-<% @products.each do |product| %>
+    <% @products.each do |product| %>
 
-  <div class="product-tile">
-    <% if product.photo && product.photo != "" %>
-      <%= image_tag product.photo, alt: product.name %>
-    <% else%>
-      <%= image_tag 'default_uni.jpg', alt: product.name %>
+      <div class="product-tile">
+        <% if product.photo && product.photo != "" %>
+          <%= image_tag product.photo, alt: product.name %>
+        <% else%>
+          <%= image_tag 'default_uni.jpg', alt: product.name %>
+        <% end %>
+        <p><%= link_to product.name, products_show_path(product.id) %></p>
+      </div>
+
     <% end %>
-    <p><%= link_to product.name, products_show_path(product.id) %></p>
-  </div>
 
-<% end %>
+  </div>
+</div>

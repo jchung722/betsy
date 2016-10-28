@@ -46,15 +46,32 @@ header h1 {
   display: inline-block;
   text-align: center;
   margin: 2.5%;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   height: 300px;
   width: 300px;
+  padding-top: 3%;
 }
 
 .product-tile img {
   padding-top: 30px;
   max-height: 180px;
 }
+
+.gallery {
+  text-align: center;
+}
+
+// .tilepic {
+//   padding-top: 30px;
+//   max-height: 180px;
+// }
+//
+// .mytile {
+//   text-align: center;
+//   overflow: hidden;
+//   padding: 0 60px;
+// }
+
 
 footer {
   border-top: 1px solid black;
