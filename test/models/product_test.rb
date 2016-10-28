@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  test "the truth" do
-    assert true
-  end
 
   test "Product with minimal and all normal information must be valid" do
     #Product with minimal required information (name, price, merchant) is valid

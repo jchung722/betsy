@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class ReviewTest < ActiveSupport::TestCase
-  test "the truth" do
-    assert true
-  end
 
   test "Rating must be present to be valid" do
     #Best Review object has rating and is therefore valid.
