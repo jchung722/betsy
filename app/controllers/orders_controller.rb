@@ -2,9 +2,9 @@ class OrdersController < ApplicationController
   before_action :require_merchant, only: [:index, :show]
   has_scope :status
   def index
+    apply_scopes(Order).all
     merchant = Merchant.find_by(id: session[:user_id].to_i)
     @orders = merchant.orders
-    @otherorders = apply_scopes(Order).all
   end
 
   def new

@@ -1,8 +1,9 @@
 <h1>View your orders</h1>
 
-<%= link_to 'complete', {controller: 'orders', action: 'index', :status => 'complete'}  %>
+<%= link_to 'pending', {controller: 'orders', action: 'index', :status => 'pending'}  %>
 <%= link_to 'paid', {controller: 'orders', action: 'index', :status => 'paid'}  %>
-<%= link_to 'paid', {controller: 'orders', action: 'index', :status => 'cancelled'}  %>
+<%= link_to 'complete', {controller: 'orders', action: 'index', :status => 'complete'}  %>
+<%= link_to 'cancelled', {controller: 'orders', action: 'index', :status => 'cancelled'}  %>
 
 <table>
   <tr>
