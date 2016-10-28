@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'has_scope'
 # Foundation Rails Gem
 gem 'foundation-rails'
 # Required due to an incompatibility between TurboLinks and Foundation.

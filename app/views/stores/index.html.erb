@@ -8,10 +8,10 @@
 
   <div class="product-tile">
 
-    <%if store.photo != "" %>
+    <%if store.photo != "" && store.photo != nil %>
       <%= image_tag store.photo, alt: store.displayname %>
-    <%else %>
-      <%= image_tag "default_uni.jpg", alt: store.displayname %>
+    <% else %>
+      <%= image_tag "unicorn_merchant.jpg", alt: store.displayname %>
     <% end %>
 
     <p><%= link_to store.displayname, stores_show_path(store.id) %></p>

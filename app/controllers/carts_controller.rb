@@ -53,8 +53,7 @@ class CartsController < ApplicationController
           @order.update_stock
           session[:order] = nil
         else
-          flash[:notice] = "An error occurred and your information could not be recorded. Please try again."
-          redirect_to carts_index_path
+          render :edit, :status => :error
         end
       else
         flash[:notice] = "Sorry, your cart could not be found. Please try again."

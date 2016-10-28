@@ -1,5 +1,17 @@
 <% # http://stackoverflow.com/questions/8386287/how-to-display-month-and-year-selection-for-credit-card %>
 
+<% if @order.errors.any? %>
+  <p>Whoops! We couldn't save your information because:</p>
+  <ul>
+    <% @order.errors.each do |column, message| %>
+      <li>
+        <%= "#{column.capitalize} #{message}"  %>
+      </li>
+    <% end %>
+  </ul>
+  <p>Please edit your information and try again.</p>
+<% end %>
+
 <h1>Check out</h1>
 
 <p>Please enter your shipping and payment information below. This will help us send you your magically delightful products as quickly as possible.</p>
