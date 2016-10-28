@@ -5,6 +5,10 @@ class OrdersController < ApplicationController
     @status_orders = apply_scopes(Order).all
     merchant = Merchant.find_by(id: session[:user_id].to_i)
     @orders = merchant.orders(@status_orders)
+    @paid = merchant.order_by_status("paid")
+    @complete = merchant.order_by_status("complete")
+    @pending = merchant.order_by_status("pending")
+    @cancelled = merchant.order_by_status("cancelled")
   end
 
   def new

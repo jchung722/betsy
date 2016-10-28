@@ -81,6 +81,6 @@ class OrderitemsController < ApplicationController
     @orderitem.status = "Shipped"
     @orderitem.save
 
-    redirect_to orders_show_path(@orderitem.order)
+    redirect_to orders_index_path
   end
 end

@@ -1,24 +1,29 @@
 <h1>Manage Your Orders</h1>
-<section id="order_sum">
-<div class="order">
-  <h3>Revenue</h3>
-  <p>Paid Order Revenue:</p>
-  <p>Completed Order Revenue:</p>
-  <p>Total Revenue:</p>
+<div class="row">
+  <div class="small-6 large-centered columns" id="order_sum">
+    <div class="row">
+      <div class="small-12 medium-6 columns" class="order">
+        <h3>Revenue</h3>
+        <p>Paid Order Revenue: <%= number_to_currency(total(@paid)/100.0) %></p>
+        <p>Completed Order Revenue: <%= number_to_currency(total(@complete)/100.0) %></p>
+        <p>Total Pending Order Revenue: <%= number_to_currency(total(@pending)/100.0) %></p>
+        <p>Total Cancelled Order Revenue: <%= number_to_currency(total(@cancelled)/100.0) %></p>
+        <p>Total Revenue*: <%= number_to_currency(total(@paid + @complete)/100.0) %></p>
+      </div>
 
-  <p>Total Pending Order Revenue:</p>
-  <p>Total Cancelled Order Revenue:</p>
+      <div class="small-12 medium-6 columns" class="order">
+        <h3>Orders</h3>
+        <p>Paid Orders: <%= @paid.length %></p>
+        <p>Completed Orders: <%= @complete.length %></p>
+        <p>Pending Orders: <%= @pending.length %></p>
+        <p>Cancelled Orders: <%= @cancelled.length %></p>
+        <p>Total Orders: <%= @orders.length %></p>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="order">
-  <h3>Orders</h3>
-  <p>Paid Orders:</p>
-  <p>Completed Orders:</p>
-  <p>Pending Orders:</p>
-  <p>Cancelled Orders:</p>
-  <p>Total Orders:</p>
-</div>
-</section>
+<p class="center">*Total of Completed and Paid Order Revenues</p>
 
 <table>
   <tr>
@@ -59,7 +64,7 @@
           </td>
           <td>
             <% if orderitem.status == "pending"  && order.status == "paid"%>
-              <%= button_to "Unshipped", orderitems_ship_path(orderitem.id), method: :patch %>
+              <%= button_to "Unshipped", orderitems_ship_path(orderitem.id), method: :patch, class: "warning hollow button" %>
             <% else %>
               <%= orderitem.status %>
             <% end %>
@@ -69,7 +74,7 @@
       </table></td>
       <td>
         <% if complete_check(order.find_merchant_order_items(session[:user_id])) == true && order.status == "paid" %>
-          <%= button_to "Complete Your Order!", orders_complete_path(order), method: :patch %>
+          <%= button_to "Complete Your Order!", orders_complete_path(order), method: :patch, class: "success hollow button" %>
         <% else %>
           <%= order.status %>
         <% end %>
