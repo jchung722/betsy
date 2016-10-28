@@ -27,7 +27,7 @@
   <% end %>
 </div>
 <div>
-  <%= button_to "Edit", products_edit_path(product.id) %>
+  <%= button_to "Edit", products_edit_path(product.id), method: :get %>
 </div>
 
 <% end %>
