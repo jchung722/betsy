@@ -38,7 +38,7 @@ class ReviewsControllerTest < ActionController::TestCase
     assert_redirected_to products_show_path(products(:poo).id)
   end
 
-  test "in case of invalid data, should not create a review and should redirect to new form" do
+  test "in case of invalid data, should not create a review and should render new form" do
     session[:user_id] = nil
     post :create, {id: products(:poo).id, review: {rating: -77, feedback: "Was pretty crappy."}}
     assert_response :error

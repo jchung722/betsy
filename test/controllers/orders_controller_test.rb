@@ -2,7 +2,7 @@ require 'test_helper'
 
 class OrdersControllerTest < ActionController::TestCase
 
-  test "can get order index page given a valid merchant id stored as the session user" do
+  test "should be able to get order index given a valid merchant id in session" do
     session[:user_id] = merchants(:bob).id
     get :index
     assert_response :success
@@ -31,7 +31,7 @@ class OrdersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :show
   end
-
+  
   test "destroy on a valid order (unpurchased cart) should result in the appropriate redirect" do
     session[:order] = orders(:testorder1).id
     delete :destroy
