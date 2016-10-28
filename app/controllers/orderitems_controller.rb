@@ -50,8 +50,8 @@ class OrderitemsController < ApplicationController
           flash[:notice] = "Quantity updated! Quantity: #{orderitem.quantity}"
           redirect_to carts_index_path
         else
-          flash[:notice] = "Sorry, you cannot add that many items to your cart because your cart would exceed available stock. Your cart already contains #{orderitem.quantity} of this item."
-          redirect_to carts_index_path(orderitem.product)
+          flash[:notice] = "Sorry, you cannot put that many items in your cart because the quantity would exceed available stock."
+          redirect_to carts_index_path
         end
       end
     rescue ActiveRecord::RecordNotFound
