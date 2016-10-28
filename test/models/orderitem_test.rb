@@ -1,9 +1,6 @@
 require 'test_helper'
 
 class OrderitemTest < ActiveSupport::TestCase
-  test "the truth" do
-    assert true
-  end
 
   test "Orderitem must have quantity and belong to a product and order to be valid" do
     assert orderitems(:gooditem).valid?

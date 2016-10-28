@@ -69,9 +69,10 @@ header h1 {
   display: inline-block;
   text-align: center;
   margin: 2.5%;
-  border: 1px solid black;
+  border: 1px solid lightgray;
   height: 300px;
   width: 300px;
+  padding-top: 3%;
 }
 
 .product-tile img {
@@ -79,9 +80,38 @@ header h1 {
   max-height: 180px;
 }
 
+
 // **********************//
 //****** Footer  ********//
 //***********************//
+
+.gallery {
+  text-align: center;
+}
+
+.quantity {
+  text-align: center;
+}
+
+.quantity-box {
+  width: 30%;
+}
+
+.see-cart {
+  display: block;
+  padding-top: 2%;
+}
+
+// .tilepic {
+//   padding-top: 30px;
+//   max-height: 180px;
+// }
+//
+// .mytile {
+//   text-align: center;
+//   overflow: hidden;
+//   padding: 0 60px;
+// }
 
 footer {
   border-top: 1px solid grey;
