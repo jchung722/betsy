@@ -7,6 +7,7 @@ class Merchant < ActiveRecord::Base
     merchant.provider = 'github'
     merchant.username  = auth_hash['info']['nickname']
     merchant.email = auth_hash['info']['email']
+    merchant.displayname = 'My Merchant'
     merchant.save
 
     return merchant
