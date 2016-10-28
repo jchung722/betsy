@@ -18,6 +18,21 @@ module OrdersHelper
     return total
   end
 
+  def total_revenue(orders_array)
+    total_rev = 0
+
+    orders_array.each do |order|
+      order.orderitems.each do |orderitem|
+        shippedorderitems = []
+        if orderitem.product.merchant_id == session[:user_id].to_i && orderitem.status == "Shipped"
+          shippedorderitems << orderitem
+        end
+        total_rev += final_total(shippedorderitems)
+      end
+    end
+    return total_rev
+  end
+
   def complete_check(array)
     array.each do |item|
       if item.status == "pending"
