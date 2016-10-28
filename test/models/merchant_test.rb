@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class MerchantTest < ActiveSupport::TestCase
-test "merchants with minimal information must be valid" do
+  test "merchants with minimal information must be valid" do
     assert merchants(:merchant1).valid?
   end
 
@@ -32,7 +32,6 @@ test "merchants with minimal information must be valid" do
     merchant = Merchant.new(username:"bob1", email: "imaunicorn@github.com")
     assert_equal merchants(:bob).username, merchant.username
     assert_not merchant.valid?
-
   end
 
   test "Orders method should return a filtered array of orders belonging to merchant given allowable array of orders" do
