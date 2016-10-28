@@ -102,11 +102,6 @@ class ProductsControllerTest < ActionController::TestCase
     assert_equal flash[:notice], "Sorry, that product could not be found. Please continue shopping our other awesome products."
   end
 
-  test "average should correctly return the average of reviews for a product" do
-    controller = ProductsController.new
-    assert_equal controller.average(products(:goods).reviews), "4.00"
-  end
-
   # test "should get new" do
   #   get :new
   #   assert_response :success
