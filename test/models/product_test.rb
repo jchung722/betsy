@@ -73,4 +73,8 @@ class ProductTest < ActiveSupport::TestCase
     assert products(:farts).categories.ids.include? categories(:foods).id
   end
 
+  test "Product review_average should correctly return the average of reviews for the product" do
+    assert_equal products(:goods).review_average(products(:goods).reviews), "4.00"
+  end
+
 end

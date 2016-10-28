@@ -2,7 +2,6 @@ require 'test_helper'
 
 class MerchantsControllerTest < ActionController::TestCase
 
-
   test "should get index only for logged in merchants" do
     get :index
     assert_response :redirect

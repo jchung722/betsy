@@ -14,7 +14,9 @@
  *= require_self
  *= require foundation_and_overrides
 
- */
+// **********************//
+//******  Fonts  ********//
+//***********************//
 // import google fonts
 @import url('https://fonts.googleapis.com/css?family=Mystery+Quest|Numans');
 
@@ -34,6 +36,7 @@ h1, h2, h3, h4 {
   font-family: $body-font;
 }
 
+
 h1 {
   text-align: center;
 }
@@ -44,6 +47,22 @@ h1 {
 }
 .product-row {
   margin: 2%;
+}
+
+
+// **********************//
+//******  Header ********//
+//***********************//
+.logo {
+  width: 70%;
+}
+
+header h1 {
+  font-size: 4rem;
+}
+
+.pg-title {
+  margin: 10% 0 10% 0;
 }
 
 .product-tile {
@@ -60,9 +79,13 @@ h1 {
   max-height: 180px;
 }
 
+// **********************//
+//****** Footer  ********//
+//***********************//
+
 footer {
-  border-top: 1px solid black;
-  margin-top: 5%;
+  border-top: 1px solid grey;
+  margin-top: 10%;
   text-align: center;
   background-color: mintcream;
 }
