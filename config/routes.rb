@@ -93,7 +93,7 @@ Rails.application.routes.draw do
 
   get 'products/show/:id' => "products#show", as: "products_show"
 
-  post 'products/new' => "products#new", as: "products_new"
+  get 'products/new' => "products#new", as: "products_new"
 
 
 
