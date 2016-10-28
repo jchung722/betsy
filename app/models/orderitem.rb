@@ -18,8 +18,4 @@ class Orderitem < ActiveRecord::Base
     return self.quantity * self.price
   end
 
-  def price
-    return self.product.price
-  end
-
 end
