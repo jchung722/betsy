@@ -1,21 +1,21 @@
 
 
-<h1>Browse by category</h1>
-
-<div class="row" data-equalizer data-equalize-on="medium" id="test-eq">
-
+<div class="row">
+  <div class="column">
+    <h1>Browse by category</h1>
 
     <% @categories.each do |category| %>
-      <div class="small-4 columns mytile">
-        <div class="callout" data-equalizer-watch>
-          <%if category.products.first && category.products.first.photo && category.products.first.photo != "" %>
-            <%= image_tag "#{category.products.first.photo}?#{DateTime.now}", alt: category.name, class: 'tilepic' %>
-          <%else %>
-            <%= image_tag 'default_uni.jpg', alt: category.name, class: 'tilepic'  %>
-          <% end %>
-          <p><%= link_to category.name, categories_show_path(category.id) %></p>
-        </div>
+
+      <div class="product-tile">
+        <%if category.products.first && category.products.first.photo && category.products.first.photo != "" %>
+          <%= image_tag category.products.first.photo, alt: category.name %>
+        <%else %>
+          <%= image_tag 'default_uni.jpg', alt: category.name %>
+        <% end %>
+        <p><%= link_to category.name, categories_show_path(category.id) %></p>
       </div>
+
     <% end %>
 
+  </div>
 </div>
