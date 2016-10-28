@@ -11,7 +11,7 @@ class OrderitemsController < ApplicationController
       flash[:notice] = "The item was not added because your cart could not be found. Your cart has now been reset; please try adding the item again."
       redirect_to products_show_path(params[:product_id])
     end
-
+    
     begin
       if params[:add_to_cart][:quantity].to_i <= Product.find(params[:product_id]).stock
         orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], price: Product.find(params[:product_id]).price, status: 'pending')
@@ -82,5 +82,13 @@ class OrderitemsController < ApplicationController
       flash[:notice] = "Sorry, there was a problem with your cart and the item could not be removed. Please try again."
     end
     redirect_to carts_index_path
+  end
+
+  def fulfill
+    @orderitem = Orderitem.find(params[:id])
+    @orderitem.status = "Fulfilled"
+    @orderitem.save
+
+    redirect_to orders_show_path(@orderitem.order)
   end
 end

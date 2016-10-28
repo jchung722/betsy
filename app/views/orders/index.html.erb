@@ -1,5 +1,10 @@
 <h1>View your orders</h1>
 
+<%= link_to 'pending', {controller: 'orders', action: 'index', :status => 'pending'}  %>
+<%= link_to 'paid', {controller: 'orders', action: 'index', :status => 'paid'}  %>
+<%= link_to 'complete', {controller: 'orders', action: 'index', :status => 'complete'}  %>
+<%= link_to 'cancelled', {controller: 'orders', action: 'index', :status => 'cancelled'}  %>
+
 <table>
   <tr>
     <th>Order no.</th>
@@ -11,7 +16,7 @@
       <tr>
         <td><%= link_to "Order ID: #{order.id}", orders_show_path(order.id) %></td>
         <td><%= order.status %></td>
-        <td><%= %></td>
+        <td><%= "$#{final_total(order.find_merchant_order_items(session[:user_id]))/100.0}" %></td>
     </tr>
   <% end %>
 </table>
