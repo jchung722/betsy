@@ -36,7 +36,7 @@ class SessionsControllerTest < ActionController::TestCase
   test "Logging out should clear the Merchant's session" do
     login_a_user
     assert session[:user_id] !=nil
-    session.delete(:user_id)
+    delete :destroy, {id: session[:user_id].to_i}
     assert_nil session[:user_id]
   end
 

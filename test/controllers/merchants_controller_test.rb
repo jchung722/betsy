@@ -2,13 +2,6 @@ require 'test_helper'
 
 class MerchantsControllerTest < ActionController::TestCase
 
-  # merchant1:
-  #   id: 1
-  #   username: Merch1
-  #   email: merch1
-  #   uid: 1
-  #   provider: MyString
-  #   displayname: MyString
 
   test "should get index only for logged in merchants" do
     get :index
@@ -27,6 +20,12 @@ class MerchantsControllerTest < ActionController::TestCase
     assert merchant.phone == "777-777-7789"
     assert merchant.photo == "image.jpg"
     assert merchant.email == "merch1"
+  end
+
+  test "update operations for users not logged in as merchants will redirect" do
+    put :update, :id => merchants(:merchant1), :merchant => {:displayname => "New Name"}
+    assert_response :redirect
+    assert_redirected_to homepages_index_path
   end
 
 
