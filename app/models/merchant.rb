@@ -24,12 +24,12 @@ class Merchant < ActiveRecord::Base
             presence: true,
             uniqueness: true
 
-  def orders
+  def orders (list)
     products = self.products
     orders = []
     products.each do |product|
       product.orderitems.each do |orderitem|
-        if !orders.include?(orderitem.order) && orderitem.order != nil
+        if !orders.include?(orderitem.order) && orderitem.order != nil && list.include?(orderitem.order)
           orders << orderitem.order
         end
       end

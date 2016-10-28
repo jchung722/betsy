@@ -1,5 +1,5 @@
 <h1>Manage Your Orders</h1>
-
+<section id="order_sum">
 <div class="order">
   <h3>Revenue</h3>
   <p>Paid Order Revenue:</p>
@@ -18,24 +18,38 @@
   <p>Cancelled Orders:</p>
   <p>Total Orders:</p>
 </div>
-<br />
-<%= link_to 'pending', {controller: 'orders', action: 'index', :status => 'pending'}  %>
-<%= link_to 'paid', {controller: 'orders', action: 'index', :status => 'paid'}  %>
-<%= link_to 'complete', {controller: 'orders', action: 'index', :status => 'complete'}  %>
-<%= link_to 'cancelled', {controller: 'orders', action: 'index', :status => 'cancelled'}  %>
+</section>
 
 <table>
   <tr>
     <th>Order ID</th>
     <th>Order Date</th>
     <th>Items</th>
-    <th>Status</th>
+    <th>
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li>
+          <a href="#">Status</a>
+          <ul class="menu">
+            <li><%= link_to 'all', {controller: 'orders', action: 'index'} %></li>
+            <li><%= link_to 'paid', {controller: 'orders', action: 'index', :status => 'paid'} %></li>
+            <li><%= link_to 'complete', {controller: 'orders', action: 'index', :status => 'complete'} %></li>
+            <li><%= link_to 'pending', {controller: 'orders', action: 'index', :status => 'pending'} %></li>
+            <li><%= link_to 'cancelled', {controller: 'orders', action: 'index', :status => 'cancelled'} %></li>
+          </ul>
+        </li>
+      </ul>
+    </th>
     <th>Order Total</th>
   </tr>
   <% @orders.each do |order| %>
     <tr>
       <td><%= link_to order.id, orders_show_path(order.id) %></td>
-      <td><%= order.placed_at.strftime("%m/%d/%Y %I:%M %p") %></td>
+      <td><% if order.placed_at %>
+            <%= order.placed_at.strftime("%m/%d/%Y %I:%M %p")%>
+          <% else %>
+            <%= "N/A" %>
+          <% end %>
+      </td>
       <td><table>
         <% order.find_merchant_order_items(session[:user_id]).each do |orderitem| %>
         <tr>
