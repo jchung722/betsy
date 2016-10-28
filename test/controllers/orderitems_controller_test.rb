@@ -186,10 +186,14 @@ class OrderitemsControllerTest < ActionController::TestCase
     assert_difference('Orderitem.count', 0) do
       delete :destroy, {id: orderitems(:orderitem1).id}
     end
-
     assert_response :redirect
     assert_equal flash[:notice], "Sorry, there was a problem with your cart and the item could not be removed. Please try again."
     assert_redirected_to carts_index_path
+  end
+
+  test "shipping an orderitem changes the specified orderitem status to 'shipped' and redirects to order index page" do
+    patch :ship, {id: orderitems(:gooditem).id}
+    assert_redirected_to orders_index_path
   end
 
 end

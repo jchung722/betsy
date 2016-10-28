@@ -15,9 +15,6 @@ class CartsController < ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
     begin
       if session[:order]
@@ -64,15 +61,6 @@ class CartsController < ApplicationController
       flash[:notice] = "An error occurred and your cart could not be found. Your cart has been reset so you can continue shopping."
       redirect_to carts_index_path
     end
-  end
-
-  def new
-  end
-
-  def create
-  end
-
-  def destroy
   end
 
   private

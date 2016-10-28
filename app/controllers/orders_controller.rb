@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
+
   before_action :require_merchant, only: [:index, :show]
   has_scope :status
+
   def index
     @status_orders = apply_scopes(Order).all
     merchant = Merchant.find_by(id: session[:user_id].to_i)
@@ -9,12 +11,6 @@ class OrdersController < ApplicationController
     @complete = merchant.order_by_status("complete")
     @pending = merchant.order_by_status("pending")
     @cancelled = merchant.order_by_status("cancelled")
-  end
-
-  def new
-  end
-
-  def create
   end
 
   def show
@@ -34,10 +30,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  def update
-
-  end
-
   def complete
     @order = Order.find(params[:id])
     @order.status = "complete"
@@ -50,6 +42,7 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.status = "cancelled"
     @order.save
+    @order.update_cancel_stock
 
     redirect_to orders_show_path
   end
