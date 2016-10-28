@@ -16,7 +16,6 @@ CSV.foreach('seed_csvs/unicorn_items.csv', :headers => false) do |csv_obj|
   product.save
 end
 
-puts Product.all.length
 
 #=========PLACEHOLDER TESTING SEEDS (NOT SUITABLE FOR FINAL SITE)=========================#
 

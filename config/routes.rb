@@ -83,6 +83,8 @@ Rails.application.routes.draw do
 
   post 'products/:id/reviews/create' => 'reviews#create', as: "reviews_create"
 
+  get 'products/:id/reviews/create' => 'reviews#new' # To deal with refresh when there is an error in saving a review
+
   get 'products/:id/edit' => 'products#edit', as: 'products_edit'
 
   patch 'products/:id/update' => 'products#update', as: 'products_update'

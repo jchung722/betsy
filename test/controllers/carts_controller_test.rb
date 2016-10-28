@@ -7,10 +7,19 @@ class CartsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :index
 
-    session[:order] = orders(:testorder1).id
+    session[:order] = orders(:testorder2).id
     get :index
     assert_response :success
     assert_template :index
+  end
+
+  test "for index, should update with a message if an item in the cart has changed price" do
+    session[:order] = orders(:testorder1).id
+    get :index
+    assert_response :redirect
+    assert_redirected_to carts_index_path
+    assert_equal flash[:notice], "Some of your order items have changed in price and have been updated. Please review your order and press 'Check out' or continue shopping."
+    assert_equal orderitems(:orderitem2).price, 899
   end
 
   test "if an order ID is stored in the session but the ID is invalid, the session should be reset and a message displayed" do
@@ -23,10 +32,19 @@ class CartsControllerTest < ActionController::TestCase
   end
 
   test "if an order ID is stored in the session, the edit page should display" do
-    session[:order] = orders(:testorder1).id
+    session[:order] = orders(:testorder2).id
     get :edit
     assert_response :success
     assert_template :edit
+  end
+
+  test "for edit, should redirect to index with a message if an item in the cart has changed price" do
+    session[:order] = orders(:testorder1).id
+    get :edit
+    assert_response :redirect
+    assert_redirected_to carts_index_path
+    assert_equal flash[:notice], "Some of your order items have changed in price and have been updated. Please review your order and press 'Check out' or continue shopping."
+    assert_equal orderitems(:orderitem2).price, 899
   end
 
   test "if no order ID is stored in the session, the edit method should redirect to the carts index with a message" do
@@ -46,6 +64,16 @@ class CartsControllerTest < ActionController::TestCase
     assert !session[:order]
   end
 
+  test "if an invalid order ID is stored in the session, the update method should redirect to the carts index with a message" do
+    session[:order] = -1
+    get :update
+    assert_equal flash[:notice], "An error occurred and your cart could not be found. Your cart has been reset so you can continue shopping."
+    assert_response :redirect
+    assert_redirected_to carts_index_path
+    assert !session[:order]
+  end
+
+
   # Note: the edit form is not currently gated on any of its values. I.e., we are not checking to see if the user
   # puts in the right thing or even supplies a value. This would be a good thing to do in the next round of edits.
 
@@ -61,15 +89,13 @@ class CartsControllerTest < ActionController::TestCase
     assert_equal orders(:testorder1).card_num, '0000000000000000'
   end
 
-  test "if no order ID is stored in the session, update should not alter the record and should redirect to the index with an error method" do
+  test "if no order ID is stored in the session, update should redirect to the index with an error message" do
     session[:order] = nil
 
     get :update, {order: {name: 'Bill the Cat', address: 'Bloom Boarding House', email: 'bill@thecat.com', city: 'Bloom County', state: 'NA', zip: '00000', card_name: "Berkeley Breathed", card_num: '0000000000000000', cvv: '111', billing_zip: '00000', :'expiry(3i)' => '1', :'expiry(2i)' => '1', :'expiry(1i)' => '2016'}}
-    orders(:testorder1).reload
 
     assert_response :redirect
     assert_equal flash[:notice], "Sorry, your cart could not be found. Please try again."
-    assert !orders(:testorder1).name
   end
 
   test "if any items have a stock of 0 when a person tries to check out, the items should be removed from the order" do

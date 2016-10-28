@@ -11,8 +11,11 @@ class Orderitem < ActiveRecord::Base
   validates :order,
             presence: true
 
+  validates :price,
+            presence: true
+
   def total
-    return self.quantity * self.product.price
+    return self.quantity * self.price
   end
 
   def price

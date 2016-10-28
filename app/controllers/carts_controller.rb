@@ -3,6 +3,10 @@ class CartsController < ApplicationController
     begin
       if session[:order]
         @order = Order.find(session[:order])
+        if @order.update_prices?
+          flash[:notice] = "Some of your order items have changed in price and have been updated. Please review your order and press 'Check out' or continue shopping."
+          redirect_to carts_index_path
+        end
       end
     rescue ActiveRecord::RecordNotFound
       session[:order] = nil
@@ -23,6 +27,9 @@ class CartsController < ApplicationController
             session[:order] = nil
           end
           flash[:notice] = "Some of your order items are no longer in stock. The backordered items were removed from your order. Please review your order and press 'Check out' or continue shopping."
+          redirect_to carts_index_path
+        elsif @order.update_prices?
+          flash[:notice] = "Some of your order items have changed in price and have been updated. Please review your order and press 'Check out' or continue shopping."
           redirect_to carts_index_path
         end
       else
@@ -46,8 +53,7 @@ class CartsController < ApplicationController
           @order.update_stock
           session[:order] = nil
         else
-          flash[:notice] = "An error occurred and your information could not be recorded. Please try again."
-          redirect_to carts_index_path
+          render :edit, :status => :error
         end
       else
         flash[:notice] = "Sorry, your cart could not be found. Please try again."

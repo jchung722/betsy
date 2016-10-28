@@ -7,7 +7,8 @@ class OrderitemsController < ApplicationController
         order = Order.new(status: 'pending')
       end
 
-      orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], status: 'unfulfilled')
+      orderitem = Orderitem.new(quantity: params[:add_to_cart][:quantity], product_id: params[:product_id], price: Product.find(params[:product_id]).price, status: 'pending')
+
       order.orderitems << orderitem
 
       if !order.save || !orderitem.save
