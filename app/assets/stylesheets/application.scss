@@ -41,6 +41,7 @@ h1, h2, h3, h4 {
   border: 1px solid lightgray;
   height: 300px;
   width: 300px;
+  padding-top: 3%;
 }
 
 .product-tile img {
@@ -48,16 +49,20 @@ h1, h2, h3, h4 {
   max-height: 180px;
 }
 
-.tilepic {
-  padding-top: 30px;
-  max-height: 180px;
+.gallery {
+  text-align: center;
 }
 
-.mytile {
-  text-align: center;
-  overflow: hidden;
-  padding: 0 60px;
-}
+// .tilepic {
+//   padding-top: 30px;
+//   max-height: 180px;
+// }
+//
+// .mytile {
+//   text-align: center;
+//   overflow: hidden;
+//   padding: 0 60px;
+// }
 
 
 footer {
