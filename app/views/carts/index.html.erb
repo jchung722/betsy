@@ -40,14 +40,24 @@
   </TR>
 
   </TABLE>
-
+<div class="row">
   <p><%= link_to "Empty cart", orders_destroy_path %></p>
+</div>
+
 
 <% else %>
+<div class="row">
+    <h3 class="small-6 medium-12 column center">Your cart is empty! That makes the unicorns sad :(</h3>
+</div>
 
-  <p>Your cart is empty! That makes the unicorns sad :(</p>
 
 <% end %>
 
-<p><%= link_to "Keep shopping", categories_index_path %></p>
-<p><%= link_to "Check out", carts_edit_path %></p>
+<div class="row">
+  <div class="small-6 column center">
+      <h4><%= link_to "Keep shopping", categories_index_path, class: "links" %></h4>
+  </div>
+  <div class="small-6 column center">
+    <h4><%= link_to "Check out", carts_edit_path, class: "links"  %></h4>
+  </div>
+</div>

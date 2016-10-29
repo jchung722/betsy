@@ -34,6 +34,9 @@ h1, h2, h3, h4 {
   font-family: $body-font;
 }
 
+.links {
+  margin: 5%;
+}
 
 h1 {
   text-align: center;
@@ -60,6 +63,7 @@ header h1 {
 .pg-title {
   margin: 5% 0 5% 0;
 }
+
 
 .product-tile {
   display: inline-block;
